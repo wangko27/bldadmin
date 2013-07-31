@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+#player{position:relative;width:690px;height:190px;overflow:hidden; margin:11px auto 0 auto; border:1px solid #ccc;}
+#player a{color:#333;}
+#player *{border:0;padding:0;margin:0;}
+#player .Limg{position:relative;}
+#player .Limg li{position:absolute;top:0;left:0;background:#fff;}
+#player .Limg li img{border:1px solid #FFFFFF; margin:0;}
+#player .Limg li  p{line-height:25px; font-size:14px; padding-left:15px;}
+#player .Nubbt{position:absolute;z-index:9;right:5px;bottom:3px; line-height:25px;}
+#player .Nubbt span{border:1px solid #45A06F;background:#fff;padding:1px 5px;margin:0 2px; font-style:normal;cursor:pointer;}
+#player .Nubbt span.on{background:#47AA72;color:#fff;}
+
+.ru1{ width:200px; float:left; height:85px;} 
+.ru1 img{ border:1px solid #cfcfcf; width:75px; height:75px; float:left;}
+.ru1 p{ width:110px; float:left; padding:5px 0px 0px 10px; line-height:18px; color:#000}
+.ru1 p b{ font-size:14px; color:#6866c9}
+.ru1 p span{ color:red}
+.ru1 p a{ color:#535353}
+.ru1 p img{ width:80px; height:24px; border:none;}
+.green a,.green a:hover{line-height:180%;}
+.green a{ color:#6866c9;}
+.green a:hover{	color:#6866c9;text-decoration: underline;}
+.hui a,.hui a:hover{ line-height:21px;}
+.hui a{ color:#282828;}
+.hui a:hover{ color:red}

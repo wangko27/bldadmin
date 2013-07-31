@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background:url(../images/beijin_03.gif)
+}
+.zbdym_k{ width:563px; height:141px; background:url(../images/zwym.jpg) no-repeat; margin:0 auto; margin-top:200px;}
+.zbdym_z{ width:333px; line-height:180%;float:left; margin:60px 0px 0px 228px; font-size:16px; font-weight:bold;}

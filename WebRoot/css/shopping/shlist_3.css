@@ -1,0 +1,32 @@
+.shbiglist{ width:960px;float:left;}
+.listright{ width:708px; margin-top:10px; background:url(../../img/shopping_img/tit_bj3.gif) no-repeat;border:1px solid #e6e6e6; float:left; border-top:3px solid #db2812; padding:0px 15px 10px  15px;}
+.listright div{ float:left;}
+.titi{ padding:5px 0px 0px 5px; width:695px; height:24px; }
+.titi a{ float:right;}
+.titi span{ float:left;}
+.wenti{ width:708px;}
+.wtq{ width:708px; padding:10px 0px 5px 0px;}
+.wtq h1{ width:688px; padding:0px 10px; height:30px;  background:#f4f4f4; }
+.wtq h1 span{line-height:28px; display:block;}
+.wtq h1 span.bti{ width:585px;float:left;font-size:14px; font-weight:bold;} 
+.wtq h1 span.time{ width:80px; float:right; color:#b6b6b6;font-size:12px; font-weight:normal;}
+.wtq p{width:698px; padding:5px 10px 0px 10px; line-height:20px; color:#444}
+.wtq p a{ color:#3474be;}
+.wtq p a:hover{ color:#ff7800;}
+.huida{ width:667px; background:url(../../img/shopping_img/huibj.gif) no-repeat #f4f4f4; border-bottom:1px solid #e8e8e8;padding:15px 10px 8px 10px;  line-height:20px; margin:0px 0px 0px 8px; display:inline}
+.huida p{ color:#c17774; float:left; width:625px; display:block;}
+.huida span{ width:40px; float:left; display:block; font-weight:bold;}
+.huida p.ann1{ text-align:right; line-height:20px;background:url(../../img/learning_img/quan_1.gif) no-repeat right;width:660px; }
+.huida p.ann2{ text-align:right; line-height:20px;background:url(../../img/learning_img/quan_2.gif) no-repeat right;width:660px; }
+.huida p.ann1 a{ width:70px; padding:0px 20px 0px 0px; text-decoration:underline}
+.tiwen{ width:700px; border:2px solid #e1bfbe; margin-top:10px;}
+.tiwen h1{ width:680px; float:left; background:#f2e9e9; line-height:28px; font-size:14px; padding:0px 10px;}
+.tiwen ul{width:680px; float:left;padding:5px 10px; font-weight:bold;}
+.tiwen ul li{width:680px; padding:3px 0px;}
+.tiwen ul li input{ width:580px;height:22px;}
+.tiwen ul li span{ float:left;}
+.tiwen ul li textarea{width:580px;height:100px;}
+.tiwen ul li.ttj{width:600px; padding-left:40px;}
+.kkhh{ width:694px; background:#f4f4f4; line-height:28px; margin-top:10px; color:#999; padding:0px 0px 0px 10px; font-size:14px;}
+.kkhh a{ color:#407cc2;}
+.kkhh a:hover{  color:#ff7800; text-decoration:underline}

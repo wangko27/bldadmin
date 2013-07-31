@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+	<!-- 广告的dao -->
+	<bean id="advInfoDao" class="com.cnarj.ttxs.dao.imp.adv.AdvInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 广告的service -->
+	<bean id="advInfoService" class="com.cnarj.ttxs.admin.service.imp.adv.AdvInfoServiceImpl">
+		<property name="advInfoDao" ref="advInfoDao"></property>
+		<property name="baseDao" ref="advInfoDao"></property>
+	</bean>
+	<!-- 广告的action -->
+	<bean id="advInfoAction" class="com.cnarj.ttxs.admin.actions.adv.AdvInfoAction" scope="prototype">
+		<property name="infoService" ref="advInfoService"></property>
+        <property name="locationInfoService"  ref="locationInfoServiceImpl"></property>
+	</bean>
+
+    <!--广告位置的action-->
+    <bean id="advLocationAction" class="com.cnarj.ttxs.admin.actions.adv.LocationInfoAction">
+       <property name="locationInfoService" ref="locationInfoServiceImpl"></property>
+        <property name="advInfoService" ref="advInfoService"></property>
+        <property name="locContentService" ref="locContentService"></property>
+    </bean>
+    <bean id="locationInfoServiceImpl" class="com.cnarj.ttxs.service.imp.sys.LocationInfoServiceImpl">
+       <property name="locationInfoDao" ref="locationInfoDaoImpl"></property>
+        <property name="baseDao" ref="locationInfoDaoImpl"></property>
+    </bean>
+
+    <bean id="locationInfoDaoImpl" class="com.cnarj.ttxs.dao.imp.sys.LocationInfoDaoImpl">
+          <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="locContentService" class="com.cnarj.ttxs.service.imp.sys.LocContentServiceImpl">
+        <property name="locContentDao" ref="locContentDaoImpl"></property>
+        <property name="baseDao" ref="locContentDaoImpl"></property>
+    </bean>
+
+    <bean id="locContentDaoImpl" class="com.cnarj.ttxs.dao.imp.sys.LocContentDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+	</beans>

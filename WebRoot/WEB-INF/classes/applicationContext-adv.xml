@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+	<!-- 广告的dao -->
+	<bean id="advInfoDao" class="com.cnarj.ttxs.dao.imp.adv.AdvInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 广告的service -->
+	<bean id="advInfoService" class="com.cnarj.ttxs.admin.service.imp.adv.AdvInfoServiceImpl">
+		<property name="advInfoDao" ref="advInfoDao"></property>
+		<property name="baseDao" ref="advInfoDao"></property>
+	</bean>
+	<!-- 广告的action -->
+	<bean id="advInfoAction" class="com.cnarj.ttxs.admin.actions.adv.AdvInfoAction">
+		<property name="infoService" ref="advInfoService"></property>
+	</bean>
+	</beans>

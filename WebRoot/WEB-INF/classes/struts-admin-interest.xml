@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-admin-interest" namespace="/admin"
+		extends="basePackage">
+
+		<!-- 兴趣频道-活动栏目 -->
+		<action name="programa" class="adminActivityProgramaAction">
+			<result name="manage">
+				/admin/interest/programa/manage.jsp
+			</result>
+			<result name="update">
+				/admin/interest/programa/update.jsp
+			</result>
+			<result name="add">/admin/interest/programa/add.jsp</result>
+		</action>
+
+		<!-- 兴趣频道-活动栏目添加 -->
+		<action name="AddPrograma" class="adminActivityProgramaAction"
+			method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/interest/programa/add.jsp</result>
+			<result name="input">
+				/admin/interest/programa/add.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动栏目修改 -->
+		<action name="UpdatePrograma"
+			class="adminActivityProgramaAction" method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/interest/programa/update.jsp
+			</result>
+			<result name="input">
+				/admin/interest/programa/update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+
+		<!-- 兴趣频道-活动类别 -->
+		<action name="activityType" class="adminActivityTypeAction">
+			<result name="manage">
+				/admin/interest/activitytype/manage.jsp
+			</result>
+			<result name="update">
+				/admin/interest/activitytype/update.jsp
+			</result>
+			<result name="add">
+				/admin/interest/activitytype/add.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动类别添加 -->
+		<action name="AddActivityType" class="adminActivityTypeAction"
+			method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">
+				/admin/interest/activitytype/add.jsp
+			</result>
+			<result name="input">
+				/admin/interest/activitytype/add.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动作品类别修改 -->
+		<action name="UpdateActivityType"
+			class="adminActivityTypeAction" method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/interest/activitytype/update.jsp
+			</result>
+			<result name="input">
+				/admin/interest/activitytype/update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动 -->
+		<action name="activity" class="adminActivityAction">
+			<result name="manage">
+				/admin/interest/activity/manage.jsp
+			</result>
+			<result name="update">
+				/admin/interest/activity/update.jsp
+			</result>
+			<result name="add">/admin/interest/activity/add.jsp</result>
+			<result name="picManage">
+				/admin/interest/activity/pic_manage.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动线下图片管理 -->
+		<action name="picmanage" class="adminActivityAction"
+			method="picManage">
+			<result name="picManage">
+				/admin/interest/activity/pic_manage.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动添加 -->
+		<action name="AddActivity" class="adminActivityAction"
+			method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/interest/activity/add.jsp</result>
+			<result name="input">
+				/admin/interest/activity/add.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动修改 -->
+		<action name="UpdateActivity" class="adminActivityAction"
+			method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/interest/activity/update.jsp
+			</result>
+			<result name="input">
+				/admin/interest/activity/update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动指导老师 -->
+		<action name="teacher" class="adminActivityTeacherAction">
+			<result name="manage">
+				/admin/interest/teacher/manage.jsp
+			</result>
+			<result name="update">
+				/admin/interest/teacher/update.jsp
+			</result>
+			<result name="add">/admin/interest/teacher/add.jsp</result>
+		</action>
+
+		<!-- 兴趣频道-活动指导老师添加 -->
+		<action name="AddTeacher" class="adminActivityTeacherAction"
+			method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/interest/teacher/add.jsp</result>
+			<result name="input">
+				/admin/interest/teacher/add.jsp
+			</result>
+			<result name="manage">
+				/admin/interest/teacher/manage.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动作品 -->
+		<action name="works" class="adminActivityWorksAction">
+			<result name="manage">
+				/admin/interest/works/manage.jsp
+			</result>
+			<result name="auditManage">
+				/admin/interest/works/audit_manage.jsp
+			</result>
+			<result name="view">/admin/interest/works/view.jsp</result>
+			<result name="update">
+				/admin/interest/works/update.jsp
+			</result>
+			<result name="add">/admin/interest/works/add.jsp</result>
+		</action>
+
+		<!-- 兴趣频道-活动作品添加 -->
+		<action name="AddWorks" class="adminActivityWorksAction"
+			method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/interest/works/add.jsp</result>
+			<result name="input">/admin/interest/works/add.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-活动作品修改 -->
+		<action name="UpdateWorks" class="adminActivityWorksAction"
+			method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/interest/works/update.jsp
+			</result>
+			<result name="input">
+				/admin/interest/works/update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-首页活动作品展示 -->
+		<action name="worksShow" class="adminActivityWorksShowAction">
+			<result name="manage">
+				/admin/interest/worksshow/manage.jsp
+			</result>
+			<result name="update">
+				/admin/interest/worksshow/update.jsp
+			</result>
+			<result name="add">
+				/admin/interest/worksshow/add.jsp
+			</result>
+		</action>
+
+
+		<!-- 兴趣频道-首页活动作品展示添加 -->
+		<action name="AddWorksShow" class="adminActivityWorksShowAction"
+			method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">
+				/admin/interest/worksshow/add.jsp
+			</result>
+			<result name="input">
+				/admin/interest/worksshow/add.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 兴趣频道-首页活动作品展示修改 -->
+		<action name="UpdateWorksShow"
+			class="adminActivityWorksShowAction" method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/interest/worksshow/update.jsp
+			</result>
+			<result name="input">
+				/admin/interest/worksshow/update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+	</package>
+
+
+</struts>

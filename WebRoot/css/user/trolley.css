@@ -1,0 +1,60 @@
+.qunbu{ width:365px; float:left; padding:15px 0px 0px 0px;}
+.qunbu ul{ width:330px; float:left}
+.qunbu ul li{padding:0px 5px 10px 5px; color:#b1b1b1;}
+.qunbu ul li a{ font-size:14px; color:#214a9c; text-decoration:underline;}
+.qunbu ul li a.dbu{ font-weight:bold; color:#000; text-decoration:none; background:url(../../img/user_img/jj1.gif) no-repeat bottom center; padding:0px 0px 8px 0px;}
+
+.tablist{ width:755px; float:left; padding:15px 0px 0px 0px;}
+.tablist .bti{  height:28px; border:1px solid #d4d4d4;  border-bottom:2px solid #d4d4d4;background:url(../../img/shopping_img/b1.gif) repeat-x; margin:0px 0px 5px 0px; width:753px; float:left}
+.tablist .bti ul{ width:753px;}
+.tablist .bti ul li{ float:left; border-right:1px  solid #e6e6e6; line-height:28px; padding-left:10px;}
+.tablist .bti ul li.c1{ width:270px;}
+.tablist .bti ul li.c2{ width:72px;}
+.tablist .bti ul li.c3{ width:90px;}
+.tablist table{ float:left;}
+.tablist table.big td{ border-left:1px solid #e6e6e6; padding-left:10px; height:28px;}
+.tablist table td.k1{ width:270px;}
+.tablist table td.k2{ width:85px; text-align:center}
+.tablist table td.k3{ width:105px; text-align:center}
+.tablist table.lan{ border:1px solid #97c4fd;}
+.tablist table.lan td{border-left:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;}
+.tablist table.ss td{border-left:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;}
+.tablist table.ss img{width:65px; height:65px; border:1px solid #d7d7d7}
+.tablist table.ss td ul{ width:270px;padding:5px;}
+.tablist table.ss td ul li input{ margin:10px 10px 10px 10px;}
+.tablist table.ss td ul li.ttu{ width:75px;}
+.tablist table.ss td ul li.zzi{ width:160px; padding:10px 0px 0px 0px; height:55px;}
+.tablist table a{ color:#214b9d; text-decoration:underline; line-height:22px;}
+.tablist table span{ color:#e16911;}
+.tablist table b{ font-size:14px;}
+
+.tablist table td.lanbj{ background:#e5eefd; height:26px; border-bottom:1px solid #e6e6e6; text-align:left; padding:0px 0px 0px 10px;}
+.tablist table td.huibj{ background:#f0f0f0;  height:26px; border-bottom:1px solid #e6e6e6; text-align:left;padding:0px 0px 0px 10px;}
+.tablist table.hui{ border:1px solid #c9c9c9;}
+.tablist table td.lanbj span.dsj_1,.tablist table td.huibj span.dsj_1{ color:#000; float:left}
+.tablist table td.lanbj span.dsj_2,.tablist table td.huibj span.dsj_2{ color:#000; float:right; padding-right:10px;}
+
+.huise{ padding:5px 10px; width:735px; background:#ededed; margin-top:5px;}
+.huise b{ float:right; color:red; font-size:14px;}
+.huise span{ float:left; display:block; padding:0px 5px; line-height:24px;}
+.huise span input{ margin:5px 0px 0px 0px;}
+*html .huise span input{ margin:0px;}
+*+html .huise span input{ margin:0px;}
+
+.dingxia{ font-size:14px;width:700px; padding:20px 0px 10px 20px;}
+.dingxia h1{ font-weight:bold;}
+.dingxia table{ border:1px solid #97c4fb; margin:15px 0px; line-height:36px;}
+.dingxia table td{ border-right:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6; padding:0px 0px 0px 10px;}
+.dingxia table td a{ color:#214b9d; text-decoration:underline;}
+.dingxia table td span{ color:#666;}
+.dingxia table td b{ color:red;}
+
+ul.uui{ width:500px; float:left; padding:10px 0px;}
+ul.uui li{ width:500px; line-height:30px;}
+
+
+.queslist{ width:750px; float:left; padding:15px 0px 0px 0px;}
+.queslist table{ width:730px; float:left; font-size:14px;border-top:1px solid #929292; line-height:30px; }
+.queslist table td{background:url(../../img/home_img/xu.gif) repeat-x bottom;border:1px  solid #bbd6e8; border-top:none; padding:2px 0px 2px 10px; color:#404040}
+.queslist table td.lsr{ background:#eaf3fc; color:#000; font-weight:bold;}
+.queslist table td a{ text-decoration:underline; color:#214b9d}

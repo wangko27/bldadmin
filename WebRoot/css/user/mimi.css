@@ -1,0 +1,52 @@
+body{background:url(../../img/user_img/bj1_1.gif) repeat-x 0px 122px #eee !important;background:url(../../img/user_img/bj1_1.gif) repeat-x 0px 125px #eee;}
+.menu_mm{ width:960px; margin:0px auto; background:url(../../img/user_img/bj2_1.gif) no-repeat; height:50px; color:#dbeaf1; }
+.menu_mm ul.iopyy{ font-size:14px; padding:18px 0px 0px 10px; float:left}
+.menu_mm ul.iopyy li{ background:url(../../img/user_img/xtt_1.gif) no-repeat right; padding:0px 20px}
+.menu_mm a{color:#fff;}
+.menu_mm ul.ttiop{ padding:20px 0px 0px 20px; float:right;}
+.menu_mm ul.ttiop li{ padding:5px;}
+.menu_mm a:hover{ color:#fff}
+
+.shukk{ width:930px; background:#e5f5f4; padding:5px;}
+.shukk textarea.ssk{ width:925px; border:1px solid #b0d9d3; height:100px; font-size:12px; color:#a6a6a6}
+.shukk ul{ width:730px;}
+.shukk ul li{ padding:2px 0px; width:730px; float:left}
+.shukk a.ty{ background:url(../../img/user_img/bq1.gif) no-repeat; padding:0px 0px 5px 20px; margin-right:10px; float:left}
+.shukk a.ty1{ background:url(../../img/user_img/bq2.gif) no-repeat; padding:0px 0px 5px 20px; float:left}
+.shukk a{ color:#244a9d; line-height:22px;}
+.shukk ul li.yutt{ width:920px;}
+
+.mes_1{ float:left; width:940px; border-bottom:1px solid #cce5e7; padding:5px 0px; line-height:38px;}
+.mes_1 .titt{ float:left; color:#7d7d7d;}
+.mes_2{ float:left; width:940px; border-bottom:1px solid #cce5e7; background:#e8f4f5}
+.mes_2 .mestou{ width:60px; float:left; padding:10px;}
+.mes_2 .mestou img{ width:45px; height:45px; padding:3px; background:#fff; border:1px solid #b4cbe3}
+.messl{ width:850px; background:#fff; float:left; min-height:76px; padding:10px 0px 10px 10px; line-height:20px;}
+*html .messl{ width:650px; background:#fff; float:left;height:76px;padding:10px 0px 10px 10px}
+.messl table td p.p1{ float:left}
+.messl table td p.p2{ float:right}
+.messl table td p a,.messl .tan ul li a{ color:#015eac}
+.messl span{ color:#808080; font-size:10px;}
+
+.messl .tan{ width:400px; float:left; background:url(../../img/user_img/jjt.gif) no-repeat 20px 0px; margin:5px 0px 0px 0px; padding:4px 0px 0px 0px;}
+.messl .tan ul{ background:#f3f3f3; width:390px; float:left; padding:10px 0px 0px 10px; margin:1px 0px 0px 0px;}
+.messl .tan ul li{ float:left; width:330px; color:#5c5c5c}
+.messl .tan ul li.tou { width:60px;}
+.messl .tan ul li.tou img{width:40px; height:40px; border:1px solid #d6e2ee; padding:3px; background:#fff;}
+.messl .tan ul li dl{ width:330px;}
+.messl .tan ul li dl dt{ width:330px;}
+.messl .tan ul li dl dd{ width:320px; padding:0px 10px 10px 0px;}
+
+.messl .tan1{ width:400px; float:left; background:url(../../img/user_img/jjt.gif) no-repeat 20px 0px; margin:5px 0px 0px 0px; padding:4px 0px 0px 0px;}
+.messl .tan1 ul{ background:#f3f3f3; width:390px; float:left; padding:10px 0px 0px 10px; margin:1px 0px 0px 0px;}
+.messl .tan1 ul li{ float:left; width:330px; color:#5c5c5c}
+.messl .tan1 ul li.tou { width:60px;}
+.messl .tan1 ul li.tou img{width:40px; height:40px; border:1px solid #d6e2ee; padding:3px; background:#fff;}
+.messl .tan1 ul li dl{ width:330px;}
+.messl .tan1 ul li dl dt{ width:330px;}
+.messl .tan1 ul li dl dd{ width:320px; padding:0px 10px 10px 0px;}
+table.se{width:400px; float:left; margin:1px 0px 0px 0px; background:#f3f3f3}
+table.se td{ padding:3px 10px;}
+table.se td textarea{ width:370px; border:1px solid #d4d4d4; height:60px;}
+input.quedd{ background:url(../../img/user_img/que.gif) repeat-x; border:none; color:#fff; width:45px; height:24px; font-size:12px;}
+a.qqx{ color:#aaa; padding:0px 0px 0px 10px; line-height:24px;}

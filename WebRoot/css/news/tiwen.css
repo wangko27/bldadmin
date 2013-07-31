@@ -1,0 +1,19 @@
+.tiwen{ width:958px; border:1px solid #e6e6e6; border-top:3px solid #699fc9; float:left;}
+.tiwen div{ float:left;}
+.titwe{ background:url(../../img/news_img/bj3.gif) no-repeat; width:938px; height:25px; padding:5px 0px 0px 20px;}
+.ggtt{ width:900px; padding:10px 0px 10px 50px;}
+.ggtt input{ float:none}
+.ggtt span{ font-size:14px; float:left; display:block;}
+.ggtt ul{ width:900px; float:left; position:relative}
+.ggtt ul li{ width:850px; float:left; padding:6px 0px}
+.ggtt ul li select{ width:100px; }
+.ggtt ul li textarea{ width:635px; }
+p.uut{ width:638px;  border:2px solid #84a9ca; float:left;}
+span.shyy{width:636px; background:#f2f7fb; border:1px solid #fff;}
+a.cha1{background:url(../../img/news_img/cgabj1.gif) no-repeat 8px center; padding-left:30px; font-size:12px; line-height:30px; float:left; display:block;}
+span.shyy_1{ width:636px; }
+span.shyy_1 textarea.tex1{ border:0; width:625px; height:155px; color:#909090; font-size:14px; padding:5px}
+span.kko{ margin-left:40px!important; margin-left:20px;background:#f7f7f7; width:540px; padding:10px 0px 5px 10px;}
+.ggtt ul li.yyu{ width:170px; height:89px;  background:url(../../img/news_img/uio.gif) no-repeat #f7fbfe; position:absolute;top:5px; right:3px; padding:5px 10px 5px 15px; line-height:22px; color:#737373;}
+
+input.tijiao{ width:92px; height:34px; background:url(../../img/news_img/tijiao.gif) no-repeat; border:none;}

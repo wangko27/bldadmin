@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+	<!-- 学习频道Dao中的Beans的配置 -->
+	<!-- 博览群书 -->
+	<bean id="readbookDao"
+		class="com.cnarj.ttxs.dao.imp.learn.ReadbookDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 博览群书类别 -->
+	<bean id="readbookTypeDao"
+		class="com.cnarj.ttxs.dao.imp.learn.ReadbookTypeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 博览群书处理记录(收藏,分享) -->
+	<bean id="readhandleDao"
+		class="com.cnarj.ttxs.dao.imp.learn.ReadhandleDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 学习资源下载记录 -->
+	<bean id="readdownDao"
+		class="com.cnarj.ttxs.dao.imp.learn.ReaddownDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 博览群书评论 -->
+	<bean id="readcommentedDao"
+		class="com.cnarj.ttxs.dao.imp.learn.ReadcommentedDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 品学论道 -->
+	<bean id="pingXueDao"
+		class="com.cnarj.ttxs.dao.imp.learn.PingXueDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="pxldDao"
+		class="com.cnarj.ttxs.dao.imp.learn.PxldDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="superTeacherDao"
+		class="com.cnarj.ttxs.dao.imp.learn.SuperTeacherDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 学习频道Service中的Beans的配置 -->
+	<!-- 博览群书 -->
+	<bean id="readbookService"
+		class="com.cnarj.ttxs.service.imp.learn.ReadbookServiceImpl">
+		<property name="readbookDao">
+			<ref bean="readbookDao" />
+		</property>
+		<property name="baseDao">
+			<ref bean="readbookDao" />
+		</property>
+		<property name="readhandleDao">
+			<ref bean="readhandleDao" />
+		</property>
+		<property name="memberDao">
+			<ref bean="memberDao" />
+		</property>
+		<property name="readdownDao">
+			<ref bean="readdownDao" />
+		</property>
+	</bean>
+	<!-- 品学论道 -->
+	<bean id="pinXueService"
+		class="com.cnarj.ttxs.service.imp.learn.PinXueServiceImpl">
+		<property name="pinXueDao" ref="pingXueDao"></property>
+	</bean>
+
+	<bean id="pxldService"
+		class="com.cnarj.ttxs.service.imp.learn.PxldServiceImpl">
+		<property name="pxldDao" ref="pxldDao"></property>
+	</bean>
+
+	<!-- 学习频道Actions中的Beans的配置 -->
+	<!-- 博览群书 -->
+	<bean id="webReadbookAction"
+		class="com.cnarj.ttxs.web.actions.learn.ReadbookAction"
+		scope="prototype">
+		<property name="readbookService">
+			<ref bean="readbookService" />
+		</property>
+		<property name="readbookTypeService">
+			<ref bean="adminReadbookTypeService" />
+		</property>
+		<property name="subjectCodeService">
+			<ref bean="subjectCodeService" />
+		</property>
+		<property name="gradeCodeService">
+			<ref bean="gradeCodeService" />
+		</property>
+	</bean>
+
+	<!-- 首页 -->
+	<bean id="learnIndexAction"
+		class="com.cnarj.ttxs.web.actions.learn.IndexAction"
+		scope="prototype">
+		<property name="readbookService">
+			<ref bean="readbookService" />
+		</property>
+		<property name="readbookTypeService">
+			<ref bean="adminReadbookTypeService" />
+		</property>
+		<property name="subjectCodeService">
+			<ref bean="subjectCodeService" />
+		</property>
+		<property name="gradeCodeService">
+			<ref bean="gradeCodeService" />
+		</property>
+		<property name="readTeacherInfoService">
+			<ref bean="readTeacherInfoService" />
+		</property>
+		<property name="readSchoolService">
+			<ref bean="readSchoolService" />
+		</property>
+		<property name="oneTextService">
+			<ref bean="oneDayOneTextService" />
+		</property>
+		<property name="pxldService">
+			<ref bean="pxldService" />
+		</property>
+
+	</bean>
+
+	<!-- 公用的 -->
+	<bean id="publicAction"
+		class="com.cnarj.ttxs.web.actions.learn.PublicAction"
+		scope="prototype">
+		<property name="readbookTypeService">
+			<ref bean="adminReadbookTypeService" />
+		</property>
+		<property name="subjectCodeService">
+			<ref bean="subjectCodeService" />
+		</property>
+		<property name="gradeCodeService">
+			<ref bean="gradeCodeService" />
+		</property>
+	</bean>
+
+	<!-- 学习频道Dao中的Beans的配置 -->
+	<!-- 名师讲坛(三条系统公告) -->
+	<bean id="readSysInfoDao"
+		class="com.cnarj.ttxs.dao.imp.learn.ReadSysInfoDaoImp">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 9本畅销的读物 -->
+	<bean id="likeGoodsDao"
+		class="com.cnarj.ttxs.dao.imp.learn.LikeGoodsDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 3条生活百科 -->
+	<bean id="liveEncyclopediaDao"
+		class="com.cnarj.ttxs.dao.imp.learn.LiveEncyclopediaDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 右边的教师信息 -->
+	<bean id="readTeacherInfoDao"
+		class="com.cnarj.ttxs.dao.imp.learn.ReadTeacherInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 名校风采的列表 -->
+	<bean id="readSchoolDao"
+		class="com.cnarj.ttxs.dao.imp.learn.ReadSchoolDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 一天一课的列表 -->
+	<bean id="oneDayOneTextDao"
+		class="com.cnarj.ttxs.dao.imp.learn.OneDayOneTextDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 学习频道Service中的Beans的配置 -->
+	<!-- 名师讲坛(三条系统公告) -->
+	<bean id="readSysService"
+		class="com.cnarj.ttxs.service.imp.learn.ReadSysServiceInfoImpl">
+		<property name="infoDao" ref="readSysInfoDao"></property>
+	</bean>
+	<!-- 9本畅销的读物 -->
+	<bean id="likeGoodsService"
+		class="com.cnarj.ttxs.service.imp.learn.LikeGoodsServiceImpl">
+		<property name="likeGoodsDao" ref="likeGoodsDao" />
+	</bean>
+	<!-- 3条生活百科 -->
+	<bean id="liveEncyclopediaService"
+		class="com.cnarj.ttxs.service.imp.learn.LiveEncyclopediaServiceImpl">
+		<property name="encyclopediaDao" ref="liveEncyclopediaDao" />
+	</bean>
+	<!-- 右边的教师信息 -->
+	<bean id="readTeacherInfoService"
+		class="com.cnarj.ttxs.service.imp.learn.ReadTeacherInfoServiceImpl">
+		<property name="readTeacherInfoDao" ref="readTeacherInfoDao" />
+	</bean>
+	<!-- 名校风采的列表 -->
+	<bean id="readSchoolService"
+		class="com.cnarj.ttxs.service.imp.learn.ReadSchoolServiceImpl">
+		<property name="readSchoolDao" ref="readSchoolDao"></property>
+	</bean>
+	<!-- 一天一课的列表 -->
+	<bean id="oneDayOneTextService"
+		class="com.cnarj.ttxs.service.imp.learn.OneDayOneTextServiceImpl">
+		<property name="oneTextDao" ref="oneDayOneTextDao"></property>
+	</bean>
+	<!-- 老师的人气 -->
+	<bean id="superTeacherService"
+		class="com.cnarj.ttxs.service.imp.learn.SuperTeacherServiceImpl">
+		<property name="teacherDao" ref="superTeacherDao"></property>
+	</bean>
+	<!-- 学习频道Actions中的Beans的配置 -->
+	<!-- 名师讲坛 -->
+	<bean id="readSysInfoAction"
+		class="com.cnarj.ttxs.web.actions.learn.TeacherBemaAction"
+		scope="prototype">
+		<property name="readInfoService" ref="readSysService" />
+		<property name="readbookService" ref="readbookService" />
+		<property name="likeGoodsService" ref="likeGoodsService" />
+		<property name="encyclopediaService"
+			ref="liveEncyclopediaService" />
+		<property name="readTeacherInfoService"
+			ref="readTeacherInfoService" />
+		<property name="subjectCodeService" ref="subjectCodeService" />
+		<property name="superTeacherService"
+			ref="superTeacherService">
+		</property>
+	</bean>
+	<!-- 一天一课 -->
+	<bean id="oneDayOneTextAction"
+		class="com.cnarj.ttxs.web.actions.learn.OneDayOneTextAction"
+		scope="prototype">
+		<property name="oneTextService" ref="oneDayOneTextService"></property>
+	</bean>
+	<!-- 校园风采 -->
+	<bean id="readSchoolAction"
+		class="com.cnarj.ttxs.web.actions.learn.ReadSchoolAction"
+		scope="prototype">
+		<property name="readInfoService" ref="readSysService" />
+		<property name="readbookService" ref="readbookService" />
+		<property name="likeGoodsService" ref="likeGoodsService" />
+		<property name="encyclopediaService"
+			ref="liveEncyclopediaService" />
+		<property name="readTeacherInfoService"
+			ref="readTeacherInfoService" />
+		<property name="subjectCodeService" ref="subjectCodeService" />
+		<property name="readShoolService" ref="readSchoolService"></property>
+	</bean>
+
+	<bean id="togetherAction"
+		class="com.cnarj.ttxs.web.actions.learn.TogetherAction"
+		scope="prototype">
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+		<property name="readInfoService" ref="readSysService" />
+		<property name="readbookService" ref="readbookService" />
+		<property name="likeGoodsService" ref="likeGoodsService" />
+		<property name="encyclopediaService"
+			ref="liveEncyclopediaService" />
+		<property name="readTeacherInfoService"
+			ref="readTeacherInfoService" />
+		<property name="subjectCodeService" ref="subjectCodeService" />
+	</bean>
+	<!-- 品学论道 (李万余)-->
+	<bean id="pinXueAction"
+		class="com.cnarj.ttxs.web.actions.learn.PinXueAction"
+		scope="prototype">
+		<property name="xueService" ref="pinXueService"></property>
+	</bean>
+
+	<!-- 品学论道 (刘其)-->
+	<bean id="PerusalAction"
+		class="com.cnarj.ttxs.web.actions.learn.PerusalAction"
+		scope="prototype">
+		<property name="articleService">
+			<ref bean="articleService" />
+		</property>
+		<property name="articleTypeService">
+			<ref bean="articleTypeService" />
+		</property>
+		<property name="articleHandleRecService">
+			<ref bean="articleHandleRecService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+	</bean>
+
+	<!-- 有限制的，需要登录才进入的 -->
+	<bean id="restrictionAction"
+		class="com.cnarj.ttxs.web.actions.learn.RestrictionAction"
+		scope="prototype">
+		<property name="readbookService">
+			<ref bean="readbookService" />
+		</property>
+		<property name="articleService">
+			<ref bean="articleService" />
+		</property>
+		<property name="articleHandleRecService">
+			<ref bean="articleHandleRecService" />
+		</property>
+	</bean>
+</beans>

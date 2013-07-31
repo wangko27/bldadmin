@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="TTXS_INT_ACTIVITY" schema="TTXSCNARJ"
+		class="com.cnarj.ttxs.pojo.interest.Activity">
+		<primary-key>
+			<generator class="uuid.string"></generator>
+		</primary-key>
+	</table>
+	<table name="TTXS_INT_ACTIVITYNUMBER" schema="TTXSCNARJ"
+		class="com.cnarj.ttxs.pojo.interest.ActivityNumber">
+		<primary-key>
+			<generator class="uuid.string"></generator>
+		</primary-key>
+	</table>
+	<table name="TTXS_INT_ACTIVITYTEACHER" schema="TTXSCNARJ"
+		class="com.cnarj.ttxs.pojo.interest.ActivityTeacher">
+		<primary-key>
+			<generator class="uuid.string"></generator>
+		</primary-key>
+	</table>
+	<table name="TTXS_INT_ACTIVITYVOTES" schema="TTXSCNARJ"
+		class="com.cnarj.ttxs.pojo.interest.ActivityVotes">
+		<primary-key>
+			<generator class="uuid.string"></generator>
+		</primary-key>
+	</table>
+	<table name="TTXS_INT_ACTIVITYWORKS" schema="TTXSCNARJ"
+		class="com.cnarj.ttxs.pojo.interest.ActivityWorks">
+		<primary-key>
+			<generator class="uuid.string"></generator>
+		</primary-key>
+	</table>
+	<table name="TTXS_COMM_ARTICLESRC" schema="TTXSCNARJ"
+		class="com.cnarj.ttxs.pojo.comm.ArticleSrc">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+<table name="TTXS_COMM_ARTICLETYPE" schema="TTXSCNARJ"
+	class="com.cnarj.ttxs.pojo.comm.ArticleType">
+	<primary-key>
+		<generator class="uuid"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>

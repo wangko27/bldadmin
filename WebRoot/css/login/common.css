@@ -1,0 +1,40 @@
+body{background:#eee;}
+.logo_1{ width:660px; background:url(../../img/login/logo.gif) no-repeat; float:left; height:40px; padding:30px 0px 0px 300px; font-size:26px;}
+.zhuce{ margin-top:10px; width:956px; border:1px solid #dcdcdc; border-top:none; float:left; background:url(../../img/login/bj1.gif) no-repeat #fff; font-size:14px; color:#fff; padding:0px 0px 20px 0px;}
+.tit{ width:886px;  padding:15px 10px 5px 60px;}
+.tit a{ float:right; color:#fff;}
+.tit a:hover{ text-decoration:underline;}
+
+.tit span{ float:left}
+
+.zhuce_1{ margin-top:10px; width:956px; border:1px solid #dcdcdc; border-top:none; float:left; background:url(../../img/login/bj6.gif) no-repeat #fff;  color:#fff; padding:0px 0px 20px 0px;}
+
+.tit_1{width:910px;  padding:15px 10px 5px 30px;}
+.tit_1 ul{ width:910px; float:left}
+.tit_1 ul li{ padding:0px 6px; float:left}
+.tit_1 ul li.zhao a{ color:#1d6db6;font-weight:bold;}
+.tit_1 ul li.zhao{ float:right}
+.tit_1 a{ color:#fff; font-size:14px;}
+.tit_1 a:hover{ color:#FF0;}
+.tit_1 a:visited{color:#FF0; font-weight:bold;}
+
+.youlink{ width:920px; padding:20px; color:#575757; float:left}
+.ddaop{ border-bottom:1px solid #d8d8d8; width:920px; float:left;padding:20px 0px 5px 0px; font-size:18px; font-weight:bold;}
+.fuq{ width:920px; padding:20px 0px 10px 0px; float:left}
+.fu_1{ width:250px; background:#f7f7f7; border:1px solid #e0e0e0; padding:10px; float:left; color:#000; margin:0px 22px 0px 10px!important;margin:0px 10px}
+.fu_1 ul li{ line-height:26px; width:220px; padding:0px 0px 0px 40px;}
+.fu_1 ul li.xue{ background:url(../../img/login/tu1.gif) no-repeat; font-size:14px; font-weight:bold; padding:3px 0px 0px 40px;}
+.fu_1 ul li a{  width:65px; float:left; display:block;}
+.fu_1 ul li.xing{ background:url(../../img/login/tu2.gif) no-repeat; font-size:14px; font-weight:bold; padding:3px 0px 0px 40px;}
+.fu_1 ul li.zix{ background:url(../../img/login/tu3.gif) no-repeat; font-size:14px; font-weight:bold; padding:3px 0px 0px 40px;}
+.fu_1 ul li.shang{ background:url(../../img/login/tu4.gif) no-repeat; font-size:14px; font-weight:bold; padding:3px 0px 0px 40px;}
+.fu_1 ul li.kong{ background:url(../../img/login/tu5.gif) no-repeat; font-size:14px; font-weight:bold; padding:3px 0px 0px 40px;}
+.fu_1 ul li.zong{ background:url(../../img/login/tu6.gif) no-repeat; font-size:14px; font-weight:bold; padding:3px 0px 0px 40px;}
+
+.fu_2{ width:858px; background:#f7f7f7; border:1px solid #e0e0e0; padding:10px; float:left; color:#000; margin:0px 22px 0px 10px!important;margin:0px 10px}
+.fu_2 ul li{ line-height:26px; width:800px; padding:0px 0px 0px 40px;}
+.fu_2 ul li.qi{ background:url(../../img/login/tu7.gif) no-repeat; font-size:14px; font-weight:bold; padding:3px 0px 0px 40px;}
+.fu_2 ul li a{  width:100px; float:left; display:block;}
+
+.baoc{ float:left; width:610px; border:1px solid #d1d1d1; margin:10px 0px 0px 0px; padding:100px 0px 100px 350px; background:url(../../img/login/4052.gif) no-repeat  200px 50px #fff; font-size:14px; line-height:26px;}
+.baoc span{ color:red}

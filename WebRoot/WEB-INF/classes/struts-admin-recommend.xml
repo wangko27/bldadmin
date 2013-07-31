@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!--首页推荐管理-->
+    <package name="struts-admin-recommend" namespace="/admin/recommend" extends="basePackage">
+        <!--&lt;!&ndash;首页轮播图片管理&ndash;&gt;-->
+        <!--<action name="showPptPic" class="pptPictureAction" method="showAll">-->
+            <!--<result name="success">/admin/recommend/pptPic/showAll.jsp</result>-->
+        <!--</action>-->
+        <!--<action name="add" class="pptPictureAction" method="add">-->
+            <!--<result name="success" type="redirectAction">showPptPic</result>-->
+        <!--</action>-->
+        <action name="showRecommendGoods" class="goodsRecommendAction" method="showRecommendGoods">
+            <result name="success">/admin/recommend/goodsList.jsp</result>
+        </action>
+        <action name="showHotGoods" class="goodsRecommendAction" method="showHotGoods">
+            <result name="success">/admin/recommend/hotGoodsList.jsp</result>
+        </action>
+        <action name="findById" class="goodsRecommendAction" method="findById">
+            <result name="success">/admin/recommend/goodsRecommend.jsp</result>
+        </action>
+        <action name="recommend" class="goodsRecommendAction" method="recommend">
+            <result name="success" type="redirectAction">showRecommendGoods</result>
+        </action>
+        <action name="update" class="goodsRecommendAction" method="update">
+            <result name="success" type="redirectAction">showRecommendGoods</result>
+        </action>
+        <action name="find" class="goodsRecommendAction" method="find">
+            <result name="success">/admin/recommend/updateRecommend.jsp</result>
+        </action>
+        <action name="ajaxCheckNum" class="goodsRecommendAction" method="ajaxCheckNum">
+        </action>
+
+        <action name="addArticle" class="articleAdminAction" method="addArticle">
+            <result name="success" type="redirectAction">showArticleList</result>
+        </action>
+        <action name="showArticleList" class="articleAdminAction" method="showArticleList">
+            <result name="success">/admin/recommend/articleList.jsp</result>
+        </action>
+        <action name="deleteArticle" class="articleAdminAction" method="deleteArticle">
+            <result name="success" type="redirectAction">showArticleList</result>
+        </action>
+        <action name="findArticleById" class="articleAdminAction" method="findArticleById">
+            <result name="success">/admin/recommend/articleUpdate.jsp</result>
+        </action>
+        <action name="updateArticle" class="articleAdminAction" method="updateArticle">
+            <result name="success" type="redirectAction">showArticleList</result>
+        </action>
+        <action name="checkArticleOrder" class="articleAdminAction" method="checkArticleOrder">
+        </action>
+
+
+
+    </package>
+
+    <package name="struts-admin-miaosha" namespace="/admin/miaosha" extends="basePackage">
+        <action name="showMiaoShaGoods" class="miaoShaAction" method="showMiaoShaGoods">
+            <result name="success">/admin/miaosha/miaoShaList.jsp</result>
+        </action>
+        <action name="ajaxCheckBeginDate" class="miaoShaAction" method="ajaxCheckBeginDate">
+        </action>
+         <action name="*_byId" class="miaoShaAction" method="{1}">
+             <result name="success" type="redirectAction">showMiaoShaGoods</result>
+             <result name="findSuccess">/admin/miaosha/update.jsp</result>
+         </action>
+    </package>
+</struts>

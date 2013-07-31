@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-interest" namespace="/interest"
+		extends="basePackage">	
+		<action name="common" class="rightAction" method="common">
+			<result name="success">right.jsp</result>
+		</action>
+		<action name="toppage" class="topAction" method="showTop">
+			<result name="top">/interest/top.jsp</result>
+			<result name="allFera">/interest/pailie.jsp</result>
+		</action>
+		<!-- 航模组列表 -->
+		<action name="list" class="ModelAction" method="list">
+			<result name="list">/interest/list.jsp</result>
+		</action>
+		<!-- 详情 -->
+		<action name="viewById" class="ModelAction" method="viewById">
+			<result name="view">/interest/maid.jsp</result>
+		</action>
+				<!-- 分享 -->
+		<action name="Share" class="ModelAction" method="Share">
+			<result name="view">/interest/maid.jsp</result>
+		</action>
+				<!-- 详情 -->
+		<action name="Collect" class="ModelAction" method="Collect">
+			<result name="view">/interest/maid.jsp</result>
+		</action>
+		<action name="activity_*" class="activityAction" method="{1}">
+			<result name="act">/interest/tulist.jsp</result>
+			<result name="actintro">/interest/zhijie.jsp</result>
+			<result name="rule">/interest/rule.jsp</result>
+		</action>
+		<action name="works_*" class="activityWorksAction" method="{1}">
+			<result name="actworks">/interest/moindex.jsp</result>
+			<result name="left">/interest/left.jsp</result>
+			<result name="all">/interest/molist.jsp</result>
+		</action>
+		<action name="Comm_*" class="activityWorkCommentedAction" method="{1}">
+			<result name="comm">/interest/mobmaid.jsp</result>
+		</action>
+		<!-- 兴趣主页 -->
+		<action name="XQ_index" class="indexAction2" method="showIndexPage">
+			<result name="showIndex">/interest/index.jsp</result>
+			<result name="closeAct">/interest/wqlist.jsp</result>
+		</action>
+		<!-- 兴趣活动公告 -->
+		<action name="bulletin" class="activityBulletinAction" method="showBulletin">
+			<result name="bull">/interest/allgonggao.jsp</result>
+		</action>
+	</package>
+	
+</struts>

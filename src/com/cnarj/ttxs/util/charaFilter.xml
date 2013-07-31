@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>文字过滤器</comment>
+<entry key="1">妈的</entry>
+<entry key="2">日你妈</entry>
+</properties>

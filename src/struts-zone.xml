@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 未登陆操作 他人空间 不需要过滤-->
+	<package name="Zone" namespace="/Zone" extends="basePackage">
+	
+		<!-- 学习频道-公用的 -->
+		<action name="learnpublic" class="publicAction"></action>
+	
+		<!-- 博文  -->
+		<!-- 博文列表 -->
+		<action name="blogList" class="zoneblogAction" method="list">
+			<result name="success">/Zone/bloglist.jsp</result>
+			<result name="error">/Zone/bloglist.jsp</result>
+		</action>
+		<!-- 查看博文详情 -->
+		<action name="blogDetail" class="zoneblogAction" method="getBlogDetail">
+			<result name="success">/Zone/blogdetail.jsp</result>
+			<result name="error" type="chain">blogList</result>
+		</action>
+		<!-- 上一篇博文 -->
+		<action name="blogPre" class="zoneblogAction" method="getPre">
+			<result name="success">/Zone/blogdetail.jsp</result>
+			<result name="error">/Zone/blogdetail.jsp</result>
+		</action>
+		<!-- 下一篇博文 -->
+		<action name="blogNext" class="zoneblogAction" method="getNext">
+			<result name="success">/Zone/blogdetail.jsp</result>
+			<result name="error">/Zone/blogdetail.jsp</result>
+		</action>
+		
+		<!-- 相册  -->
+		<!-- 查询相册列表 -->
+		<action name="albumList" class="zonealbumsAction" method="listAlbum">
+			<result name="success">/Zone/albumlist.jsp</result>
+			<result name="error">/Zone/albumlist.jsp</result>
+		</action>
+		<!-- 查看相册的图片列表 -->
+		<action name="photoOfAlbum" class="zonealbumsAction" method="listPhotos">
+			<result name="success">/Zone/photolist.jsp</result>
+			<result name="error">/Zone/photolist.jsp</result>
+		</action>
+		<!-- 展示照片 -->
+		<action name="photoDetail" class="zonealbumsAction" method="getPhotoDetail">
+			<result name="success">/Zone/photodetail.jsp</result>
+			<result name="error">/Zone/photodetail.jsp</result>
+		</action>
+		
+		<!-- 留言   -->
+		<!-- 查询留言列表   -->
+		<action name="msgList" class="zonemsgAction" method="list">
+			<result name="input">/Zone/msg.jsp</result>
+			<result name="success">/Zone/msg.jsp</result>
+			<result name="error">/Zone/msg.jsp</result>
+		</action>
+		
+		<action name="msgAdd" class="zonemsgAction" method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/Zone/msg.jsp</result>
+			<result name="success" type="chain">msgList</result>
+			<result name="error">/Zone/msg.jsp</result>
+		</action>
+		
+		<!-- 
+		<action name="msgAdd" class="msgAction" method="add">
+			<result name="input">/Zone/msg.jsp</result>
+			<result name="success" type="chain">msgList</result>
+			<result name="error">/Zone/msg.jsp</result>
+		</action>
+		 -->
+		<!-- 回复留言 -->
+		<action name="remsgAdd" class="zonemsgAction" method="addRemsg">
+			<result name="input" type="chain">msgList</result>
+			<result name="success" type="chain">msgList</result>
+			<result name="error" type="chain">msgList</result>
+		</action>
+		
+		
+		<!-- 首页 -->
+		<action name="index" class="zoneindexAction" method="index">
+			<result name="success">/Zone/index.jsp</result>
+			<result name="error">/Zone/index.jsp</result>
+			<result name="input">/Zone/index.jsp</result>
+		</action>
+		
+		<!-- 他人空间 -->
+		<action name="userinfo" class="zoneindexAction" method="userinfo">
+			<result name="success">/Zone/memberinfo.jsp</result>
+			<result name="error">/Zone/memberinfo.jsp</result>
+			<result name="input">/Zone/memberinfo.jsp</result>
+		</action>
+	</package>
+</struts>

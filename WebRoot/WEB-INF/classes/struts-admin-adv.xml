@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-admin-adv" namespace="/admin/adv"
+		extends="basePackage">
+	<!-- 添加 -->
+
+	<!-- 删除 -->
+	<action name="delAdvInfo" class="advInfoAction" method="delAdvInfo">
+		<result name="delSucc">/admin/adv/manage.jsp</result>
+	</action>
+	<!-- 查询 -->
+	<action name="select_*" class="advInfoAction" method="{1}">
+		<result name="selectSucc">/admin/adv/manage.jsp</result>
+		<result name="findSucc">/admin/adv/modify.jsp</result>
+	</action>
+	<action name="queryAdv"  class="advInfoAction" method="queryByLocactionId"></action>
+	</package>
+
+
+
+	<!-- 得到广告 -->
+	<package name="struts-adv"  namespace="/adv" extends="basePackage">
+		<action name="queryAdv"  class="advInfoAction" method="queryByLocactionId"></action>
+	</package>
+
+
+
+    <!--广告位置管理-->
+    <package name="advLocationMgr" namespace="/admin/advLocation" extends="basePackage">
+        <!--添加广告-->
+        <action name="addAdvInfo" class="advLocationAction" method="addAdvInfo">
+            <interceptor-ref name="baseStack" />
+            <interceptor-ref name="token" />
+            <result name="addSucc">/admin/adv/add.jsp</result>
+            <result name="invalid.token">/error/error_page_repeat.jsp</result>
+        </action>
+        <!-- 更新广告 -->
+        <action name="updateAdvInfo" class="advLocationAction" method="updateAdvInfo">
+            <interceptor-ref name="baseStack" />
+            <interceptor-ref name="token" />
+            <result name="updateSucc"  type="redirectAction">
+                <param name="actionName">select_showAdv</param>
+                <param name="namespace">/admin/adv</param>
+            </result>
+            <result name="invalid.token">/error/error_page_repeat.jsp</result>
+        </action>
+
+        <action name="showAllAdvLocation" class="advLocationAction" method="listByPage">
+            <result name="success">/admin/advLocation/list.jsp</result>
+        </action>
+        <action name="*_ById" class="advLocationAction"  method="{1}">
+            <result name="success" type="redirectAction">showAllAdvLocation</result>
+            <result name="findSuccess" >/admin/advLocation/update.jsp</result>
+        </action>
+       <action name="ajaxFindAll" class="advLocationAction" method="ajaxFindAll">
+       </action>
+    </package>
+
+</struts>

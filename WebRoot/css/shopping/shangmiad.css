@@ -1,0 +1,38 @@
+.shbiglist{ width:960px;float:left;}
+.listright{ width:738px; margin-top:10px; border:1px solid #e6e6e6; float:left; border-top:2px solid #7c93bc; padding:20px 0px 10px  0px;}
+.listright div{ float:left;}
+.biti{ width:708px; text-align:center; font-size:14px; font-weight:bold; padding:0px 15px;}
+.neixin{width:708px; padding:20px 15px 0px 15px;}
+.zitu{ width:250px; height:250px; border:1px solid #e0e0e0; padding:2px;}
+.zitu img{width:250px; height:250px;}
+.cebb{ width:430px; padding-left:20px;}
+.cebb ul{ float:left;}
+.cebb ul.liang{width:420px; padding:10px 0px 5px 0px;}
+.cebb ul.liang li{ width:420px; line-height:24px; color:#999;}
+.cebb ul.liang li span{ color:#333}
+.cebb ul.liang li span.tt1{ font-size:20px; font-weight:bold; color:#ff4e00;}
+.cebb ul.liang li a{ color:#427ec6;}
+.cebb ul.liang li b,.cebb ul.liang li a:hover,.cemeun  ul li.tt span{ color:#ff4e00;}
+.cebb ul.kuai{ width:385px; height:80px; border:1px solid #ebebeb; background:#f8f8f8; padding:10px;}
+.cebb ul.kuai li input{ width:60px;}
+.cebb ul.kuai li{ line-height:22px;}
+/*.cebb ul.kuai li span{ float:left; padding:0px 3px;}*/
+.cebb ul.kuai li span{ float:left; padding:0px 3px;width:375px; }
+.cebb ul.kuai li a{ float:left; padding:0px 0px 0px 10px;}
+.cebb ul.kuai li.ddu{ width:300px; padding:10px 0px 0px 55px;}
+.cemeun{ width:738px;  background:url(../../img/shopping_img/tbj1.gif) repeat-x;}
+.cemeun ul li{ line-height:24px; padding:0px 10px;}
+.cemeun ul li a{ font-size:14px; float:left; padding:2px 0px 0px 0px; height:25px;}
+.cemeun ul li a.dii{ font-weight:bold; border:1px solid #e4e4e4; border-bottom:none; border-top:2px solid #e31919; background:#fff; padding:0px 12px; height:25px; display:block;}
+.cemeun ul li a span{color:#ff4e00; font-size:12px;}
+.cemeun  ul li.tt{ float:right; color:#7f7f7f}
+.cenei{ width:708px; padding:15px;}
+.cenei p{ line-height:24px; color:#333}
+.compa{width:708px; padding:0px 15px;}
+.compa ul{border-bottom:1px solid #e6e6e6; width:700px; padding:15px 0px 10px 0px; float:left;}
+.compa ul li{ float:left;}
+.compa ul li.tu{ width:60px; height:60px; }
+.compa ul li.tu img{ width:48px; height:48px; padding:1px; border:1px solid #d1d3d2;}
+.compa ul li.liuzi{ width:640px; line-height:22px; color:#787878;}
+.compa ul li.liuzi a{ color:#427ec4}
+.compa ul li.liuzi a:hover{ text-decoration:underline;}

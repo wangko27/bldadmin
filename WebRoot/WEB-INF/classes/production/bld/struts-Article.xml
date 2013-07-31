@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!--资讯  -->
+	<!--  首页列表  -->
+	<!--最新问题 -->	
+	<package name="Article" namespace="/Article" extends="basePackage">
+		<!-- 文章类别部分-->
+		<action	name="Show_News_Index" class="NewsIndexAction" method="Show_News_Index"> 
+			<result name="success">/Article/news_index.jsp</result>
+		</action>
+		<action	name="News_Index" class="NewsIndexAction">
+			<result name="education">/Article/kanlist.jsp</result>
+			<result name="dayilist">/Article/dayilist.jsp</result>
+			<result name="baikelist">/Article/baikelist.jsp</result>
+			<result name="sysarticlelist">/Article/newslist.jsp</result>
+		</action>	
+		<!-- 分享 -->
+		<action	name="Share" class="ArticleAction" method="Share">
+			<result name="success" type="chain">getArticleById</result>
+		</action>
+		<!-- 今日新闻 -->
+		<action	name="listNews" class="ArticleAction" method="listNews">
+			<result name="listnews">/Article/newslist.jsp</result>
+		</action>
+		<!-- 收藏 -->
+		<action	name="Collect" class="ArticleAction" method="Collect">
+			<result name="input" type="chain">getArticleById</result>
+			<result name="success" type="chain">getArticleById</result>
+		</action>
+		<!-- 右边公龚页面 -->
+		<action	name="zxright" class="NewsrightAction">
+			<result name="rightlist">/Article/news_right.jsp</result>
+		</action>
+		<!--根据类别获得文章-->
+		<action	name="list" class="ArticleAction" method="list">
+			<result name="false">/Article/Success.jsp</result>
+			<result name="list">/Article/baikelist.jsp</result>
+		</action>
+		<!-- 获得文章详情 -->
+		<action	name="getArticleById" class="ArticleAction" method="getArticleById">
+			<result name="success">/Article/maid.jsp</result>
+		</action>
+		<!-- 教育看点 -->
+		<action	name="getArticleByEducationType" class="ArticleAction" method="getArticleByEducationType">
+			<result name="success">/Article/kanlist.jsp</result>
+		</action>
+		<!-- 上级类别 -->
+		<action	name="listparentType" class="ArticleTypeAction" method="listparentType">
+		</action>
+				<!--页面展示-->
+		<!--修改页面-->		
+		<action	name="toUpdateType" class="ArticleTypeAction" method="toUpdateType">
+			<result name="success">/Article/ArticleType_update.jsp</result>
+		</action>
+		<action	name="listSys" class="SysArticleAction" method="list">
+			<result name="list">/Article/noticelist.jsp</result>
+		</action>
+		<action	name="viewSysById" class="SysArticleAction" method="viewById">
+			<result name="newview">/Article/noticemaid.jsp</result>	
+		</action>	
+			<!-- 分享 -->
+		<action name="SysShare" class="SysArticleAction" method="Share">
+			<result name="view">/Article/noticemaid.jsp</result>
+		</action>
+				<!-- 详情 -->
+		<action name="SysCollect" class="SysArticleAction" method="Collect">
+			<result name="view">/Article/noticemaid.jsp</result>
+		</action>
+		
+		<!-- 根据问题状态列表 -->
+		<action	name="listQuestion" class="QuestionAction" method="list">
+			<result name="false" type="chain"></result>
+			<result name="list">/Article/dayilist.jsp</result>
+		</action>
+			<!-- 个人回答 -->
+		<action	name="AnswerQuestion" class="QuestionAction" method="AnswerQuestion">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input" type="chain">getQuestionById</result>
+			<result name="success" type="chain">getQuestionById</result>
+			<result name="login" >/login/login.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+		<!-- 添加问题 -->
+		<action	name="QuestionAdd" class="QuestionAction" method="QuestionAdd">
+			<result name="success" >/Article/tiwen.jsp</result>
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="login">/login/login.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+		<!-- 问题添加页面-->
+		<action	name="Show_QuestionAdd" class="QuestionAction" method="Show_QuestionAdd">
+			<result name="success">/Article/tiwen.jsp</result>
+		</action>
+		<!-- 问题详 -->
+		<action name="getQuestionById" class="QuestionAction" method="getQuestionById">
+			<result name="view">/Article/weidamaid.jsp</result>
+		</action>
+		<!-- //修改问题状态 -->
+		<action name="updateQuestionstatus" class="QuestionAction" method="updateQuestionstatus">
+			<result name="input" type="chain">getQuestionByStatus</result>
+		</action>
+		<action	name="updateAnswer" class="QuestionAction" method="updateAnswer">
+			<result name="input" type="chain">getQuestionById</result>
+		</action>				
+	</package>
+</struts>

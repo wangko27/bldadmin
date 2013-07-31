@@ -1,0 +1,531 @@
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 我的空间操作 需过滤 -->
+	<package name="member_comm" namespace="/myspace/comm" extends="basePackage">
+		<!-- 配置全局页面 -->
+		<global-results>
+			<result name="error">/error/error_page.jsp</result>
+			<result name="login" type="redirect">/login/login.jsp</result>
+		</global-results>
+		<!-- 博文  -->
+		<!-- 添加博文 -->
+		<action name="blogAdd" class="blogAction" method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+    		<result name="input">/myspace/comm/editblog.jsp</result>
+			<result name="success">/myspace/comm/blogdetail.jsp</result>
+    		<result name="error">/myspace/comm/editblog.jsp</result>
+    		<result name="invalid.token">/myspace/comm/editblog.jsp</result>
+		</action>
+		<!-- 编辑博文之前 -->
+		<action name="blogUpEdit" class="blogAction" method="upEdit">
+    		<result name="input">/myspace/comm/blogdetail.jsp</result>
+			<result name="success">/myspace/comm/editblog.jsp</result>
+			<result name="error">/myspace/comm/blogdetail.jsp</result>
+		</action>
+		<!-- 编辑博文 -->
+		<action name="blogEdit" class="blogAction" method="edit">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+    		<result name="input">/myspace/comm/editblog.jsp</result>
+			<result name="success">/myspace/comm/blogdetail.jsp</result>
+			<result name="error">/myspace/comm/editblog.jsp</result>
+    		<result name="invalid.token">/myspace/comm/editblog.jsp</result>
+		</action>
+		<!-- 删除博文 -->
+		<action name="blogDel" class="blogAction" method="del">
+			<result name="input">/myspace/comm/blogdetail.jsp</result>
+			<result name="success" type="chain">blogList</result>
+			<result name="error">/myspace/comm/blogdetail.jsp</result>
+		</action>
+		<!-- 查看博文详情 -->
+		<action name="blogDetail" class="blogAction" method="getBlogDetail">
+			<result name="input">/myspace/comm/blogdetail.jsp</result>
+			<result name="success">/myspace/comm/blogdetail.jsp</result>
+			<result name="error">/myspace/comm/blogdetail.jsp</result>
+		</action>
+		<!-- 上一篇博文 -->
+		<action name="blogPre" class="blogAction" method="getPre">
+			<result name="input">/myspace/comm/blogdetail.jsp</result>
+			<result name="success">/myspace/comm/blogdetail.jsp</result>
+			<result name="error">/myspace/comm/blogdetail.jsp</result>
+		</action>
+		<!-- 下一篇博文 -->
+		<action name="blogNext" class="blogAction" method="getNext">
+			<result name="input">/myspace/comm/blogdetail.jsp</result>
+			<result name="success">/myspace/comm/blogdetail.jsp</result>
+			<result name="error">/myspace/comm/blogdetail.jsp</result>
+		</action>
+		<!-- 博文列表 -->
+		<action name="blogList" class="blogAction" method="list">
+			<result name="input">/myspace/comm/bloglistme.jsp</result>
+			<result name="success">/myspace/comm/bloglistme.jsp</result>
+			<result name="error">/myspace/comm/bloglistme.jsp</result>
+		</action>
+		<!-- 发表博文留言 -->
+		<action name="blogCommAdd" class="blogAction" method="addComment">
+			<result name="input">/myspace/comm/blogdetail.jsp</result>
+			<result name="success">/myspace/comm/blogdetail.jsp</result>
+			<result name="error">/myspace/comm/blogdetail.jsp</result>
+		</action>
+		
+		<!-- 相册 -->
+		<!-- 添加相册 -->
+		<action name="albumAdd" class="albumsAction" method="addAlbum">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/myspace/comm/albumadd.jsp</result>
+			<result name="success" type="chain">albumList</result>
+			<result name="error">/myspace/comm/albumadd.jsp</result>
+    		<result name="invalid.token">/myspace/comm/albumadd.jsp</result>
+		</action>
+		<!-- 跳转到编辑相册 -->
+		<action name="albumEditUp" class="albumsAction" method="upEdit">
+			<result name="success">/myspace/comm/albumedit.jsp</result>
+			<result name="error">/myspace/comm/albumedit.jsp</result>
+		</action>
+		<!-- 编辑相册 -->
+		<action name="albumEdit" class="albumsAction" method="editAlbum">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/myspace/comm/albumedit.jsp</result>
+			<result name="success" type="chain">albumList</result>
+			<result name="error">/myspace/comm/albumedit.jsp</result>
+    		<result name="invalid.token">/myspace/comm/albumedit.jsp</result>
+		</action>
+		<!-- 删除相册 -->
+		<action name="albumDel" class="albumsAction" method="delAlbum">
+			<result name="success" type="chain">albumList</result>
+			<result name="error">/myspace/comm/albumlist.jsp</result>
+		</action>
+		<!-- 查询相册列表 -->
+		<action name="albumList" class="albumsAction" method="listAlbum">
+			<result name="success">/myspace/comm/albumlist.jsp</result>
+			<result name="error">/myspace/comm/albumlist.jsp</result>
+		</action>
+		<!-- 发表相册留言 -->
+		<action name="albumCommAdd" class="albumsAction" method="addAlbumComment">
+			<result name="success">/myspace/comm/photolist.jsp</result>
+			<result name="error">/myspace/comm/photolist.jsp</result>
+		</action>
+		<!-- 查看自己相册的图片列表 -->
+		<action name="photoOfAlbum" class="albumsAction" method="listPhotos">
+			<result name="success">/myspace/comm/photolist.jsp</result>
+			<result name="error">/myspace/comm/photolist.jsp</result>
+		</action>
+		<!-- 跳转到添加照片 -->
+		<action name="photoAddGo" class="albumsAction" method="toAddPhoto">
+			<result name="success">/myspace/comm/photoadd.jsp</result>
+			<result name="error">/myspace/comm/photoadd.jsp</result>
+		</action>
+		<!-- 添加照片 -->
+		<action name="photoAdd" class="albumsAction" method="addPhoto">
+			<result name="success" type="chain">albumList</result>
+			<result name="error">/myspace/comm/photoadd.jsp</result>
+		</action>
+		<!-- 展示照片 -->
+		<action name="photoDetail" class="albumsAction" method="getPhotoDetail">
+			<result name="success">/myspace/comm/photodetail.jsp</result>
+			<result name="error">/myspace/comm/photodetail.jsp</result>
+		</action>
+		<!-- 删除照片 -->
+		<action name="photoDel" class="albumsAction" method="delPhoto">
+			<result name="success" type="chain">photoDetail</result>
+			<result name="error">/myspace/comm/photodetail.jsp</result>
+		</action>
+		<!-- 发表照片留言 -->
+		<action name="photoCommAdd" class="albumsAction" method="addPhotoComment">
+			<result name="success">/myspace/comm/photodetail.jsp</result>
+			<result name="error">/myspace/comm/photodetail.jsp</result>
+		</action>
+		
+		<!-- 百宝箱 -->
+		<!-- 下载管理 -->
+		<action name="downManaList" class="downManaAction" method="getDownloadList">
+			<result name="success">/myspace/comm/treasure/downmana.jsp</result>
+			<result name="error">/myspace/comm/treasure/downmana.jsp</result>
+		</action>
+		<!-- 跳到资源评分评论 -->
+		<action name="ratingGo" class="downManaAction" method="toRating">
+			<result name="success">/myspace/comm/treasure/srcrating.jsp</result>
+			<result name="error">/myspace/comm/treasure/srcrating.jsp</result>
+			
+			<result name="readbookerror" type="chain">
+              <param name="actionName">readbook</param>  
+              <param name="method">view</param> 
+              <param name="namespace">/learn</param> 
+			</result>
+		</action>
+		<!-- 评分评论 -->
+		<action name="ratingAdd" class="downManaAction" method="addDownComm">
+			<result name="input">/myspace/comm/treasure/srcrating.jsp</result>
+			<result name="success" type="chain">downManaList</result>
+			<result name="error">/myspace/comm/treasure/srcrating.jsp</result>
+		</action>
+		<!-- 跳转到上传资源管理 -->
+		<action name="uploadSrcGo" class="upsrcAction" method="toAddSrc">
+			<result name="success">/myspace/comm/treasure/srcup.jsp</result>
+			<result name="error">/myspace/comm/treasure/srcup.jsp</result>
+		</action>	
+		<!-- 上传资源管理 -->
+		<action name="uploadSrcList" class="upsrcAction" method="listUpSrc">
+			<result name="success">/myspace/comm/treasure/srcuplist.jsp</result>
+			<result name="error">/myspace/comm/treasure/srcuplist.jsp</result>
+		</action>	
+		<!-- 关闭上传资源 -->
+		<action name="uploadSrcClose" class="upsrcAction" method="closeSrc">
+			<result name="success" type="chain">uploadSrcList</result>
+			<result name="error">/myspace/comm/treasure/srcuplist.jsp</result>
+		</action>		
+		<!-- 资源上传 -->
+		<action name="uploadSrcAdd" class="upsrcAction" method="addSrc">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="chain">uploadSrcList</result>
+			<result name="error" type="chain">uploadSrcGo</result>
+			<result name="input" >/myspace/comm/treasure/srcup.jsp</result>
+    		<result name="invalid.token">/myspace/comm/treasure/srcup.jsp</result>
+		</action>	
+		<!-- 问题管理 -->
+		<action name="mquestionList" class="mquestionAction" method="listQuestion">
+			<result name="success">/myspace/comm/treasure/questionlist.jsp</result>
+			<result name="error">/myspace/comm/treasure/questionlist.jsp</result>
+		</action>
+		<!-- 最佳答案 -->
+		<action name="mquestionBAnswer" class="mquestionAction" method="bestAnswer">
+			<result name="success" type="chain">
+              <param name="actionName">getQuestionById</param>     
+              <param name="namespace">/Article</param>  
+            </result>
+			<result name="error" type="chain">
+              <param name="actionName">getQuestionById</param>     
+              <param name="namespace">/Article</param> 
+            </result>
+		</action>
+		
+		
+		<!-- 收藏夹 -->
+		<!-- 资源处理记录 -->
+		<action name="listfavsrc" class="FavoritesAction" method="listFavoritesSrc">
+			<result name="success">/myspace/comm/treasure/favlistsrc.jsp</result>
+			<result name="error">/myspace/comm/treasure/favlistsrc.jsp</result>
+		</action>
+		<!-- 系统文章处理记录 -->
+		<action name="listfavsa" class="FavoritesAction" method="listFavoritesSA">
+			<result name="success">/myspace/comm/treasure/favlistsa.jsp</result>
+			<result name="error">/myspace/comm/treasure/favlistsa.jsp</result>
+		</action>
+		<!-- 文章处理记录 -->
+		<action name="listfavca" class="FavoritesAction" method="listFavoritesCA">
+			<result name="success">/myspace/comm/treasure/favlistca.jsp</result>
+			<result name="error">/myspace/comm/treasure/favlistca.jsp</result>
+		</action>
+		
+		
+		<!-- 我的作品 -->
+		<!-- 我的作品 列表 -->
+		<action name="worksList" class="worksAction" method="list">
+			<result name="input">/myspace/comm/treasure/myworkslist.jsp</result>
+			<result name="success">/myspace/comm/treasure/myworkslist.jsp</result>
+			<result name="error">/myspace/comm/treasure/myworkslist.jsp</result>
+		</action>
+		<!-- 跳转到 我的作品 -->
+		<action name="worksAddGo" class="worksAction" method="addGo">
+			<result name="input">/myspace/comm/treasure/myworkadd.jsp</result>
+			<result name="success">/myspace/comm/treasure/myworkadd.jsp</result>
+			<result name="error">/myspace/comm/treasure/myworkadd.jsp</result>
+		</action>
+		
+		<!-- 上传我的作品图片 -->
+		<action name="worksUpload" class="worksAction" method="uploadwork">
+			<result name="success">/myspace/comm/treasure/myworkadd.jsp</result>
+			<result name="error">/myspace/comm/treasure/myworkadd.jsp</result>
+		</action>
+		
+		<!-- 关闭上传我的作品图片 -->
+		<action name="worksUploadClose" class="worksAction" method="closeupload">
+			<result name="success">/myspace/comm/treasure/myworkadd.jsp</result>
+			<result name="error">/myspace/comm/treasure/myworkadd.jsp</result>
+		</action>
+		
+		<!-- 删除我的作品图片 -->
+		<action name="worksUploadDel" class="worksAction" method="deleteWorkUpload">
+			<result name="success">/myspace/comm/treasure/myworkadd.jsp</result>
+			<result name="error">/myspace/comm/treasure/myworkadd.jsp</result>
+		</action>
+		
+		<!-- 预览 我的作品 -->
+		<action name="worksAddAdvance" class="worksAction" method="addAdvance">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input" type="chain">worksAddGo</result>
+			<result name="success">/myspace/comm/treasure/myworkadd.jsp</result>
+			<result name="error">/myspace/comm/treasure/myworkadd.jsp</result>
+    		<result name="invalid.token" type="chain">worksAddGo</result>
+		</action>
+		<!-- 取消添加 我的作品 -->
+		<action name="worksAddCancel" class="worksAction" method="addCancel">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input" type="chain">worksAddGo</result>
+			<result name="success" type="chain">worksAddGo</result>
+			<result name="error">/myspace/comm/treasure/myworkadd.jsp</result>
+    		<result name="invalid.token" type="chain">worksAddGo</result>
+		</action>
+		<!-- 添加 我的作品 -->
+		<action name="worksAdd" class="worksAction" method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input" type="chain">worksAddGo</result>
+			<result name="success" type="chain">worksList</result>
+			<result name="error" type="chain">worksAddCancel</result>
+    		<result name="invalid.token" type="chain">worksAddGo</result>
+		</action>
+		
+		<!-- 好友 -->
+		<!-- 分类管理 添加 -->
+		<action name="friendTypeAdd" class="friendAction" method="addFriendType">
+			<result name="input">/myspace/comm/friendlist.jsp</result>
+			<result name="success" type="chain">friendList</result>
+			<result name="error" type="chain">friendList</result>
+		</action>
+		<!-- 分类管理 删除  -->
+		<action name="friendTypeDel" class="friendAction" method="delFriendType">
+			<result name="input">/myspace/comm/friendlist.jsp</result>
+			<result name="success" type="chain">friendList</result>
+			<result name="error">/myspace/comm/friendlist.jsp</result>
+		</action>
+		<!-- 用户查询自己的所有的好友分类   -->
+		<action name="friendTypeList" class="friendAction" method="listFriendType">
+			<result name="input">/myspace/comm/friendlist.jsp</result>
+			<result name="success">/myspace/comm/friendlist.jsp</result>
+			<result name="error">/myspace/comm/friendlist.jsp</result>
+		</action>
+		<!-- 用户查询自己的所有的好友分类 ajax  -->
+		<action name="ajaxFriendTypeList" class="friendAction" method="listtype">
+		</action>
+		
+		<!-- 查找好友 按姓名   -->
+		<action name="friendFind" class="friendAction" method="findFriends">
+			<result name="input">/myspace/comm/friendfind.jsp</result>
+			<result name="success">/myspace/comm/friendfind.jsp</result>
+			<result name="error">/myspace/comm/friendfind.jsp</result>
+		</action>
+		
+		<!-- 查询我的好友列表   -->
+		<action name="friendList" class="friendAction" method="listFriend">
+			<result name="input">/myspace/comm/friendlist.jsp</result>
+			<result name="success" type="chain">friendTypeList</result>
+			<result name="error">/myspace/comm/friendlist.jsp</result>
+		</action>
+		<!-- 加为好友   -->
+		<action name="friendAdd" class="friendAction" method="addFriend">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/myspace/comm/friendfind.jsp</result>
+			<result name="success" type="chain">friendList</result>
+			<result name="error">/myspace/comm/friendfind.jsp</result>
+    		<result name="invalid.token">/myspace/comm/friendfind.jsp</result>
+		</action>
+		<!-- 修改好友所在分组    -->
+		<action name="friendUpdType" class="friendAction" method="updFriendInType">
+			<result name="input" type="chain">friendList</result>
+			<result name="success" type="chain">friendList</result>
+			<result name="error">/myspace/comm/friendlist.jsp</result>
+		</action>
+		<!--  解除好友关系   -->
+		<action name="friendDel" class="friendAction" method="delFriend">
+			<result name="input" type="chain">friendList</result>
+			<result name="success" type="chain">friendList</result>
+			<result name="error">/myspace/comm/friendlist.jsp</result>
+		</action>
+		
+		<!-- 留言 -->
+		<!-- 添加留言 -->
+		<action name="msgAdd" class="msgAction" method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/myspace/comm/msg.jsp</result>
+			<result name="success" type="chain">msgList</result>
+			<result name="error">/myspace/comm/msg.jsp</result>
+    		<result name="invalid.token">/myspace/comm/msg.jsp</result>
+		</action>
+		<!-- 回复留言 -->
+		<action name="remsgAdd" class="msgAction" method="addRemsg">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/myspace/comm/msg.jsp</result>
+			<result name="success" type="chain">msgList</result>
+			<result name="error">/myspace/comm/msg.jsp</result>
+			<result name="invalid.token">/myspace/comm/msg.jsp</result>
+		</action>
+		<!-- 查询留言列表   -->
+		<action name="msgList" class="msgAction" method="list">
+			<result name="input">/myspace/comm/msg.jsp</result>
+			<result name="success">/myspace/comm/msg.jsp</result>
+			<result name="error">/myspace/comm/msg.jsp</result>
+		</action>
+		
+		<!-- 收货地址 -->
+		<!-- 查询收货地址列表   -->
+		<action name="receiverList" class="mreceiverAction" method="list">
+			<result name="input">/myspace/comm/treasure/Receiver.jsp</result>
+			<result name="success">/myspace/comm/treasure/Receiver.jsp</result>
+			<result name="error">/myspace/comm/treasure/Receiver.jsp</result>
+		</action>
+		<!-- 修改收货地址   -->
+		<action name="receiverUpd" class="mreceiverAction" method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/myspace/comm/treasure/Receiver.jsp</result>
+			<result name="success" type="chain">receiverList</result>
+			<result name="error">/myspace/comm/treasure/Receiver.jsp</result>
+    		<result name="invalid.token">/myspace/comm/treasure/Receiver.jsp</result>
+		</action>
+		<action name="receiverUpdGo" class="mreceiverAction" method="updateGo">
+		</action>
+		<!-- 删除收货地址   -->
+		<action name="receiverDel" class="mreceiverAction" method="delete">
+			<result name="input">/myspace/comm/treasure/Receiver.jsp</result>
+			<result name="success" type="chain">receiverList</result>
+			<result name="error">/myspace/comm/treasure/Receiver.jsp</result>
+		</action>
+		
+		<!-- 购物车 -->
+		<!-- 查询购物车商品列表   -->
+		<action name="carItemList" class="shopAction" method="listCarItem">
+			<result name="input">/myspace/comm/treasure/caritem.jsp</result>
+			<result name="success">/myspace/comm/treasure/caritem.jsp</result>
+			<result name="error">/myspace/comm/treasure/caritem.jsp</result>
+		</action>
+		<!-- 从购物车中删除商品   -->
+		<action name="carItemDel" class="shopAction" method="delCarItem">
+			<result name="input" type="chain">carItemList</result>
+			<result name="success" type="chain">carItemList</result>
+			<result name="error" type="chain">carItemList</result>
+		</action>
+		
+		<!-- 订单 -->
+		<!-- 查询订单列表   -->
+		<action name="orderList" class="shopAction" method="listOrder">
+			<result name="input">/myspace/comm/treasure/order.jsp</result>
+			<result name="success">/myspace/comm/treasure/order.jsp</result>
+			<result name="error">/myspace/comm/treasure/order.jsp</result>
+		</action>
+		<!-- 订单详情   -->
+		<action name="orderDetail" class="shopAction" method="getOrder">
+			<result name="input">/myspace/comm/treasure/orderdetail.jsp</result>
+			<result name="success">/myspace/comm/treasure/orderdetail.jsp</result>
+			<result name="error">/myspace/comm/treasure/orderdetail.jsp</result>
+		</action>
+		<!-- 取消订单   -->
+		<action name="orderCancel" class="shopAction" method="cancelOrder">
+			<result name="input" type="chain">orderList</result>
+			<result name="success" type="chain">orderList</result>
+			<result name="error" type="chain">orderList</result>
+		</action>
+		<!-- 确认收货   -->
+		<action name="orderOK" class="shopAction" method="getGoodsOk">
+			<result name="input" type="chain">orderList</result>
+			<result name="success" type="chain">orderList</result>
+			<result name="error" type="chain">orderList</result>
+		</action>
+		<!-- 跳转到评论商品   -->
+		<action name="orderRatGo" class="shopAction" method="getOrder">
+			<result name="input">/myspace/comm/treasure/orderrat.jsp</result>
+			<result name="success">/myspace/comm/treasure/orderrat.jsp</result>
+			<result name="error">/myspace/comm/treasure/orderrat.jsp</result>
+		</action>
+		<!-- 评论商品   -->
+		<action name="orderRat" class="shopAction" method="ratGoods">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/myspace/comm/treasure/orderrat.jsp</result>
+			<result name="success" type="chain">orderList</result>
+			<result name="error">/myspace/comm/treasure/orderrat.jsp</result>
+		</action>
+		
+		<!-- 访问脚步 -->
+		<!-- 我访问过的 -->
+		<action name="visitOtherList" class="visitAction" method="visitOther">
+			<result name="input">/myspace/comm/visitlist.jsp</result>
+			<result name="success">/myspace/comm/visitlist.jsp</result>
+			<result name="error">/myspace/comm/visitlist.jsp</result>
+		</action>
+		<!-- 访问过我的 -->
+		<action name="visitMeList" class="visitAction" method="visitMe">
+			<result name="input">/myspace/comm/visitlist.jsp</result>
+			<result name="success">/myspace/comm/visitlist.jsp</result>
+			<result name="error">/myspace/comm/visitlist.jsp</result>
+		</action>
+		
+		<!-- 品学论道 -->
+		
+		<action name="mStudyList" class="studyAction" method="list">
+			<result name="input">/myspace/comm/treasure/studylist.jsp</result>
+			<result name="success">/myspace/comm/treasure/studylist.jsp</result>
+			<result name="error">/myspace/comm/treasure/studylist.jsp</result>
+		</action>
+		
+		<action name="mStudyAdd" class="studyAction" method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/myspace/comm/treasure/studyadd.jsp</result>
+			<result name="success" type="chain">mStudyList</result>
+			<result name="error">/myspace/comm/treasure/studyadd.jsp</result>
+		</action>
+		
+		<action name="mStudyUpd" class="studyAction" method="upd">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="input">/myspace/comm/treasure/studyedit.jsp</result>
+			<result name="success" type="chain">mStudyList</result>
+			<result name="error">/myspace/comm/treasure/studyedit.jsp</result>
+		</action>
+		
+		<action name="mStudyUpdGo" class="studyAction" method="updGo">
+			<result name="input">/myspace/comm/treasure/studyedit.jsp</result>
+			<result name="success">/myspace/comm/treasure/studyedit.jsp</result>
+			<result name="error">/myspace/comm/treasure/studyedit.jsp</result>
+		</action>
+		
+		<action name="mStudyDel" class="studyAction" method="del">
+			<result name="input" type="chain">mStudyList</result>
+			<result name="success" type="chain">mStudyList</result>
+			<result name="error" type="chain">mStudyList</result>
+		</action>
+		<!-- 品学论道 -->
+		
+		
+		
+		<!-- update by sly 2011年11月3日15:11:01 -->
+		<!-- 编辑器图片上传 -->
+		<action name="imgUpload" class="adminUploadImgAction" method="uploadImgAdmin">
+	       <interceptor-ref name ="fileUploadStack" />
+	       <result name ="success">/uploadsFiles.jsp</result>
+		</action>
+		
+	</package>
+	
+	<!-- 未登陆操作 他人空间 不需要过滤-->
+	<package name="myzone" namespace="/openzone" extends="basePackage">
+		<!-- 配置全局页面 -->
+		<global-results>
+			<result name="error">/error/error_page.jsp</result>
+			<result name="login" type="redirect">/login/login.jsp</result>
+		</global-results>
+		
+		<!-- 我的空间首页 -->
+		<action name="zoneIndexAction" class="zoneIndexAction">
+			<result name="success">/myspace/member_index.jsp</result>
+			<result name="myself">/myspace/student/myselfDynamic.jsp</result>
+		</action>
+		<action name="userCenterIndexAction" class="zoneIndexAction" method="userCenterIndex">
+			<result name="success">/myspace/member_index.jsp</result>
+		</action>
+		<!-- 学习频道-公用的 -->
+		<action name="learnpublic" class="publicAction"></action>
+	</package>
+</struts>

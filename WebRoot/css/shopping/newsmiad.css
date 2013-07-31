@@ -1,0 +1,29 @@
+.shbiglist{ width:960px;float:left;}
+.listright{ width:708px; margin-top:10px; border:1px solid #e6e6e6; float:left; border-top:2px solid #7c93bc; padding:10px 15px 10px  15px;}
+.listright div{ float:left;}
+.maind_1{font-size:20px; font-weight:bold;border-bottom:1px solid #e6e6e6; width:710px; text-align:center; line-height:28px; padding:0px 0px 5px 0px;}
+.maind_2{ border-bottom:1px solid #e6e6e6; width:710px; line-height:34px; color:#999}
+.maind_2 span{ float:left;}
+.maind_2 span.s1{ width:450px;}
+.maind_2 span.s2{ width:130px;}
+.maind_2 span.s3{ width:115px;}
+.maind_2 span a{ width:54px; height:23px; padding:6px 0px 0px 0px; float:left;}
+.maind_3{width:710px; border-bottom:1px solid #e6e6e6;padding:10px 0px 10px 0px; }
+.maind_3 .ppmm{width:690px; line-height:30px;font-size:14px; padding:0px 10px; text-align:justify; }
+.maind_3 .ppmm p.img{ width:690px; text-align:center;}
+.maind_2 span.s4{ width:400px; padding:6px 0px 0px 0px; color:#000}
+.maind_2 span.s4 b{ color:red;}
+.maind_2 span.s5{ width:100px;padding:6px 0px 0px 0px;}
+.maind_2 a{ float:left;}
+.maind_4{width:650px; line-height:28px; padding:10px 0px 0px 10px; font-size:14px; text-align:justify; }
+.maind_4 span{color:#acacac; font-size:10px;}
+.maind_4 ul li{ width:640px; background:url(../img/learning_img/listtu.gif) 0px center no-repeat; padding-left:10px;}
+.maind_4 ul li a{ color:#214174}
+.maind_4 ul li.bbt{ font-weight:bold;background:none; padding:0px;}
+.maind_5{border-bottom:1px solid #e6e6e6; width:660px;}
+.maind_5 h1{ font-size:14px; font-weight:bold;border-bottom:1px solid #e6e6e6; width:650px; padding:10px 0px 8px 10px}
+.xiangce{width:660px;}
+.xiangce p{ width:31px; height:80px; padding:50px 0px 0px 0px; float:left}
+.xiangce ul{ width:598px; float:left; height:110px; padding:20px 0px 0px 0px}
+.xiangce ul li { width:149px; height:100px; text-align:center;}
+.xiangce ul li img{ width:120px; height:90px; background:#fff; padding:2px; border:1px solid #e6e6e6;}

@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+
+	<!-- Dao中的Beans的配置 begin-->
+	
+	<!-- 博文 -->
+	<bean id="blogDao" class="com.cnarj.ttxs.dao.imp.member.BlogDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="blogCommentDao" class="com.cnarj.ttxs.dao.imp.member.BlogCommentDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<!-- 博文 -->
+	
+	<!-- 相册 -->
+	<bean id="albumsDao" class="com.cnarj.ttxs.dao.imp.member.AlbumsDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="photosDao" class="com.cnarj.ttxs.dao.imp.member.PhotosDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="albumCommentDao" class="com.cnarj.ttxs.dao.imp.member.AlbumCommentDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="photoCommentDao" class="com.cnarj.ttxs.dao.imp.member.PhotoCommentDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<!-- 相册 -->
+	
+	<!-- 百宝箱 -->
+	<bean id="srcManaDao" class="com.cnarj.ttxs.dao.imp.member.SrcManaDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="upsrcDao" class="com.cnarj.ttxs.dao.imp.member.UpSrcDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="mquestionDao" class="com.cnarj.ttxs.dao.imp.member.QuestionDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<!-- 百宝箱 -->
+	
+	<!-- 心情dao begin -->
+	<bean id="moodsDao" class="com.cnarj.ttxs.dao.imp.member.MoodsDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property>
+	</bean>
+	<!-- 心情dao end -->
+	
+	<!-- Dao中的Beans的配置end  -->
+	
+	
+	<!-- Service中的Beans的配置 -->
+	
+	<!-- 博文 -->
+	<bean id="blogService" class="com.cnarj.ttxs.service.imp.member.BlogServiceImpl">	
+		<property name="baseDao">
+			<ref bean="blogDao" />
+		</property>
+		<property name="blogDao">
+			<ref bean="blogDao" />
+		</property>
+		<property name="friendDao">
+			<ref bean="friendDao" />
+		</property>
+		<property name="blogCommentDao">
+			<ref bean="blogCommentDao" />
+		</property>
+		<property name="actionRecDao">
+			<ref bean="actionRecDao" />
+		</property>
+	</bean>
+	<bean id="blogCommentService" class="com.cnarj.ttxs.service.imp.member.BlogCommentServiceImpl">	
+		<property name="baseDao">
+			<ref bean="blogCommentDao" />
+		</property>
+		<property name="blogCommentDao">
+			<ref bean="blogCommentDao" />
+		</property>
+	</bean>
+	<!-- 博文 -->
+	
+	<!-- 相册 -->
+	<bean id="albumsService" class="com.cnarj.ttxs.service.imp.member.AlbumsServiceImpl">	
+		<property name="baseDao">
+			<ref bean="albumsDao" />
+		</property>
+		<property name="albumsDao">
+			<ref bean="albumsDao" />
+		</property>
+		<property name="photosDao">
+			<ref bean="photosDao" />
+		</property>
+		<property name="photoCommentDao">
+			<ref bean="photoCommentDao" />
+		</property>
+		<property name="albumCommentDao">
+			<ref bean="albumCommentDao" />
+		</property>
+		<property name="friendDao">
+			<ref bean="friendDao" />
+		</property>
+		<property name="actionRecDao">
+			<ref bean="actionRecDao" />
+		</property>
+	</bean>
+	<bean id="photosService" class="com.cnarj.ttxs.service.imp.member.PhotosServiceImpl">	
+		<property name="baseDao">
+			<ref bean="photosDao" />
+		</property>
+		<property name="photosDao">
+			<ref bean="photosDao" />
+		</property>
+		<property name="albumsDao">
+			<ref bean="albumsDao" />
+		</property>
+		<property name="photoCommentDao">
+			<ref bean="photoCommentDao" />
+		</property>
+		<property name="actionRecDao">
+			<ref bean="actionRecDao" />
+		</property>
+		<property name="friendDao">
+			<ref bean="friendDao" />
+		</property>
+	</bean>
+	<bean id="albumCommentService" class="com.cnarj.ttxs.service.imp.member.AlbumCommentServiceImpl">	
+		<property name="baseDao">
+			<ref bean="albumCommentDao" />
+		</property>
+		<property name="albumCommentDao">
+			<ref bean="albumCommentDao" />
+		</property>
+	</bean>
+	<bean id="photoCommentService" class="com.cnarj.ttxs.service.imp.member.PhotoCommentServiceImpl">	
+		<property name="baseDao">
+			<ref bean="photoCommentDao" />
+		</property>
+		<property name="photoCommentDao">
+			<ref bean="photoCommentDao" />
+		</property>
+	</bean>
+	<!-- 相册 -->
+	<!-- 百宝箱 -->
+	<bean id="srcManaService" class="com.cnarj.ttxs.service.imp.member.SrcManaServiceImpl">	
+		<property name="baseDao">
+			<ref bean="srcManaDao" />
+		</property>
+		<property name="readdownDao">
+			<ref bean="readdownDao" />
+		</property>
+		<property name="srcManaDao">
+			<ref bean="srcManaDao" />
+		</property>
+		<property name="upsrcDao">
+			<ref bean="upsrcDao" />
+		</property>
+	</bean>
+	<bean id="upsrcService" class="com.cnarj.ttxs.service.imp.member.UpSrcServiceImpl">	
+		<property name="baseDao">
+			<ref bean="upsrcDao" />
+		</property>
+		<property name="upsrcDao">
+			<ref bean="upsrcDao" />
+		</property>
+	</bean>
+	<bean id="mquestionService" class="com.cnarj.ttxs.service.imp.member.QuestionServiceImpl">	
+		<property name="baseDao">
+			<ref bean="mquestionDao" />
+		</property>
+		<property name="questionDao">
+			<ref bean="mquestionDao" />
+		</property>
+		<property name="answerDao">
+			<ref bean="AnswerDao" />
+		</property>
+		<property name="memberDao">
+			<ref bean="memberDao" />
+		</property>
+	</bean>
+	<!-- 百宝箱 -->
+	
+	<!-- 心情service 配置 begin -->
+	<bean id="moodsService" class="com.cnarj.ttxs.service.imp.member.MoodsServiceImpl">
+		<property name="moodsDao" ref="moodsDao"></property>
+		<property name="actionRecDao" ref="actionRecDao"></property>
+	</bean>
+	<!-- 心情service 配置 end -->
+	
+	<!-- Service中的Beans的配置 -->
+
+
+	<!-- Actions中的Beans的配置 -->
+	<!-- 博文 -->
+	<bean id="blogAction" class="com.cnarj.ttxs.web.actions.member.BlogAction" scope="prototype">
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>
+		<property name="blogCommentService">
+			<ref bean="blogCommentService" />
+		</property>
+		<property name="actionRecService">
+			<ref bean="actionRecService" />
+		</property>
+	</bean>
+	<!-- 博文 -->
+	
+	<!-- 相册 -->
+	<bean id="albumsAction" class="com.cnarj.ttxs.web.actions.member.AlbumsAction" scope="prototype">
+		<property name="albumsService">
+			<ref bean="albumsService" />
+		</property>
+		<property name="photosService">
+			<ref bean="photosService" />
+		</property>
+		<property name="albumCommentService">
+			<ref bean="albumCommentService" />
+		</property>
+		<property name="photoCommentService">
+			<ref bean="photoCommentService" />
+		</property>
+	</bean>
+	<!-- 相册 -->
+	
+	<!-- 百宝箱 -->
+	<bean id="downManaAction" class="com.cnarj.ttxs.web.actions.member.DownloadManaAction" scope="prototype">
+		<property name="srcManaService">
+			<ref bean="srcManaService" />
+		</property>
+	</bean>
+	<bean id="upsrcAction" class="com.cnarj.ttxs.web.actions.member.UploadManaAction" scope="prototype">
+		<property name="upsrcService">
+			<ref bean="upsrcService" />
+		</property>
+		<property name="gradecodeService">
+			<ref bean="gradeCodeService" />
+		</property>
+		<property name="subjectService">
+			<ref bean="subjectCodeService" />
+		</property>
+		<property name="readsrctypeService">
+			<ref bean="adminReadbookTypeService" />
+		</property>
+	</bean>
+	<bean id="mquestionAction" class="com.cnarj.ttxs.web.actions.member.QuestionAction" scope="prototype">
+		<property name="questionService">
+			<ref bean="mquestionService" />
+		</property>
+	</bean>
+	<!-- 百宝箱 -->
+	
+	
+	<!-- 收藏夹 -->
+	<bean id="FavoritesDaoImpl" class="com.cnarj.ttxs.dao.imp.member.FavoritesDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="IFavoritesService" class="com.cnarj.ttxs.service.imp.member.FavoritesServiceImpl">	
+		<property name="baseDao">
+			<ref bean="FavoritesDaoImpl" />
+		</property>
+		<property name="favoritesDao">
+			<ref bean="FavoritesDaoImpl" />
+		</property>
+	</bean>
+	<bean id="FavoritesAction" class="com.cnarj.ttxs.web.actions.member.FavoritesAction" scope="prototype">
+		<property name="favoritesService">
+			<ref bean="IFavoritesService" />
+		</property>
+	</bean>
+	<!-- 收藏夹 -->
+	
+	<!-- 我的作品 -->
+	<bean id="worksDao" class="com.cnarj.ttxs.dao.imp.member.WorksDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	
+	<bean id="workPhotosDao" class="com.cnarj.ttxs.dao.imp.member.WorkPhotosDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	
+	<bean id="worksService" class="com.cnarj.ttxs.service.imp.member.WorksServiceImpl">	
+		<property name="baseDao">
+			<ref bean="worksDao" />
+		</property>
+		<property name="worksDao">
+			<ref bean="worksDao" />
+		</property>
+		<property name="workPhotosDao">
+			<ref bean="workPhotosDao" />
+		</property>
+		<property name="activityDao">
+			<ref bean="activityDao" />
+		</property>
+	</bean>
+	
+	
+	<bean id="worksAction" class="com.cnarj.ttxs.web.actions.member.WorksAction" scope="prototype">
+		<property name="worksService">
+			<ref bean="worksService" />
+		</property>
+	</bean>
+	<!-- 我的作品 -->
+	
+	
+	<!-- 好友 -->
+	
+	<bean id="friendTypeDao" class="com.cnarj.ttxs.dao.imp.member.FriendTypeDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="friendTypeService" class="com.cnarj.ttxs.service.imp.member.FriendTypeServiceImpl">	
+		<property name="baseDao">
+			<ref bean="friendTypeDao" />
+		</property>
+		<property name="friendTypeDao">
+			<ref bean="friendTypeDao" />
+		</property>
+	</bean>
+	
+	<bean id="friendDao" class="com.cnarj.ttxs.dao.imp.member.FriendsInfoDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="friendService" class="com.cnarj.ttxs.service.imp.member.FriendsInfoServiceImpl">	
+		<property name="baseDao">
+			<ref bean="friendDao" />
+		</property>
+		<property name="friendDao">
+			<ref bean="friendDao" />
+		</property>
+		<property name="friendTypeDao">
+			<ref bean="friendTypeDao" />
+		</property>
+	</bean>
+	
+	
+	<bean id="friendAction" class="com.cnarj.ttxs.web.actions.member.FriendAction" scope="prototype">
+		<property name="friendTypeService">
+			<ref bean="friendTypeService" />
+		</property>
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+	</bean>
+	
+	<!-- 好友 -->
+	
+	<!-- 动态 -->
+	<bean id="actionRecDao" class="com.cnarj.ttxs.dao.imp.member.ActionRecDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+         <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="actionRecService" class="com.cnarj.ttxs.service.imp.member.ActionRecServiceImpl">	
+		<property name="baseDao">
+			<ref bean="actionRecDao" />
+		</property>
+		<property name="actionRecDao">
+			<ref bean="actionRecDao" />
+		</property>
+	</bean>
+	<!-- 动态 -->
+	
+	<!-- 留言 回复 -->
+	<bean id="msgDao" class="com.cnarj.ttxs.dao.imp.member.MsgDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="msgService" class="com.cnarj.ttxs.service.imp.member.MsgServiceImpl">	
+		<property name="baseDao">
+			<ref bean="msgDao" />
+		</property>
+		<property name="msgDao">
+			<ref bean="msgDao" />
+		</property>
+	</bean>
+	<bean id="remsgDao" class="com.cnarj.ttxs.dao.imp.member.RemsgDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="remsgService" class="com.cnarj.ttxs.service.imp.member.RemsgServiceImpl">	
+		<property name="baseDao">
+			<ref bean="remsgDao" />
+		</property>
+	</bean>
+	<bean id="msgAction" class="com.cnarj.ttxs.web.actions.member.MessageAction" scope="prototype">
+		<property name="msgService">
+			<ref bean="msgService" />
+		</property>
+		<property name="remsgService">
+			<ref bean="remsgService" />
+		</property>
+	</bean>
+	<!-- 留言 -->
+	
+	<!-- 收货地址 -->
+	<bean id="mreceiverDao" class="com.cnarj.ttxs.dao.imp.member.ReceiverDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="mreceiverService" class="com.cnarj.ttxs.service.imp.member.ReceiverServiceImpl">	
+		<property name="baseDao">
+			<ref bean="mreceiverDao" />
+		</property>
+		<property name="receiverDao">
+			<ref bean="mreceiverDao" />
+		</property>
+	</bean>
+	<bean id="mreceiverAction" class="com.cnarj.ttxs.web.actions.member.ReceiverAction" scope="prototype">
+		<property name="receiverService">
+			<ref bean="mreceiverService" />
+		</property>
+		<property name="xzqhService" ref="xzqhService"></property>
+	</bean>
+	<!-- 收货地址 -->
+	
+	<!-- 购物车 -->
+	<bean id="carItemDao" class="com.cnarj.ttxs.dao.imp.member.CarItemDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="carItemService" class="com.cnarj.ttxs.service.imp.member.CarItemServiceImpl">	
+		<property name="baseDao">
+			<ref bean="carItemDao" />
+		</property>
+	</bean>
+	<bean id="shopAction" class="com.cnarj.ttxs.web.actions.member.ShopAction" scope="prototype">
+		<property name="carItemService">
+			<ref bean="carItemService" />
+		</property>
+		<property name="morderService">
+			<ref bean="morderService" />
+		</property>
+		<property name="goodsratService">
+			<ref bean="goodsratService" />
+		</property>
+	</bean>
+	<!--  购物车 -->
+	
+	<!-- 订单 -->
+	<bean id="morderDao" class="com.cnarj.ttxs.dao.imp.member.OrderDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="morderService" class="com.cnarj.ttxs.service.imp.member.OrderServiceImpl">	
+		<property name="baseDao">
+			<ref bean="morderDao" />
+		</property>
+		<property name="morderDao">
+			<ref bean="morderDao" />
+		</property>
+	</bean>
+	
+	<!--  评价  -->
+	<bean id="goodsratDao" class="com.cnarj.ttxs.dao.imp.member.GoodsRatDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="goodsratService" class="com.cnarj.ttxs.service.imp.member.GoodsRatServiceImpl">	
+		<property name="baseDao">
+			<ref bean="goodsratDao" />
+		</property>
+		<property name="goodsratDao">
+			<ref bean="goodsratDao" />
+		</property>
+		<property name="morderDao">
+			<ref bean="morderDao" />
+		</property>
+	</bean>
+	<!--  订单  -->
+	
+	<!--  心情  -->
+	<bean id="moodDao" class="com.cnarj.ttxs.dao.imp.member.MoodsDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="moodService" class="com.cnarj.ttxs.service.imp.member.MoodsServiceImpl">	
+		<property name="baseDao">
+			<ref bean="moodDao" />
+		</property>
+		<property name="moodsDao">
+			<ref bean="moodDao" />
+		</property>
+		<property name="actionRecDao">
+			<ref bean="actionRecDao" />
+		</property>
+	</bean>
+	<!--  心情  -->
+	<!-- Actions中的Beans的配置 -->
+	
+	<!-- 用户中心首页action配置 -->
+	<bean id="zoneIndexAction" class="com.cnarj.ttxs.web.actions.member.MyZoneIndexAction" scope="prototype">
+		<property name="moodsService" ref="moodsService"></property>
+		<property name="actionRecService" ref="actionRecService"></property>
+		<property name="visitService" ref="visitService"></property>
+		<property name="onetextService" ref="oneDayOneTextService"></property>
+		<property name="readbookService" ref="readbookService"></property>
+		<property name="liveService" ref="liveEncyclopediaService"></property>
+	</bean>
+	
+	<!-- 访问动态 -->
+	
+	<bean id="visitDao" class="com.cnarj.ttxs.dao.imp.member.VisitDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="visitService" class="com.cnarj.ttxs.service.imp.member.VisitServiceImpl">
+		<property name="baseDao">
+			<ref bean="visitDao" />
+		</property>
+		<property name="visitDao">
+			<ref bean="visitDao" />
+		</property>
+	</bean>
+	
+	<!-- filter -->
+	<bean id="visitFilter" class="com.cnarj.ttxs.filter.VisitFilter"> <!-- 指名具体的filter类 -->
+	    <property name="visitService">                    <!-- 需要注入的具体参数 --> 
+	        <ref bean="visitService"/> 
+	    </property> 
+    </bean>
+    
+	<!-- action -->
+	<bean id="visitAction" class="com.cnarj.ttxs.web.actions.member.VisitAction" scope="prototype">
+	    <property name="visitService">                   
+	        <ref bean="visitService"/> 
+	    </property> 
+    </bean>
+	
+	<!-- 访问动态 --> 
+	
+	<!--  品学论道  -->
+	<bean id="studyDao" class="com.cnarj.ttxs.dao.imp.member.StudyDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="studyService" class="com.cnarj.ttxs.service.imp.member.StudyServiceImpl">	
+		<property name="baseDao">
+			<ref bean="studyDao" />
+		</property>
+		<property name="studyDao">
+			<ref bean="studyDao" />
+		</property>
+	</bean>
+	<bean id="studyAction" class="com.cnarj.ttxs.web.actions.member.StudyAction" scope="prototype">
+	    <property name="studyService">                   
+	        <ref bean="studyService"/> 
+	    </property> 
+    </bean>
+	<!--  品学论道  -->
+	
+	<!-- 秘密空间 -->
+	<bean id="mimiInfoDao" class="com.cnarj.ttxs.dao.imp.member.MimiInfoDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="mimiInfoService" class="com.cnarj.ttxs.service.imp.member.MimiInfoServiceImpl">
+		<property name="mimiInfoDao" ref="mimiInfoDao"></property>
+	</bean>
+	
+	<bean id="remimiInfoDao" class="com.cnarj.ttxs.dao.imp.member.RemimiInfoDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="remimiInfoService" class="com.cnarj.ttxs.service.imp.member.RemimiInfoServiceImpl">
+		<property name="remimiInfoDao" ref="remimiInfoDao"></property>
+	</bean>
+	
+	<bean id="secretZoneAction" class="com.cnarj.ttxs.web.actions.member.SecretZoneAction" scope="prototype">
+		<property name="mimiInfoService" ref="mimiInfoService"></property>
+		<property name="remimiInfoService" ref="remimiInfoService"></property>
+		<property name="studentService" ref="studentService"></property>
+	</bean>
+</beans>

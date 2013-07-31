@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-admin-shopping" namespace="/admin/shop"
+		extends="basePackage">
+		<!-- 商品类别 -->
+		<action name="sort_showAddPage" class="shoppingSortAction"
+			method="showAddPage">
+			<result name="showAddPage">
+				/admin/shopping/Sort/add.jsp
+			</result>
+		</action>
+		<!-- 显示所有的商品类别 -->
+		<action name="sort_showAllSrot" class="shoppingSortAction"
+			method="byTermAllSrot">
+			<result name="all">/admin/shopping/Sort/manage.jsp</result>
+		</action>
+		<!-- 商品类别查询 -->
+		<action name="sort_byIdQuery" class="shoppingSortAction"
+			method="byIdQuery">
+			<result name="find">/admin/shopping/Sort/modify.jsp</result>
+		</action>
+		<!-- 商品类别修改 -->
+		<action name="sort_updateSrot" class="shoppingSortAction"
+			method="updateSrot">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update" type="redirectAction">sort_showAllSrot</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+		<!-- 商品类别删除 -->
+		<action name="sort_deleteSrot" class="shoppingSortAction"
+			method="deleteSrot">
+			<result name="del">/admin/shopping/Sort/manage.jsp</result>
+		</action>
+		<!-- 判断类别是否存在 -->
+		<action name="sort_isOccurSrot" class="shoppingSortAction"
+			method="isOccurSrot">
+		</action>
+		<!--商品类别的添加  -->
+		<action name="addSrot" class="shoppingSortAction"
+			method="addSrot">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/shopping/Sort/add.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+		<action name="heartAnsweradd"
+			class="AdminShoppingQuestionAction" method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/shopping/Sort/add.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+		<action name="heartAnswer"
+			class="AdminShoppingQuestionAction">
+			<result name="list">
+				/admin/shopping/heartQuestion/list.jsp
+			</result>
+			<result name="view">
+				/admin/shopping/heartQuestion/answer.jsp
+			</result>
+		</action>
+		<!-- 订单 -->
+		<action name="order" class="adminOrderAction" method="manage">
+			<result name="manage">
+				/admin/shopping/order/manage.jsp
+			</result>
+		</action>
+        <action name="findOrderById" class="adminOrderAction" method="findOrderById">
+            <result name="success">/admin/shopping/order/orderDetail.jsp</result>
+        </action>
+        <action name="updateOrder" class="adminOrderAction" method="updateOrder">
+            <result name="success" type="redirectAction">/admin/shop/order</result>
+        </action>
+        
+		<!--  商品主类别-->
+		<action name="goods_main" method="showMainGoodsSort" class="shoppingGoodsAction">
+		</action>
+		<!-- 商品的显示 -->
+		<action name="goods_show" class="shoppingGoodsAction" method="tyTrimGoods">
+			<result name="sel">/admin/shopping/ware/manage.jsp</result>
+			<result name="oneGoods">/admin/shopping/ware/modify.jsp</result>
+		</action>
+		<!-- 商品的添加 -->
+		<action name="addGoods" class="shoppingGoodsAction" method="addGoods">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="tokenSession" />
+			<result name="success" type="redirectAction">goods_show</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+		<!-- 商品的修改 -->
+		<action name="updategoods" class="shoppingGoodsAction" method="updateGoods">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="sel" type="redirectAction">
+				<param name="actionName">goods_show</param>
+				<param name="namespace">/admin/shop</param>
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+        <!--商品搜索,按照类别搜索-->
+        <action name="goods_findByCategoryName" class="shoppingGoodsAction" method="findByCategoryName">
+            <result name="success">/admin/shopping/ware/manage.jsp</result>
+        </action>
+
+        <!--商品描述保存-->
+        <action name="saveGoodsDescriptPic" class="shoppingGoodsAction" method="saveGoodsDescriptPic">
+        </action>
+
+	</package>
+
+    <!--运费模板管理-->
+    <package name="struts-admin-shopping-feeTemplate" namespace="/admin/feeTemplate" extends="basePackage">
+        <action name="showAll" class="feeTemplateAction" method="showAll">
+            <result name="success">/admin/shopping/feeTemplate/list.jsp</result>
+        </action>
+        <action name="addFeeTemplate" class="feeTemplateAction" method="addFeeTemplate">
+            <result name="success" type="redirectAction">showAll</result>
+        </action>
+        <action name="deleteById" class="feeTemplateAction" method="deleteById">
+            <result name="success" type="redirectAction">showAll</result>
+        </action>
+        <action name="findById" class="feeTemplateAction" method="findById">
+            <result name="success">/admin/shopping/feeTemplate/modify.jsp</result>
+        </action>
+        <action name="update" class="feeTemplateAction" method="update">
+            <result name="success" type="redirectAction">showAll</result>
+        </action>
+    </package>
+</struts>

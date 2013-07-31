@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+	<!-- 学习\资讯等栏目的文章信息后台Service中的Beans的配置 -->
+
+	<!-- 文章 -->
+	<bean id="adminArticleService"
+		class="com.cnarj.ttxs.admin.service.imp.comm.ArticleServiceImpl">
+		<property name="baseDao">
+			<ref bean="articleDao" />
+		</property>
+		<property name="articleDao">
+			<ref bean="articleDao" />
+		</property>
+		<property name="articleTypeDao">
+			<ref bean="articleTypeDao" />
+		</property>
+	</bean>
+
+	<!-- 文章类别 -->
+	<bean id="adminArticleTypeService"
+		class="com.cnarj.ttxs.admin.service.imp.comm.ArticleTypeServiceImpl">
+		<property name="baseDao">
+			<ref bean="articleTypeDao" />
+		</property>
+		<property name="articleTypeDao">
+			<ref bean="articleTypeDao" />
+		</property>
+	</bean>
+
+	<!-- 学习\资讯等栏目的文章信息后台Actions中的Beans的配置 -->
+	<!-- 文章 -->
+	<bean id="adminArticleAction"
+		class="com.cnarj.ttxs.admin.actions.comm.ArticleAction"
+		scope="prototype">
+		<property name="articleService">
+			<ref bean="adminArticleService" />
+		</property>
+		<property name="articleTypeService">
+			<ref bean="adminArticleTypeService" />
+		</property>
+		<property name="subjectCodeService">
+			<ref bean="subjectCodeService" />
+		</property>
+		<property name="gradeCodeService">
+			<ref bean="gradeCodeService" />
+		</property>
+		<property name="memberService">
+			<ref bean="adminMemberService" />
+		</property>
+	</bean>
+
+	<!-- 文章类别 -->
+	<bean id="adminArticleTypeAction"
+		class="com.cnarj.ttxs.admin.actions.comm.ArticleTypeAction"
+		scope="prototype">
+		<property name="articleService">
+			<ref bean="adminArticleService" />
+		</property>
+		<property name="articleTypeService">
+			<ref bean="adminArticleTypeService" />
+		</property>
+	</bean>
+		<!-- 系统文章类别 -->
+	<bean id="adminsysArticleTypeAction" class="com.cnarj.ttxs.admin.actions.comm.SysArticleTypeAction" scope="prototype">
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+		<property name="sysArticleTypeService">
+			<ref bean="sysArticleTypeService" />
+		</property>
+	
+	</bean>
+	
+	<!-- 系统文章 -->
+	<bean id="adminsysArticleAction" class="com.cnarj.ttxs.admin.actions.comm.SysArticleAction" scope="prototype">
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+		<property name="sysArticleTypeService">
+			<ref bean="sysArticleTypeService" />
+		</property>
+		<property name="sysarticleHandleService">
+			<ref bean="sysarticleHandleService" />
+		</property>		
+	</bean>
+	
+	
+	<!-- 上传图片 -->
+	<bean id="adminUploadImgAction" class="com.cnarj.ttxs.web.actions.FileUploadAction" scope="prototype">
+		
+	</bean>
+</beans>

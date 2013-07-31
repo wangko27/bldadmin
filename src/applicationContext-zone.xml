@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+
+	<!-- 博文 -->
+	<bean id="zoneblogAction" class="com.cnarj.ttxs.web.actions.zone.BlogAction" scope="prototype">
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>
+		<property name="blogCommentService">
+			<ref bean="blogCommentService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+	</bean>
+	<!-- 相册 -->
+	<bean id="zonealbumsAction" class="com.cnarj.ttxs.web.actions.zone.AlbumsAction" scope="prototype">
+		<property name="albumsService">
+			<ref bean="albumsService" />
+		</property>
+		<property name="photosService">
+			<ref bean="photosService" />
+		</property>
+		<property name="albumCommentService">
+			<ref bean="albumCommentService" />
+		</property>
+		<property name="photoCommentService">
+			<ref bean="photoCommentService" />
+		</property>
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+	</bean>
+	<!-- 留言 -->
+	<bean id="zonemsgAction" class="com.cnarj.ttxs.web.actions.zone.MessageAction" scope="prototype">
+		<property name="msgService">
+			<ref bean="msgService" />
+		</property>
+		<property name="remsgService">
+			<ref bean="remsgService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+	</bean>
+	
+	<!-- 首页 -->
+	<bean id="zoneindexAction" class="com.cnarj.ttxs.web.actions.zone.IndexAction" scope="prototype">
+		
+		<property name="moodService">
+			<ref bean="moodService" />
+		</property>
+		<property name="photosService">
+			<ref bean="photosService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="actionRecService">
+			<ref bean="actionRecService" />
+		</property>
+		<property name="onetextService">
+			<ref bean="oneDayOneTextService" />
+		</property>
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+		
+		<property name="liveService">
+			<ref bean="liveEncyclopediaService" />
+		</property>
+		<property name="readbookService">
+			<ref bean="readbookService" />
+		</property>
+		<property name="visitService">                   
+	        <ref bean="visitService"/> 
+	    </property> 
+	</bean>
+	
+</beans>

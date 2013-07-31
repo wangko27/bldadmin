@@ -1,0 +1,224 @@
+.listleft {
+	width: 703px;
+	border: 1px solid #e6e6e6;
+	float: left;
+	border-top: 3px solid #76ad1c;
+	margin-right: 8px;
+	background: url(../img/learning_img/listbj.gif) no-repeat;
+	padding: 0px 0px 10px 0px
+}
+
+.listleft div {
+	float: left;
+}
+
+.titi {
+	padding: 5px 0px 0px 15px;
+	width: 680px;
+	height: 24px;
+}
+
+.flei {
+	width: 683px;
+	border-bottom: 1px solid #e8eee4;
+	background: #f4f9f2;
+	padding: 10px 10px
+}
+
+.flei ul {
+	width: 670px;
+	float: left;
+	padding: 5px 5px;
+}
+
+.flei ul li {
+	padding: 0px 8px;
+}
+
+.flei ul li a {
+	color: #ff7800;
+}
+
+.flei ul li span {
+	color: #cecece;
+}
+
+.flei p {
+	width: 585px;
+	line-height: 20px;
+	display: inline;
+	border: 1px solid #e8eee4;
+	background: #fff;
+	float: left;
+	margin: 5px 0px 0px 10px;
+	padding: 0px 0px 0px 10px;
+	color: #6a6a6a
+}
+
+.flei p span {
+	color: #000;
+	font-weight: bold;
+}
+
+.dda {
+	margin: 8px 0px 0px 8px;
+	width: 688px;
+	background: #eaf2e7;
+	height: 30px;
+	display: inline;
+}
+
+.dda ul {
+	width: 680px;
+}
+
+.dda ul li {
+	width: auto;
+	line-height: 22px;
+	height: 25px;
+	margin: 5px 0px 0px 10px;
+	padding: 0px 5px;
+	display: inline;
+}
+
+.dda ul li.dibai {
+	background: #fff;
+}
+
+.dda ul li {
+	color: #b2b2b2;
+}
+
+.dda ul li a {
+	padding: 0px 5px;
+}
+
+.dda ul li.imgrili {
+	margin: 0px;
+	padding: 0px;
+	width: 110px;
+	height: 28px;
+	float: right;
+}
+
+.list_1 {
+	width: 685px;
+	margin: 0px 0px 0px 10px;
+	display: inline;
+}
+
+.list_1 ul {
+	width: 665px;
+	background: url(../img/home_img/xu.gif) repeat-x top;
+	float: left;
+	padding: 15px 10px;
+}
+
+.list_1 ul.lv {
+	background: url(../img/home_img/xu.gif) repeat-x top #f4f9f2;
+}
+
+.list_1 ul li {
+	width: 665px;
+	line-height: 24px;
+	color: #545454;
+}
+
+.list_1 ul li.biti {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0px 0px 5px 0px;
+}
+
+.list_1 ul li.biti span {
+	padding-right: 20px;
+}
+
+.list_1 ul li.biti span.time {
+	background: none;
+	color: #969696;
+}
+
+.list_1 ul li span {
+	color: #989898;
+}
+
+.list_2 {
+	width: 688px;
+	margin: 1px 0px 0px 8px;
+	color: #636363;
+	line-height: 28px;
+	background: #ededed;
+	display: inline;
+}
+
+.list_2 span.ro1 {
+	padding: 0px 410px 0px 20px;
+}
+
+.list_2 span.ro2 {
+	padding: 0px 150px 0px 0px;
+}
+
+.list_1 ul li.biti span.dd1 {
+	padding: 0px 60px 0px 0px;
+	background: none;
+	color: #000
+}
+
+.list_1 ul li.biti span.dd2 {
+	padding: 0px 0px 0px 0px;
+	background: none;
+	color: #ff5100;
+	text-align: right;
+}
+
+.list_1 ul li.biti p {
+	float: left;
+	display: block
+}
+
+.list_1 ul li.biti p.kk {
+	width: 450px;
+}
+
+.list_1 ul li.biti p.kk span {
+	background: url(../img/learning_img/tubj.gif) no-repeat right;
+}
+
+
+
+.list_3 {
+	width: 688px;
+	margin: 1px 0px 0px 8px;
+	display: inline;
+}
+
+.list_3 ul {
+	width: 680px;
+	background: url(../img/home_img/xu.gif) repeat-x bottom;
+	margin: 0px 0px 0px 5px !important;
+	margin: 0px 0px 0px 3px;
+	display: block;
+	float: left;
+	padding: 8px 0px;
+}
+
+.list_3 ul li {
+	width: 680px;
+	line-height: 28px;
+	font-size: 14px;
+}
+
+.list_3 ul li p {
+	width: 560px;
+	float: left;
+}
+
+.list_3 ul li span {
+	width: 100px;
+	font-size: 12px;
+	color: #b6b6b6;
+	float: left;
+	text-align: right;
+}

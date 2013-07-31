@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-admin-sys" namespace="/adminlogin"
+		extends="basePackage">
+
+		<!-- 管理员登录 -->
+		<action name="login" class="adminLoginAction">
+			<result name="index">/admin/index.jsp</result>
+			<result name="adminLogin">/adminLogin.jsp</result>
+		</action>
+
+	</package>
+
+
+</struts>

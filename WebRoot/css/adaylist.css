@@ -1,0 +1,29 @@
+.listleft{ width:703px; border:1px solid #e6e6e6; float:left; border-top:3px solid #76ad1c; margin-right:8px; background:url(../img/learning_img/listbj.gif) no-repeat; padding:0px 0px 10px 0px}
+.listleft div{ float:left;}
+.titi{ padding:5px 0px 0px 15px; width:680px; height:24px;}
+.flei{ width:683px; border-bottom:1px solid #e8eee4; background:#f4f9f2; padding:10px 10px}
+.flei ul{ width:670px; float:left; padding:5px 5px;}
+.flei ul li{ padding:0px 8px;}
+.flei ul li a{ color:#ff7800;}
+.flei ul li span{ color:#cecece;}
+.flei p{ width:585px; line-height:20px; display:inline; border:1px solid #e8eee4; background:#fff; float:left; margin:5px 0px 0px 10px; padding:0px 0px 0px 10px; color:#6a6a6a}
+.flei p span{ color:#000; font-weight:bold;}
+
+.dda{ margin:8px 0px 0px 8px;width:688px; background:#eaf2e7; height:30px; display:inline;}
+.dda ul{ width:680px;}
+.dda ul li{ width:auto; line-height:22px; height:25px; margin:5px 0px 0px 10px; padding:0px 5px; display:inline;}
+.dda ul li.dibai{background:#fff;}
+.dda ul li a{ padding:0px 5px; }
+.dda ul li.imgrili{margin:0px; padding:4px 0px 0px 10px;width:110px; height:28px; float:right; background:url(../img/learning_img/rili.gif) no-repeat;}
+.list_1{ width:685px;  margin:10px 0px 0px 10px; display:inline;}
+.list_1 ul{width:665px;background:url(../img/home_img/xu.gif) repeat-x top; float:left; padding:15px 10px;}
+.list_1 ul.lv{background:url(../img/home_img/xu.gif) repeat-x top #f4f9f2;}
+.list_1 ul li{ width:665px; line-height:24px; color:#545454;}
+.list_1 ul li.biti{ font-size:14px; font-weight:bold; padding:0px 0px 5px 0px;}
+.list_1 ul li.biti span{ background:url(../img/learning_img/tubj.gif) no-repeat right; padding-right:20px;}
+.list_1 ul li.biti span.time{ background:none; color:#969696;}
+.list_1 ul li span{ color:#989898;}
+
+input.xue{background:url(../img/home_img/ss_bj1.gif) repeat-x;  font-size:12px; width:70px; line-height:15px;}
+input.an{ background:none; width:15px; height:15px; cursor:pointer}
+input.an1{ background:none; width:50px; height:15px; cursor:pointer}

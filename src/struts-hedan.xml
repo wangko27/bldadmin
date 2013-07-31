@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="memberPackage" extends="basePackage" namespace="/member" >
+		<!-- 配置默认拦截器栈 -->
+		<global-results>
+			<result name="error">/error/error_page.jsp</result>
+		</global-results>
+		<!-- 前台会员登录 -->
+		<action name="memberLogin" class="memberAction">
+			<result name="success">/myspace/member_index.jsp</result>
+			<result name="detail">/myspace/touristinfo.jsp</result>
+			<result name="myinfo">/myspace/updateinfo.jsp</result>
+			<result name="otherinfo">/myspace/touristinfo.jsp</result>
+		</action>
+		
+		<!-- 更换头像 -->
+		<action name="changeHeadImage" class="memberAction" method="changeHeadImage">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="success">/myspace/headChange.jsp</result>
+			<result name="warn">/myspace/headChange.jsp</result>
+			<result name="invalid.token">/error/error_page_repeat.jsp</result>
+		</action>
+		 
+		<!-- 考试成绩查询 -->
+		<action name="examQueryAction" class="examQueryAction">
+			<result name="list">/myspace/student/examList.jsp</result>
+			<result name="parList">/myspace/parents/examList.jsp</result>
+			<result name="teaList">/myspace/teacher/examList.jsp</result>
+			<result name="examDetail">/myspace/teacher/examDetail.jsp</result>
+		</action>
+		
+		<!-- 考勤查询 -->
+		<action name="attenQueryAction" class="attendanceQueryAction">
+			<result name="list">/myspace/student/attendanceList.jsp</result>
+			<result name="parList">/myspace/parents/attendanceList.jsp</result>
+			<result name="teaList">/myspace/teacher/attendanceList.jsp</result>
+		</action>
+
+		<!-- 课程表查询 -->
+		<action name="courseAction" class="courseAction">
+			<result name="list">/myspace/student/coursesList.jsp</result>
+			<result name="parList">/myspace/parents/coursesList.jsp</result>
+			<result name="teaList">/myspace/teacher/coursesList.jsp</result>
+		</action>
+		
+		<!-- 短信查询 -->
+		<action name="smsMsgAction" class="smsPublishedMsgAction">
+			<result name="stuSmsList">/myspace/student/smsList.jsp</result>
+			<result name="parentSmsList">/myspace/parents/smsList.jsp</result>
+			<result name="teaSmsList">/myspace/teacher/smsList.jsp</result>
+		</action>
+		
+		<!-- 同学录 -->
+		<action name="classmateAction" class="classmateAction">
+			<result name="list">/myspace/student/classmate.jsp</result>
+		</action>
+		
+		<!-- 班级动态 -->
+		<action name="classDynamicAction" class="classDynamicAction">
+			<result name="list">/myspace/student/classDynamic.jsp</result>
+		</action>
+		
+		<!-- 我的资料 -->
+		<action name="myinformation" class="myinformationAction">
+			<result name="success">/myspace/information.jsp</result>
+		</action>
+		
+		<!-- 秘密空间 -->
+		<action name="secretZoneAction" class="secretZoneAction">
+			<result name="success">/myspace/student/secretZone.jsp</result>
+		</action>
+		<!-- 发表留言 -->
+		<action name="leavemessage" class="secretZoneAction" method="leavemessage">
+			<result name="success">/myspace/student/secretZone.jsp</result>
+		</action>
+		<!-- 回复留言 -->
+		<action name="revert" class="secretZoneAction" method="revert">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="success">/myspace/student/secretZone.jsp</result>
+			<result name="invalid.token">/error/error_page_repeat.jsp</result>
+		</action>
+		
+		<!-- 学习频道-公用的 -->
+		<action name="learnpublic" class="publicAction"></action>
+	</package>
+	
+	
+	<package name="loginPackage" extends="basePackage" namespace="/">
+		<!-- 配置默认拦截器栈 -->
+		<global-results>
+			<result name="error">/error/error_page.jsp</result>
+		</global-results>
+		<!-- 前台会员登录 -->
+		<action name="login" class="loginAction" method="ajaxLogin">
+			<result name="success">/myspace/member_index.jsp</result>
+		</action>
+	
+		<!-- 会员注销 -->
+		<action name="loginout" class="loginAction" method="loginout">
+			<result name="success">/login/login.jsp</result>
+		</action>
+		
+		<!-- 找回密码 -->
+		<action name="retrievepassword" class="loginAction"
+			method="toRetrievepassword">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="retrievePassword">
+				/login/retrieve_password.jsp
+			</result>
+			<result name="retrieveSuccess">
+				/login/retrieve_success.jsp
+			</result>
+			<result name="input">/login/retrieve_password.jsp</result>
+			<result name="invalid.token">
+				/login/retrieve_success.jsp
+			</result>
+		</action>
+		
+		<!-- 会员注册 第一步-->
+		<action name="regSendEmail" class="loginAction" method="registerStepOne">
+			<result name="success">/login/register_first.jsp</result>
+			<result name="actionError">/login/register.jsp</result>
+		</action>
+		
+		<!-- 会员注册 第二步 -->
+		<action name="regSave" class="loginAction" method="registerStepTwo">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="success">/login/register_second.jsp</result>
+			<result name="regError">/login/register_first.jsp</result>
+			<result name="invalid.token">/error/error_page_repeat.jsp</result>
+		</action>
+		
+		<!-- 会员注册 第三步 -->
+		<action name="regUpdate" class="loginAction" method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="success" type="chain">
+				<param name="actionName">userCenterIndexAction</param>
+				<param name="namespace">/openzone</param>
+			</result>
+			<result name="invalid.token">/error/error_page_repeat.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       default-lazy-init="true">
+    <bean id="pptPictureAction" class="com.cnarj.ttxs.admin.actions.recommend.PptPictureAction">
+    </bean>
+
+     <!--后台商品推荐-->
+    <bean id="goodsRecommendAction" class="com.cnarj.ttxs.admin.actions.recommend.GoodsRecommendAction">
+        <property name="goodsService" ref="goodsServiceImpl" ></property>
+        <property name="baseService" ref="baseServiceImpl"></property>
+        <property name="locationInfoService" ref="locationInfoServiceImpl"></property>
+        <property name="recommendService" ref="recommendServiceImpl"></property>
+        <property name="miaoShaService" ref="miaoShaServiceImpl"></property>
+    </bean>
+    <bean id="baseServiceImpl" class="com.cnarj.ttxs.service.imp.BaseServiceImpl">
+        <property name="baseDao" ref="baseDaoImpl"></property>
+    </bean>
+    <bean id="goodsServiceImpl" class="com.cnarj.ttxs.admin.service.imp.shopping.GoodsServiceImpl">
+        <property name="goodsDao" ref="goodsDaoImpl"></property>
+    </bean>
+    <bean id="locationInfoServiceImpl" class="com.cnarj.ttxs.service.imp.sys.LocationInfoServiceImpl">
+        <property name="locationInfoDao" ref="locationInfoDaoImpl"></property>
+        <property name="baseDao" ref="locationInfoDaoImpl"></property>
+    </bean>
+    <bean id="recommendServiceImpl" class="com.cnarj.ttxs.admin.service.imp.recommend.RecommendServiceImpl">
+        <property name="baseDao" ref="baseDaoImpl"></property>
+        <property name="recommendDao" ref="recommendDaoImpl"></property>
+    </bean>
+    <bean id="recommendDaoImpl" class="com.cnarj.ttxs.dao.imp.recemmend.RecommendDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="locationInfoDaoImpl" class="com.cnarj.ttxs.dao.imp.sys.LocationInfoDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="goodsDaoImpl" class="com.cnarj.ttxs.dao.imp.shopping.GoodsDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="baseDaoImpl" class="com.cnarj.ttxs.dao.imp.BaseDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+
+    <!--后台商品秒杀-->
+    <bean id="miaoShaAction" class="com.cnarj.ttxs.admin.actions.recommend.MiaoShaAction">
+        <property name="miaoShaService" ref="miaoShaServiceImpl"></property>
+        <property name="goodsService" ref="goodsServiceImpl"></property>
+    </bean>
+    <bean id="miaoShaServiceImpl" class="com.cnarj.ttxs.admin.service.imp.recommend.MiaoShaServiceImpl">
+        <property name="baseDao" ref="baseDao"></property>
+        <property name="miaoShaDao" ref="miaoShaDao"></property>
+    </bean>
+    <bean id="baseDao" class="com.cnarj.ttxs.dao.imp.BaseDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="miaoShaDao" class="com.cnarj.ttxs.dao.imp.recemmend.MiaoShaDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <!--后台推荐文章-->
+    <bean id="articleAdminAction" class="com.cnarj.ttxs.admin.actions.recommend.ArticleAction">
+        <property name="articleService" ref="articleService"></property>
+    </bean>
+    <bean id="articleService" class="com.cnarj.ttxs.admin.service.imp.recommend.ArticleServiceImpl">
+        <property name="baseDao" ref="baseDao"></property>
+         <property name="articleDao" ref="articleDao"></property>
+    </bean>
+    <bean id="articleDao" class="com.cnarj.ttxs.dao.imp.recemmend.ArticleDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+
+
+
+</beans>
+
+

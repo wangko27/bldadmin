@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-admin-learn" namespace="/admin/learn"
+		extends="basePackage">
+
+		<!-- 学习频道-博览群书 -->
+		<action name="readbook" class="adminReadbookAction">
+			<result name="manage">
+				/admin/learn/readbook/manage.jsp
+			</result>
+			<result name="update">
+				/admin/learn/readbook/update.jsp
+			</result>
+			<result name="add">/admin/learn/readbook/add.jsp</result>
+		</action>
+
+		<!-- 学习频道-博览群书添加 -->
+		<action name="addReadBook" class="adminReadbookAction"
+			method="toAddReadbook">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/learn/readbook/add.jsp</result>
+			<result name="input">/admin/learn/readbook/add.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道-博览群书修改 -->
+		<action name="updateReadBook" class="adminReadbookAction"
+			method="toModifyReadbook">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/learn/readbook/update.jsp
+			</result>
+			<result name="input">
+				/admin/learn/readbook/update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+
+		<!-- 学习频道-博览群书类别 -->
+		<action name="readType" class="adminReadbookTypeAction">
+			<result name="manage">
+				/admin/learn/readbook/type/manage.jsp
+			</result>
+			<result name="update">
+				/admin/learn/readbook/type/update.jsp
+			</result>
+			<result name="add">
+				/admin/learn/readbook/type/add.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道-博览群书类别添加 -->
+		<action name="AddReadType" class="adminReadbookTypeAction"
+			method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">
+				/admin/learn/readbook/type/add.jsp
+			</result>
+			<result name="input">
+				/admin/learn/readbook/type/add.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道-博览群书类别修改 -->
+		<action name="UpdateReadType" class="adminReadbookTypeAction"
+			method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/learn/readbook/type/update.jsp
+			</result>
+			<result name="input">
+				/admin/learn/readbook/type/update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 名师讲坛 - 名师信息 -->
+		<action name="superTeacher" class="adminSuperTeacherAction">
+			<result name="manage">
+				/admin/learn/superteacher/manage.jsp
+			</result>
+			<result name="update">
+				/admin/learn/superteacher/update.jsp
+			</result>
+			<result name="add">
+				/admin/learn/superteacher/add.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 名师讲坛 - 名师信息添加 -->
+		<action name="addSuperTeacher" class="adminSuperTeacherAction"
+			method="toAddSuperTeacher">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">
+				/admin/learn/superteacher/add.jsp
+			</result>
+			<result name="input">
+				/admin/learn/superteacher/add.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 名师讲坛 - 名师信息修改 -->
+		<action name="updateSuperTeacher"
+			class="adminSuperTeacherAction" method="toModifySuperTeacher">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/learn/superteacher/update.jsp
+			</result>
+			<result name="input">
+				/admin/learn/superteacher/update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 名师讲坛 - 文章管理 -->
+		<action name="teacherArticle"
+			class="adminTeacherArticleAction">
+			<result name="manage">
+				/admin/learn/superteacher/article_manage.jsp
+			</result>
+			<result name="update">
+				/admin/learn/superteacher/article_update.jsp
+			</result>
+			<result name="add">
+				/admin/learn/superteacher/article_add.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 名师讲坛 - 文章添加 -->
+		<action name="addTeacherArticle"
+			class="adminTeacherArticleAction" method="toAddTeacherArticle">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">
+				/admin/learn/superteacher/article_add.jsp
+			</result>
+			<result name="input">
+				/admin/learn/superteacher/article_add.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 名师讲坛 - 文章修改 -->
+		<action name="updateTeacherArticle"
+			class="adminTeacherArticleAction" method="toModifyTeacherArticle">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/learn/superteacher/article_update.jsp
+			</result>
+			<result name="input">
+				/admin/learn/superteacher/article_update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 品学论道 -->
+		<action name="pxld" class="adminPxldAction">
+			<result name="manage">/admin/learn/pxld/manage.jsp</result>
+		</action>
+
+		<!-- 学习频道 - 学校风采 -->
+		<action name="school" class="adminSchoolAction">
+			<result name="manage">
+				/admin/learn/school/manage.jsp
+			</result>
+			<result name="add">/admin/learn/school/add.jsp</result>
+			<result name="update">
+				/admin/learn/school/update.jsp
+			</result>
+			<result name="photoManage">
+				/admin/comm/article/photoManage.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 名校风采添加 -->
+		<action name="addSchool" class="adminSchoolAction"
+			method="toAddSchool">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/learn/school/add.jsp</result>
+			<result name="input">/admin/learn/school/add.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 名校风采修改 -->
+		<action name="updateSchool" class="adminSchoolAction"
+			method="toModifySchool">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/learn/school/update.jsp
+			</result>
+			<result name="input">/admin/learn/school/update.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 名校风采 相册管理 -->
+		<action name="photomanageSchool" class="adminSchoolAction"
+			method="openPhotoManage">
+			<result name="photoManage">
+				/admin/learn/school/photo_manage.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 一天一课 -->
+		<action name="oneday" class="adminOnedayAction">
+			<result name="manage">
+				/admin/learn/oneday/manage.jsp
+			</result>
+			<result name="add">/admin/learn/oneday/add.jsp</result>
+			<result name="update">
+				/admin/learn/oneday/update.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 一天一课添加 -->
+		<action name="addOneday" class="adminOnedayAction"
+			method="toAddOneday">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/learn/oneday/add.jsp</result>
+			<result name="input">/admin/learn/oneday/add.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习频道 - 一天一课修改 -->
+		<action name="updateOneday" class="adminOnedayAction"
+			method="toModifyOneday">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/learn/oneday/update.jsp
+			</result>
+			<result name="input">/admin/learn/oneday/update.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+	</package>
+
+
+</struts>

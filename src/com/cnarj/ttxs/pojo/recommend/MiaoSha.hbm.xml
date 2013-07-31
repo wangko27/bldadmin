@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cnarj.ttxs.pojo.recommend.MiaoSha" table="TTXS_ADMIN_MIAOSHA" schema="TTXSCNARJ">
+        <id name="miaoShaId" type="java.lang.String" >
+            <column name="MIAOSHAID" length="32"/>
+            <generator class="uuid"></generator>
+        </id>
+
+        <many-to-one name="goods" class="com.cnarj.ttxs.pojo.shop.Goods" fetch="select" cascade="none" lazy="false">
+            <column name="GOODSID" length="32" not-null="false"></column>
+        </many-to-one>
+        <property name="beginDate" type="java.util.Date">
+            <column name="BEGINDATE" length="7"></column>
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="ENDDATE" length="7"></column>
+        </property>
+
+        <property name="state" type="java.lang.String">
+            <column name="STATE" length="1"></column>
+        </property>
+        <property name="num" type="java.lang.Integer">
+            <column name="NUM"></column>
+        </property>
+        <many-to-one name="admin" class="com.cnarj.ttxs.pojo.sys.Admin" fetch="select" cascade="none" lazy="false">
+            <column name="USERID" length="32" not-null="false"></column>
+        </many-to-one>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE"></column>
+        </property>
+        <property name="beginWeekday" type="java.lang.String">
+            <column name="BEGINWEEKDAY" length="32"></column>
+        </property>
+        <property name="endWeekday" type="java.lang.String">
+            <column name="ENDWEEKDAY" length="32"></column>
+        </property>
+        <property name="lastModifyTime" type="java.util.Date">
+            <column name="LASTMODIFYTIME"></column>
+        </property>
+        <property name="time" type="java.lang.Long">
+            <column name="TIME"></column>
+        </property>
+        <property name="miaoPrice" type="java.lang.Double">
+            <column name="MIAOPRICE"  length="8"></column>
+        </property>
+
+    </class>
+</hibernate-mapping>

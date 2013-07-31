@@ -1,0 +1,204 @@
+.listleft {
+	border: 1px solid #e6e6e6;
+	float: left;
+	width: 703px;
+}
+
+.listleft div {
+	float: left;
+}
+
+.titi {
+	padding: 0px 0px 0px 15px;
+	width: 680px;
+	height: 29px;
+}
+
+.titi p {
+	width: 278px;
+	line-height: 22px;
+	height: 24px;
+	background: url(../img/learning_img/rilibj.gif) no-repeat;
+	float: left;
+}
+
+.titi p span {
+	width: 170px;
+	padding: 0px 23px 0px 50px;
+}
+
+.titi p a {
+	font-weight: bold;
+	color: #ff7a01;
+}
+
+.titi span {
+	float: left;
+	width: 400px;
+	padding: 5px 0px 0px 0px;
+	color: #606060;
+}
+
+.flei {
+	width: 683px;
+	background: #f4f9f2;
+	padding: 10px 10px
+}
+
+.flei ul {
+	width: 670px;
+	float: left;
+	padding: 5px 5px;
+}
+
+.flei ul li {
+	padding: 0px 8px;
+}
+
+.flei ul li a {
+	color: #ff7800;
+}
+
+.flei ul li span {
+	color: #cecece;
+}
+
+.flei p {
+	width: 585px;
+	line-height: 20px;
+	display: inline;
+	border: 1px solid #e8eee4;
+	background: #fff;
+	float: left;
+	margin: 5px 0px 0px 10px;
+	padding: 0px 0px 0px 10px;
+	color: #6a6a6a
+}
+
+.flei p span {
+	color: #000;
+	font-weight: bold;
+}
+
+.leftbig {
+	background: url(../img/learning_img/listbj.gif) no-repeat;
+	border-top: 3px solid #76ad1c;
+	float: left;
+	width: 705px;
+	margin-right: 8px;
+	padding: 0px 0px 10px 0px
+}
+
+.listleft_1 {
+	border: 1px solid #e6e6e6;
+	float: left;
+	width: 683px;
+	margin-top: 10px;
+	padding: 10px 0px 10px 20px;
+	display: inline
+}
+
+.listleft_1 div {
+	float: left;
+}
+
+.maind_1 {
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: 1px solid #e6e6e6;
+	width: 660px;
+	text-align: center;
+	line-height: 28px;
+	padding: 0px 0px 5px 0px;
+}
+
+.maind_2 {
+	border-bottom: 1px solid #e6e6e6;
+	width: 660px;
+	line-height: 34px;
+	color: #999
+}
+
+.maind_2 span {
+	float: left;
+}
+
+.maind_2 span.s1 {
+	width: 410px;
+}
+
+.maind_2 span.s2 {
+	width: 130px;
+}
+
+.maind_2 span.s3 {
+	width: 115px;
+}
+
+.maind_2 span a {
+	width: 54px;
+	height: 23px;
+	padding: 6px 0px 0px 0px;
+	float: left;
+}
+
+.maind_3 {
+	width: 660px;
+	border-bottom: 1px solid #e6e6e6;
+	padding: 10px 0px 10px 0px;
+}
+
+.maind_3 .ppmm {
+	width: 660px;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: justify;
+}
+
+.maind_2 span.s4 {
+	width: 400px;
+	padding: 6px 0px 0px 0px;
+	color: #000
+}
+
+.maind_2 span.s4 b {
+	color: red;
+}
+
+.maind_2 span.s5 {
+	width: 100px;
+	padding: 6px 0px 0px 0px;
+}
+
+.maind_2 a {
+	float: left;
+}
+
+.maind_4 {
+	width: 650px;
+	line-height: 28px;
+	padding: 10px 0px 0px 10px;
+	font-size: 14px;
+	text-align: justify;
+}
+
+.maind_4 span {
+	color: #acacac;
+	font-size: 10px;
+}
+
+.maind_4 ul li {
+	width: 640px;
+	background: url(../img/learning_img/listtu.gif) 0px center no-repeat;
+	padding-left: 10px;
+}
+
+.maind_4 ul li a {
+	color: #214174
+}
+
+.maind_4 ul li.bbt {
+	font-weight: bold;
+	background: none;
+	padding: 0px;
+}

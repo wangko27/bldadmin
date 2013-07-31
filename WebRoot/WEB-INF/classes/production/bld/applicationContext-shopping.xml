@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+	<!-- 商品dao  -->
+	<bean id="goodsDao"
+		class="com.cnarj.ttxs.dao.imp.shopping.GoodsDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="salesDao"
+		class="com.cnarj.ttxs.dao.imp.shopping.SalesDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="zealAnswerDao"
+		class="com.cnarj.ttxs.dao.imp.shopping.ZealAnswerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 商品类型dao -->
+	<bean id="goodsSrotDao"
+		class="com.cnarj.ttxs.dao.imp.shopping.GoodsSrotDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 购物车dao -->
+	<bean id="cartDao"
+		class="com.cnarj.ttxs.dao.imp.shopping.CartDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 订单DAO -->
+	<bean id="orderDao"
+		class="com.cnarj.ttxs.dao.imp.shopping.OrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 订单日志DAO -->
+	<bean id="orderLogDao"
+		class="com.cnarj.ttxs.dao.imp.shopping.OrderLogDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 订单项DAO -->
+	<bean id="orderItemDao"
+		class="com.cnarj.ttxs.dao.imp.shopping.OrderItemDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 收货地址DAO -->
+	<bean id="receiverDao"
+		class="com.cnarj.ttxs.dao.imp.shopping.ReceiverDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 左边公共部分Service配置  -->
+	<bean id="goodsService"
+		class="com.cnarj.ttxs.service.imp.shopping.GoodsServiceImpl">
+		<property name="baseDao" ref="goodsDao"></property>
+		<property name="goodsDao" ref="goodsDao"></property>
+		<property name="salesDao" ref="salesDao"></property>
+	</bean>
+	<bean id="zealAnswerService"
+		class="com.cnarj.ttxs.service.imp.shopping.ZealAnswerServiceImpl">
+		<property name="zealAnswerDao" ref="zealAnswerDao"></property>
+		<property name="baseDao" ref="zealAnswerDao"></property>
+	</bean>
+
+	<!-- 订单SERVICE -->
+	<bean id="orderService"
+		class="com.cnarj.ttxs.service.imp.shopping.OrderServiceImpl">
+		<property name="baseDao" ref="orderDao"></property>
+		<property name="orderDao" ref="orderDao"></property>
+		<property name="orderLogDao" ref="orderLogDao"></property>
+		<property name="memberDao" ref="memberDao"></property>
+		<property name="orderItemDao" ref="orderItemDao"></property>
+		<property name="cartDao" ref="cartDao"></property>
+	</bean>
+
+	<!-- 收货地址SERVICE -->
+	<bean id="receiverService"
+		class="com.cnarj.ttxs.service.imp.shopping.ReceiverServiceImpl">
+		<property name="baseDao" ref="receiverDao"></property>
+		<property name="receiverDao" ref="receiverDao"></property>
+		<property name="memberDao" ref="memberDao"></property>
+	</bean>
+
+	<!-- 购物车service -->
+	<bean id="cartService"
+		class="com.cnarj.ttxs.service.imp.shopping.CartServiceImpl">
+		<property name="cartDao" ref="cartDao"></property>
+		<property name="baseDao" ref="cartDao"></property>
+	</bean>
+
+	<!-- 左边的公共部分 action配置-->
+	<!-- 刘其 -->
+	<bean id="CommleftAction"
+		class="com.cnarj.ttxs.web.actions.shopping.CommleftAction">
+		<property name="goodsService">
+			<ref bean="goodsService" />
+		</property>
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+	</bean>
+	<bean id="ShoppingArticleAction"
+		class="com.cnarj.ttxs.web.actions.shopping.ShoppingArticleAction">
+		<property name="goodsService">
+			<ref bean="goodsService" />
+		</property>
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+		<property name="sysArticleTypeService">
+			<ref bean="sysArticleTypeService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="sysarticleHandleService">
+			<ref bean="sysarticleHandleService" />
+		</property>
+	</bean>
+	<bean id="ShoppingQuestionAction"
+		class="com.cnarj.ttxs.web.actions.shopping.ShoppingQuestionAction" scope="prototype">
+		<property name="zealAnswerService">
+			<ref bean="zealAnswerService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+	</bean>
+	<!-- 商品类型的service -->
+	<bean id="goodsSrotService"
+		class="com.cnarj.ttxs.service.imp.shopping.GoodsSrotServiceImpl">
+		<property name="srotDao" ref="goodsSrotDao"></property>
+		<property name="baseDao" ref="goodsSrotDao"></property>
+	</bean>
+	<!-- 商品列表 -->
+	<bean id="shoppingListAction"
+		class="com.cnarj.ttxs.web.actions.shopping.ShoppingListAction">
+		<property name="goodsService" ref="goodsService"></property>
+		<property name="sortService" ref="goodsSrotService"></property>
+		<property name="cartService" ref="cartService"></property>
+	</bean>
+
+	<!-- 订单ACTION -->
+	<bean id="orderAction"
+		class="com.cnarj.ttxs.web.actions.shopping.OrderAction"
+		scope="prototype">
+		<property name="orderService" ref="orderService"></property>
+		<property name="xzqhService" ref="xzqhService"></property>
+		<property name="receiverService" ref="receiverService"></property>
+		<property name="cartService" ref="cartService"></property>
+		<property name="goodsService" ref="goodsService"></property>
+	</bean>
+
+	<!-- 收货地址ACTION -->
+	<bean id="receiverAction"
+		class="com.cnarj.ttxs.web.actions.shopping.ReceiverAction"
+		scope="prototype">
+		<property name="receiverService" ref="receiverService"></property>
+		<property name="xzqhService" ref="xzqhService"></property>
+	</bean>
+
+	<!-- 购物车 -->
+	<bean id="shoppingCartAction"
+		class="com.cnarj.ttxs.web.actions.shopping.ShoppingCartAction"
+		scope="prototype">
+		<property name="cartService" ref="cartService"></property>
+		<property name="goodsService" ref="goodsService"></property>
+	</bean>
+	<bean id="shoppingIndexAction" class="com.cnarj.ttxs.web.actions.shopping.ShoppingIndexAction">
+		<property name="sortService" ref="goodsSrotService"></property>
+		<property name="goodsService" ref="goodsService"></property>
+	</bean>
+</beans>

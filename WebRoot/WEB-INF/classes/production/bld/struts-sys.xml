@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="admin" namespace="/admin" extends="basePackage">
+		<!-- 科目 -->
+		<action name="subjectCode" class="subjectCodeAction" method="add">
+    		<result name="input">/admin/subjectCode_add.jsp</result>
+			<result name="success">/admin/subjectCode_add.jsp</result>
+		</action>
+		
+		<action name="subjectCodeList" class="subjectCodeAction" method="list">
+    		<result name="input">/admin/subjectCode_list.jsp</result>
+			<result name="success">/admin/subjectCode_list.jsp</result>
+		</action>
+		
+		<action name="subjectCodeEdit" class="subjectCodeAction" method="edit">
+    		<result name="input" type="chain">subjectCodeList</result>
+			<result name="success" type="chain">subjectCodeList</result>
+		</action>
+		
+		<action name="subjectCodeDel" class="subjectCodeAction" method="delete">
+    		<result name="input" type="chain">subjectCodeList</result>
+			<result name="success" type="chain">subjectCodeList</result>
+		</action>
+		
+		<action name="subjectCodeQueId" class="subjectCodeAction" method="queryById">
+    		<result name="input" type="chain">locationInfoList</result>
+			<result name="success">/admin/subjectCode_edit.jsp</result>
+		</action>
+		
+		<!-- 网站位置 -->
+		<action name="locationInfoAdd" class="locationInfoAction" method="add">
+    		<result name="input">/admin/locationInfo_add.jsp</result>
+			<result name="success" type="chain">locationInfoAddBef</result>
+		</action>
+		<action name="locationInfoList" class="locationInfoAction" method="list">
+    		<result name="input">/admin/locationInfo_list.jsp</result>
+			<result name="success">/admin/locationInfo_list.jsp</result>
+		</action>
+		
+		<action name="locationInfoEdit" class="locationInfoAction" method="edit">
+    		<result name="input" type="chain">locationInfoList</result>
+			<result name="success" type="chain">locationInfoList</result>
+		</action>
+		
+		<action name="locationInfoDel" class="locationInfoAction" method="delete">
+    		<result name="input" type="chain">locationInfoList</result>
+			<result name="success" type="chain">locationInfoList</result>
+		</action>
+		
+		<action name="locationInfoQueId" class="locationInfoAction" method="queryById">
+    		<result name="input" type="chain">locationInfoList</result>
+			<result name="success">/admin/locationInfo_edit.jsp</result>
+		</action>
+		
+		<action name="locationInfoAddBef" class="locationInfoAction" method="list">
+    		<result name="input" type="chain">locationInfoList</result>
+			<result name="success">/admin/locationInfo_add.jsp</result>
+		</action>
+		
+		<!-- 内容 -->
+		<action name="webContentAdd" class="webContentAction" method="add">
+    		<result name="input">/admin/webContent_add.jsp</result>
+			<result name="success">/admin/webContent_add.jsp</result>
+		</action>
+		<action name="webContentList" class="webContentAction" method="list">
+    		<result name="input">/admin/webContent_list.jsp</result>
+			<result name="success">/admin/webContent_list.jsp</result>
+		</action>
+		
+		<action name="webContentEdit" class="webContentAction" method="edit">
+    		<result name="input" type="chain">webContentList</result>
+			<result name="success" type="chain">webContentList</result>
+		</action>
+		
+		<action name="webContentDel" class="webContentAction" method="delete">
+    		<result name="input" type="chain">webContentList</result>
+			<result name="success" type="chain">webContentList</result>
+		</action>
+		
+		<action name="webContentQueId" class="webContentAction" method="queryById">
+    		<result name="input">/admin/webContent_list.jsp</result>
+			<result name="success">/admin/webContent_edit.jsp</result>
+		</action>
+		
+		
+		<!-- 网站位置内容 -->
+		<action name="locContentAdd" class="locContentAction" method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+    		<result name="input">/admin/locContent_add.jsp</result>
+			<result name="success">/admin/locContent_add.jsp</result>
+		</action>
+		<action name="locContentList" class="locContentAction" method="list">
+    		<result name="input">/admin/locContent_list.jsp</result>
+			<result name="success">/admin/locContent_list.jsp</result>
+		</action>
+		
+		<action name="locContentEdit" class="locContentAction" method="edit">
+    		<result name="input" type="chain">locContentList</result>
+			<result name="success" type="chain">locContentList</result>
+		</action>
+		
+		<action name="locContentDel" class="locContentAction" method="delete">
+    		<result name="input" type="chain">locContentList</result>
+			<result name="success" type="chain">locContentList</result>
+		</action>
+		
+		<action name="locContentSrc" class="locContentAction" method="querySouce">
+    		<result name="input" type="chain">locContentList</result>
+			<result name="success">/admin/locContent_add.jsp</result>
+		</action>
+		
+		<!-- 管理员 -->
+		<action name="adminAdd" class="adminAction" method="add">
+    		<result name="input">/admin/admin_add.jsp</result>
+			<result name="success">/admin/admin_add.jsp</result>
+			<result name="error">/admin/admin_add.jsp</result>
+		</action>
+		<action name="adminList" class="adminAction" method="list">
+    		<result name="input">/admin/admin_list.jsp</result>
+			<result name="success">/admin/admin_list.jsp</result>
+		</action>
+		
+		<action name="adminDel" class="adminAction" method="delete">
+    		<result name="input" type="chain">adminList</result>
+			<result name="success" type="chain">adminList</result>
+		</action>
+		
+		<action name="adminLogin" class="adminAction" method="login">
+    		<result name="input" type="chain">locContentList</result>
+			<result name="success" type="chain">locContentList</result>
+		</action>
+		
+		<!-- 导航 -->
+		<action name="navigationList" class="navigationAction" method="list">
+    		<result name="input">/admin/navigation_list.jsp</result>
+			<result name="success">/admin/navigation_list.jsp</result>
+		</action>
+		<action name="navigationAddBef" class="navigationAction" method="addBef">
+    		<result name="input" type="chain">navigationList</result>
+			<result name="success">/admin/navigation_add.jsp</result>
+		</action>
+		<action name="navigationAdd" class="navigationAction" method="add">
+    		<result name="input" type="chain">navigationAddBef</result>
+			<result name="success" type="chain">navigationAddBef</result>
+			<result name="error">/admin/navigation_add.jsp</result>
+		</action>
+		<action name="navigationDel" class="navigationAction" method="delete">
+    		<result name="input" type="chain">navigationList</result>
+			<result name="success" type="chain">navigationList</result>
+			<result name="error" type="chain">navigationList</result>
+		</action>
+		<action name="navigationEdit" class="navigationAction" method="edit">
+    		<result name="input" type="chain">navigationList</result>
+			<result name="success" type="chain">navigationList</result>
+			<result name="error" type="chain">navigationList</result>
+		</action>
+		<action name="navigationQueId" class="navigationAction" method="queryById">
+    		<result name="input">/admin/navigation_list.jsp</result>
+			<result name="success">/admin/navigation_edit.jsp</result>
+			<result name="error">navigationList</result>
+		</action>
+		
+		<!-- 广告 -->
+		<action name="advInfoList" class="advInfoAction" method="list">
+    		<result name="input">/admin/advInfo_list.jsp</result>
+			<result name="success">/admin/advInfo_list.jsp</result>
+		</action>
+		<action name="advInfoAddBef" class="advInfoAction" method="addBef">
+    		<result name="input" type="chain">advInfoList</result>
+			<result name="success">/admin/advInfo_add.jsp</result>
+		</action>
+		<action name="advInfoAdd" class="advInfoAction" method="add">
+    		<result name="input" type="chain">advInfoAddBef</result>
+			<result name="success" type="chain">advInfoAddBef</result>
+			<result name="error">/admin/advInfo_add.jsp</result>
+		</action>
+		<action name="advInfoDel" class="advInfoAction" method="delete">
+    		<result name="input" type="chain">advInfoList</result>
+			<result name="success" type="chain">advInfoList</result>
+			<result name="error" type="chain">advInfoList</result>
+		</action>
+		<action name="advInfoEdit" class="advInfoAction" method="edit">
+    		<result name="input" type="chain">advInfoList</result>
+			<result name="success" type="chain">advInfoList</result>
+			<result name="error" type="chain">advInfoList</result>
+		</action>
+		<action name="advInfoQueId" class="advInfoAction" method="queryById">
+    		<result name="input">/admin/advInfo_list.jsp</result>
+			<result name="success">/admin/advInfo_edit.jsp</result>
+			<result name="error">advInfoList</result>
+		</action>
+	</package>
+	
+	<package name="adminComm" namespace="/" extends="basePackage">
+		<!-- 获取栏目中的导航信息 -->
+		<action name="navigationGet" class="navigationAction" method="listByPevId">
+    		<result name="input" type="chain">navigationList</result>
+			<result name="success">/base/othernav.jsp</result>
+		</action>
+		<!-- 首页要展示的导航信息 -->
+		<action name="navigationShow" class="navigationAction" method="listShow">
+    		<result name="input">/base/indexnav.jsp</result>
+			<result name="success">/base/indexnav.jsp</result>
+		</action>
+		
+	</package>
+</struts>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+	<!-- 兴趣Dao中的Beans的配置 -->
+
+	<!-- 活动栏目dao  -->
+	<bean id="activityProgramaDao"
+		class="com.cnarj.ttxs.dao.imp.interest.ActivityProgramaDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 活动信息dao  -->
+	<bean id="activityDao"
+		class="com.cnarj.ttxs.dao.imp.interest.ActivityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 活动指导老师dao  -->
+	<bean id="activityTeacherDao"
+		class="com.cnarj.ttxs.dao.imp.interest.ActivityTeacherDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 活动作品投票信息dao  -->
+	<bean id="activityVotesDao"
+		class="com.cnarj.ttxs.dao.imp.interest.ActivityVotesDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 活动作品评论信息dao  -->
+	<bean id="activityWorkCommentedDao"
+		class="com.cnarj.ttxs.dao.imp.interest.ActivityWorkCommentedDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 活动作品dao  -->
+	<bean id="activityWorksDao"
+		class="com.cnarj.ttxs.dao.imp.interest.ActivityWorksDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 活动分类dao  -->
+	<bean id="activityTypeDao"
+		class="com.cnarj.ttxs.dao.imp.interest.ActivityTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 首页活动作品展示dao  -->
+	<bean id="activityWorksShowDao"
+		class="com.cnarj.ttxs.dao.imp.interest.ActivityWorksShowDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 兴趣Service中的Beans的配置 -->
+
+	<!-- 活动栏目Service  -->
+	<bean id="activityProgramaService"
+		class="com.cnarj.ttxs.service.imp.interest.ActivityProgramaServiceImpl">
+		<property name="baseDao"
+			ref="activityProgramaDao">
+		</property>
+		<property name="activityProgramaDao"
+			ref="activityProgramaDao">
+		</property>
+	</bean>
+	<!-- 活动信息Service  -->
+	<bean id="activityService"
+		class="com.cnarj.ttxs.service.imp.interest.ActivityServiceImpl">
+		<property name="activityDao" ref="activityDao"></property>
+		<property name="baseDao" ref="activityDao"></property>
+	</bean>
+	<!-- 活动指导老师Service  -->
+	<bean id="activityTeacherService"
+		class="com.cnarj.ttxs.service.imp.interest.ActivityTeacherServiceImpl">
+		<property name="activityTeacherDao" ref="activityTeacherDao"></property>
+	</bean>
+	<!-- 活动作品投票信息Service  -->
+	<bean id="activityVotesService"
+		class="com.cnarj.ttxs.service.imp.interest.ActivityVotesServiceImpl">
+		<property name="activityVotesDao" ref="activityVotesDao"></property>
+	</bean>
+	<!-- 活动作品评论信息Service  -->
+	<bean id="activityWorkCommentedService"
+		class="com.cnarj.ttxs.service.imp.interest.ActivityWorkCommentedServiceImpl">
+		<property name="activityWorkCommentedDao"
+			ref="activityWorkCommentedDao">
+		</property>
+	</bean>
+	<!-- 活动作品Service  -->
+	<bean id="activityWorksService"
+		class="com.cnarj.ttxs.service.imp.interest.ActivityWorksServiceImpl">
+		<property name="activityWorksDao" ref="activityWorksDao"></property>
+	</bean>
+
+
+	<!-- 兴趣Actions中的Beans的配置 -->
+
+	<!-- 导航栏目 -->
+	<bean id="topAction" class="com.cnarj.ttxs.web.actions.interest.TopAction">
+		<property name="activityProgramaService" ref="activityProgramaService"></property>
+		<property name="activityWorksService" ref="activityWorksService"></property>
+	</bean>
+	<!-- 活动列表 -->
+	<bean id="activityAction" class="com.cnarj.ttxs.web.actions.interest.ActivityAction" scope="prototype">
+		<property name="activityService" ref="activityService"></property>
+		<property name="activityWorksService" ref="activityWorksService"></property>
+	</bean>
+	<!-- 活动所有作品 -->
+	<bean id="activityWorksAction" class="com.cnarj.ttxs.web.actions.interest.ActivityWorksAction">
+		<property name="activityWorksService" ref="activityWorksService"></property>
+	</bean>
+	<!-- 显示作品的详细信息 -->
+	<bean id="activityWorkCommentedAction" class="com.cnarj.ttxs.web.actions.interest.ActivityWorkCommentedAction">
+		<property name="commentedService" ref="activityWorkCommentedService"></property>
+		<property name="worksService" ref="activityWorksService"></property>
+		<property name="votesService" ref="activityVotesService"></property>
+	</bean>
+	<!-- 兴趣首页 -->
+	<bean id="indexAction2" class="com.cnarj.ttxs.web.actions.interest.IndexAction">
+		<property name="worksService" ref="activityWorksService"></property>
+		<property name="activityService" ref="activityService"></property>
+		<property name="programaService" ref="activityProgramaService"></property>
+		<property name="schoolinfoService" ref="schoolinfoService"></property>
+	</bean> 
+	<!-- 活动公告 -->
+	<bean id="activityBulletinAction" class="com.cnarj.ttxs.web.actions.interest.ActivityBulletinAction">
+		<property name="worksService" ref="activityWorksService"></property>
+	</bean>
+	<!-- 右边的公共部分 -->	
+	<!-- 刘其 -->
+	<bean id="rightAction" class="com.cnarj.ttxs.web.actions.interest.RightAction">
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+		<property name="activityService">
+			<ref bean="activityService" />
+		</property>
+		<property name="readbookService">
+			<ref bean="readbookService" />
+		</property>
+		<property name="likeGoodsService">
+			<ref bean="likeGoodsService" />
+		</property>
+	</bean>
+	<!-- 航模组列表-->	
+	<!-- 刘其 -->
+	<bean id="ModelAction" class="com.cnarj.ttxs.web.actions.interest.ModelAction">
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+		<property name="sysArticleTypeService">
+			<ref bean="sysArticleTypeService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="sysarticleHandleService">
+			<ref bean="sysarticleHandleService" />
+		</property>
+		<property name="activityService">
+			<ref bean="activityService" />
+		</property>			
+	</bean>
+</beans>

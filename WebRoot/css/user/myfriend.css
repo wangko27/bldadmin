@@ -1,0 +1,26 @@
+.fire{ width:755px; float:left; padding:10px 0px 0px 0px;}
+.fire div{ float:left}
+.fireleft{ width:560px; float:left; padding:0px 15px 0px 0px}
+.fireleft .anbootm{ width:50px; float:right;}
+.myfriend{width:560px; float:left}
+.myfriend ul{width:560px; border-bottom:1px solid #eee; float:left; padding:15px 0px 10px 0px;}
+.myfriend ul li.imgus{ width:70px;}
+.myfriend ul li.imgus img{ width:51px; height:51px; padding:1px; border:1px solid #cfcfcf; background:#fff;}
+.myfriend ul li.xiao{ width:410px;}
+.myfriend ul li.xiao p{ width:400px; padding:5px 0px; color:#696969}
+.myfriend ul li.xiao a{ font-size:14px; color:#254b9e}
+.myfriend ul li.xiao a:hover{ text-decoration:underline}
+.myfriend ul li.xiao select{ font-size:12px; color:#8e8e8e; border:1px solid #cddae3; height:20px;}
+.myfriend ul li.chu{ width:70px;}
+.myfriend ul li.chu a{ background:url(../../img/user_img/uy.gif) no-repeat right 0px; color:#668091; padding:3px 0px 0px 0px; width:70px; display:block; height:27px;}
+.myfriend ul li.chu a:hover{ background:url(../../img/user_img/uy1.gif) no-repeat right 0px; color:#668091; padding:3px 0px 0px 0px; width:70px; display:block; height:27px;}
+
+.fireright{ background:#f9f9f9; border:1px solid #acc7e2; width:175px; float:left;}
+.fireright h1{ width:165px; font-size:14px; font-weight:bold; color:#3a3a38; background:#e4eaf6; padding:5px 0px 3px 10px; float:left}
+.fireright ul{ float:left; padding:10px 0px 10px 10px; width:165px}
+.fireright ul li{padding:3px 0px; float:left; width:165px}
+.fireright ul li a{padding:2px 15px; background:url(../../img/user_img/jj3.gif) no-repeat 5px center; color:#204a9e; display:block; float:left}
+.fireright ul li a.dizhu{padding:2px 15px; border:1px solid #ebebeb; background:url(../../img/user_img/jj3.gif) no-repeat 5px center #fff; display:block; color:#000; font-weight:bold; float:left}
+.fireright ul li a.aat{ display:block; background:none; float:right; padding:3px; margin:5px 10px 0px 0px;}
+.fireright ul li a:hover.aat{ display:block; background:#fff; float:right; padding:3px;margin:5px 10px 0px 0px; border:1px solid #214b9d}
+

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-learn" namespace="/learn"
+		extends="basePackage">
+
+		<!-- 学习频道-博览群书 -->
+		<action name="readbook" class="webReadbookAction">
+			<result name="list">/learn/readbook/list.jsp</result>
+			<result name="view">/learn/readbook/view.jsp</result>
+		</action>
+
+		<!-- 学习频道-首页 -->
+		<action name="xx_index" class="learnIndexAction"
+			method="index">
+			<result name="index">/learn/index.jsp</result>
+		</action>
+
+		<!-- 学习频道-公用的 -->
+		<action name="public" class="publicAction"></action>
+
+		<!-- 名师讲堂 -->
+		<action name="teacherbema_*" class="readSysInfoAction"
+			method="{1}">
+			<result>/learn/teacherbema/list.jsp</result>
+			<result name="teacheinfo">
+				/learn/teacherbema/mingshimain.jsp
+			</result>
+			<result name="sysInfo">
+				/learn/teacherbema/xuexixitonggonggao.jsp
+			</result>
+			<result name="schoolinfo">
+				/learn/teacherbema/mxiaomain.jsp
+			</result>
+			<result name="teaart">
+				/learn/teacherbema/mshimain.jsp
+			</result>
+			<result name="text">
+				/learn/teacherbema/titlelist.jsp
+			</result>
+			<result name="teach">/learn/result/list.jsp</result>
+		</action>
+		<!-- 名校风采 -->
+		<action name="schools_*" class="readSchoolAction"
+			method="{1}">
+			<result name="showSchs">
+				/learn/teacherbema/xuelist.jsp
+			</result>
+			<result name="oneDay">/learn/result/adaylist.jsp</result>
+			<result name="mingshi">/learn/result/list.jsp</result>
+			<result name="qunshu">/learn/result/list_re.jsp</result>
+			<result name="pingdao">/learn/result/pinxuelist.jsp</result>
+		</action>
+
+		<action name="together" class="togetherAction"
+			method="connMethod">
+			<result name="right">/learn/right.jsp</result>
+		</action>
+		<!-- 一天一课 -->
+		<action name="oneday_*" class="oneDayOneTextAction"
+			method="{1}">
+			<result name="bytime">/learn/adaylist.jsp</result>
+			<result name="oneDayInfo">/learn/adaymain.jsp</result>
+			<result name="oneDay">/learn/result/adaylist.jsp</result>
+			<result name="mingshi">/learn/result/list.jsp</result>
+			<result name="qunshu">/learn/result/list_re.jsp</result>
+			<result name="pingdao">/learn/result/pinxuelist.jsp</result>
+		</action>
+		<!-- 品学论道(李万余) -->
+		<action name="pinxue_*" class="pinXueAction" method="{1}">
+			<result name="pinxue">/learn/perusal/pinxuelist.jsp</result>
+		</action>
+		<!-- 品学论道(刘其) -->
+		<action name="PerusalArticle" class="PerusalAction">
+			<result name="List">/learn/perusal/pinxuelist.jsp</result>
+			<result name="View">/learn/perusal/maid.jsp</result>
+		</action>
+	</package>
+
+	<!-- 有登录限制的，需要登录才能操作 -->
+	<package name="struts-learn-filter" namespace="/learn/filter"
+		extends="basePackage">
+		<action name="restriction" class="restrictionAction">
+			<result name="login">/login/login.jsp</result>
+			<result name="input">/login/login.jsp</result>
+			<result name="bookview" type="chain"><!-- 包里的action名称 -->
+				<param name="actionName">readbook</param>
+				<param name="method">view</param>
+				<!-- 包名 -->
+				<param name="namespace">/learn</param>
+			</result>
+			<result name="onedayview" type="chain"><!-- 包里的action名称 -->
+				<param name="actionName">oneday_*</param>
+				<param name="method">showOneDayInfo</param>
+				<!-- 包名 -->
+				<param name="namespace">/learn</param>
+			</result>
+			<result name="schoolview" type="chain"><!-- 包里的action名称 -->
+				<param name="actionName">teacherbema_*</param>
+				<param name="method">showSchool</param>
+				<!-- 包名 -->
+				<param name="namespace">/learn</param>
+			</result>
+			<result name="teacherview" type="chain"><!-- 包里的action名称 -->
+				<param name="actionName">teacherbema_*</param>
+				<param name="method">showTeacherArticleSrc</param>
+				<!-- 包名 -->
+				<param name="namespace">/learn</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

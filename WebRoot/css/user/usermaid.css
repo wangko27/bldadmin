@@ -1,0 +1,44 @@
+
+.bbowen{ width:760px; float:left;}
+.bbowen div{ float:left}
+.opous{ width:580px; padding:10px 0px 0px 0px;}
+.zhz{width:570px; border-bottom:1px solid #e9e9e9; padding:10px 0px;}
+.zhz ul{ float:left;}
+.zhz ul.tou{ width:70px;}
+.zhz ul.tou li img{ width:53px; height:53px; border:1px solid #cfcfcf; padding:1px; background:#fff;}
+.zhz ul.wenzi{ width:498px;}
+.zhz ul.wenzi li{ width:498px; padding:0px 0px 5px 0px; color:#333}
+.zhz ul.wenzi li.bh,.zhz ul.wenzi_1 li.bh{ font-size:14px; font-weight:bold; padding:0px 0px 10px 0px;}
+.zhz ul.wenzi li.time,.zhz ul.wenzi_1 li.time{ color:#cacaca; font-size:10px; padding:0px 0px 5px 0px;}
+.zhz ul.wenzi li p{ width:498px; font-size:14px; line-height:22px; color:#262626; text-align:justify;}
+.zhz ul.wenzi li p img,.zhz ul.wenzi_1 li p img{ max-width:20%;height:auto;width:expression(this.width > 460 ? "460px" : this.width);padding:2px; border:1px solid #cfcdd0;}
+*html .zhz ul.wenzi li p img{ width:20%; height:20%;padding:2px; border:1px solid #cfcdd0;}
+.zhz a{ color:#204a9e}
+
+.zhz ul.wenzi_1{ width:550px; padding:0px 0px 0px 8px;}
+.zhz ul.wenzi_1 li{ width:550px; padding:0px 0px 5px 0px; color:#333}
+.zhz ul.wenzi_1 li p{ width:550px; font-size:14px; line-height:22px; color:#262626; text-align:justify;}
+*html .zhz ul.wenzi_1 li p img{ width:20%; height:20%;padding:2px; border:1px solid #cfcdd0;}
+
+.banner{ width:175px; float:left; padding:10px 0px 0px 0px;}
+.banner img{ width:175px; height:80px; padding:5px 0px;}
+
+.bbti{ width:915px; padding:20px 0px 10px 0px; color:#3e3e3e;}
+.bbti input{ float:none; width:330px; border:1px solid #bdbec0; height:24px;}
+.eidm{ width:915px;}
+.quan{ width:915px; padding:10px 0px 10px 0px;}
+.quan input{ float:none;} 
+.mima{ width:310px; height:60px; border:1px solid #e1e4e9; background:#f7f7f9; padding:10px 0px 0px 10px; margin:0px 0px 0px 60px; display:inline;}
+.mima input{ float:none; border:1px solid #ccc; height:22px; width:180px;} 
+.mima p{ width:300px; padding:5px 0px;}
+.mima p.zhu{ width:220px; padding:0px 0px 0px 60px; color:#808080}
+.botton{ width:850px; padding:10px 0px 0px 50px;}
+.botton a{ margin:0px 10px;}
+
+/*²©ÎÄÄÚÒ³*/
+.boo_1{ width:740px; float:left; padding:20px 0px 0px 0px; color:#c6c6c6;}
+.boo_1 a{ color:#407aa8}
+.boo_1 span{ float:left}
+.boo_2{width:740px; float:left; padding:10px 0px 0px 0px; color:#262626; line-height:30px; font-size:14px;}
+.boo_2 h1{ font-size:18px; font-weight:bold; padding:10px 0px 0px 0px; width:740px;}
+.boo_2 h2{ font-size:12px; color:#757575; padding:0px 0px 10px 0px; width:740px;}

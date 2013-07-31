@@ -1,0 +1,19 @@
+.listleft{ width:703px; border:1px solid #e6e6e6; float:left; border-top:3px solid #76ad1c; margin-right:8px; background:url(../img/learning_img/listbj.gif) no-repeat; padding:0px 0px 10px 0px}
+.listleft div{ float:left;}
+.titi{ padding:5px 0px 0px 15px; width:680px; height:24px;}
+.flei_1{ width:673px; border-bottom:1px solid #e8eee4; background:#f4f9f2; padding:10px 15px}
+.flei_1 ul.lui1{ width:267px; height:50px; background:url(../img/learning_img/tiao.gif) no-repeat right; float:left;}
+.flei_1 ul.lui1 li{ width:270px;height:26px;}
+.flei_1 ul.lui1 li span{ float:left; display:block; padding:0px 3px; }
+*html .flei_1 ul.lui1 li span{line-height:24px;}
+*+html .flei_1 ul.lui1 li span{line-height:24px;}
+input.ssk{ width:165px; height:22px; border:1px solid #cddeb4; background:url(../img/learning_img/fda.gif) no-repeat #fff; color:#9c9c9c; font-size:12px; line-height:22px; padding:0px 0px 0px 20px; margin-right:10px;}
+.flei_1 p.lui2{ width:370px; padding:0px 0px 0px 30px; float:left; line-height:24px; color:#c8c8c8;}
+.flei_1 p.lui2 b{ color:#000}
+.flei_1 p.lui2 span a{ color:#f48704;}
+
+.list_5{ width:680px; padding:5px 10px; float:left;}
+.list_5 ul{ width:680px; padding:20px 0px 10px 0px; background:url(../img/home_img/xu.gif) repeat-x bottom; height:160px;}
+.list_5 ul li a img{ width:98px; height:118px; padding:4px 20px; border:1px solid #e5e5e5; background:#f7f7f7}
+.list_5 ul li{ width:170px; text-align:center; line-height:26px; position:relative;}
+.list_5 ul li p.pss{ position:absolute; z-index:5; top:100px;left:110px;}  

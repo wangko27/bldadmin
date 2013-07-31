@@ -1,0 +1,58 @@
+.news_leftmd{ width:713px; float:left;}
+.news_leftmd div{ float:left;}
+.weirr{ width:703px; border:1px solid #e2e2e2; border-top:2px solid #768fb7; background:url(../../img/news_img/bj1.gif) repeat-x #f6fafd;}
+.weirr ul{ padding:15px 10px 10px 20px; width:670px; float:left;}
+.weirr ul li{}
+.weirr ul li.wenhh{ background:url(../../img/news_img/wenhh.gif) no-repeat 0px 2px; font-size:14px; font-weight:bold; width:630px; padding-left:30px; line-height:24px;}
+.weirr ul li.yidahh{ background:url(../../img/news_img/yidahh.gif) no-repeat 0px 2px; font-size:14px; font-weight:bold; width:630px; padding-left:30px; line-height:24px;}
+.weirr ul li.xiaozi{ padding:10px 0px 3px 0px; width:660px;}
+.weirr ul li.xiaozi p{ padding:0px 0px 0px 15px; float:left;}
+.weirr ul li.xiaozi p{ color:#626e7e}
+.weirr ul li.xiaozi p a{ color:#085bb9}
+.weirr ul li.xiaozi p b{ color:red}
+.weirr ul li.xiaozi p.jj1{ color:#000;background:url(../../img/news_img/qianbi.gif) no-repeat 0px center;}
+.weirr ul li.xiaozi p.jj2{ float:right}
+.weirr ul li.tish{ width:640px; border-bottom:1px solid #b9cddd;color:#9ea6b1; padding:2px; margin-left:13px!important;margin-left:6px}
+.weirr ul li.tish span.s1{ float:left}
+.weirr ul li.tish span.s2{ float:right}
+.weirr p.buch{ width:630px; padding:0px 10px 10px 40px; font-size:14px; line-height:26px; float:left}
+.hui{width:703px; border:1px solid #dbe6f0; background:#e9f2f8; margin-top:10px;}
+.hui h1{ padding:10px 0px 0px 20px; width:600px; font-size:14px; font-weight:bold; float:left}
+.hui ul{ margin:10px 0px 0px 20px!important;margin:10px 0px 0px 10px; width:660px; background:#fff; border:2px solid #c0d3e4; float:left;}
+.hui ul li{ float:left}
+.hui ul li.shyy{ width:658px; background:#f2f7fb; border:1px solid #fff;}
+.hui ul li textarea{ border:0; width:648px; height:120px; color:#909090; font-size:14px; padding:5px}
+.hui ul li a.cha1{ background:url(../../img/news_img/cgabj1.gif) no-repeat 8px center; padding-left:30px; line-height:30px; float:left; display:block;}
+.hui p{ width:680px; text-align:right; padding:10px 0px; float:left;}
+
+.jiada{width:703px; border:1px solid #e2e2e2; background:#fdf4f5; margin-top:10px; background:url(../../img/news_img/jia.gif) no-repeat #fdf4f5; padding:0px 0px 10px 0px;}
+.jiada p{ float:left;margin:10px 0px 0px 40px!important;margin:10px 0px 0px 20px;}
+.jiada p.jiap1{ font-size:14px; width:645px;  line-height:24px; background:url(../../img/home_img/xu.gif) repeat-x bottom; padding:0px 0px 10px 0px;}
+.jiada p.dipu{width:645px; padding:5px 0px;}
+.jiada p span.jii{ width:110px; border:1px solid #e0c8c8; background:url(../../img/news_img/qianbi.gif) no-repeat 5px center #fff; padding:5px 5px 5px 20px; font-size:14px; color:red; float:left}
+.jiada p span.jjrrr{ float:right; color:#b5b5b5; padding:5px 0px 0px 0px}
+.jiada p span.jjrrr a{ color:#075ab6;}
+
+.dada{width:683px; border:1px solid #e2e2e2; margin-top:10px;padding:10px 0px 10px 20px;}
+.dada h1{ width:670px; font-size:14px; font-weight:bold; float:left; border-bottom:1px solid #e2e2e2}
+.dada h1 span{ font-weight:normal; color:#bdbdbd}
+.ggff{ width:670px; background: url(../../img/home_img/xu.gif) repeat-x bottom #fafbfd; padding:10px 0px}
+.ggff p.wew{ background:url(../../img/news_img/ggbj.gif) no-repeat 5px 5px; line-height:28px; font-size:14px; padding-left:45px; width:620px;}
+.ggff p.wewzi,.ggff_1 p.wewzi{width:660px; text-align:right; color:#a1a1a1;}
+
+.ggff_1{ width:670px; background: url(../../img/home_img/xu.gif) repeat-x bottom; padding:10px 0px}
+.ggff_1 p.wew{ line-height:28px; font-size:14px; padding-left:10px; width:650px;}
+.ggff_1 p img,.ggff p img{ width:15%; height:15%;}
+.ggff_1 p a{ color:#085cbe}
+
+
+.qita{width:703px; border:1px solid #e2e2e2; margin-top:10px;}
+.qita h1{ font-size:14px; font-weight:bold; width:660px; border-bottom:1px solid #e2e2e2; margin:0px 0px 0px 20px; line-height:30px; padding-top:5px;}
+.qita span{color:#acacac; font-size:10px;}
+.qita span.fen{background:url(../../img/news_img/qianbi.gif) no-repeat 10px center; font-size:14px; color:#000; padding:0px 0px 0px 25px}
+.qita ul{ font-size:14px; line-height:30px; padding-left:20px; width:660px;}
+.qita ul li{ width:640px; background:url(../../img/learning_img/listtu.gif) 0px center no-repeat; padding-left:10px;}
+.qita ul li a{ color:#214174}
+.qita ul li.bbt{ font-weight:bold;background:none; padding:0px;}
+
+input.tijiao_1{background:url(../../img/news_img/anbj1.gif) no-repeat; border:none;  width:90px; height:30px; align:left;}

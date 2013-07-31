@@ -1,0 +1,37 @@
+.classmate{ width:760px;}
+.anbootm{ width:750px;padding:20px 0px 10px 0px; float:left}
+.anbootm span{ font-size:14px; font-weight:bold; color:#262626; float:left}
+.anbootm p{ width:50px; float:right; }
+
+.clmt{width:760px; float:left}
+.clmt ul{width:760px; float:left}
+.clmt ul li{width:80px; float:left; padding:0px 14px 20px 14px;}
+.clmt ul li p{ width:77px; text-align:center; padding:2px 0px; color:#c3c3c3}
+.clmt ul li img{ width:75px; height:75px; padding:1px;  border:1px solid #cecece}
+.clmt ul li a{ color:#204a9c; font-size:14px;}
+
+.qunbu{ width:365px; float:left; padding:15px 0px;}
+.qunbu ul{ width:300px; float:left}
+.qunbu ul li{padding:0px 5px; color:#b1b1b1;}
+.qunbu ul li a{ font-size:14px; color:#214a9c; text-decoration:underline;}
+.qunbu ul li a.dbu{ font-weight:bold; color:#000; text-decoration:none; background:url(../../img/user_img/jj1.gif) no-repeat bottom center; padding:0px 0px 8px 0px;}
+
+.jique{ width:750px; float:left; padding:15px 0px 10px 0px;}
+.jique p{ color:#747474}
+.jique p span{ font-size:14px; font-weight:bold; color:#000}
+
+.jjcha{ width:750px; background:url(../../img/home_img/xu.gif) repeat-x bottom; padding:10px 0px 20px 0px; font-size:14px;}
+.jjcha input{ float:none; width:140px; border:1px solid #b1c5dd; height:24px;}
+.jjcha ul{ width:750px; float:left}
+.jjcha ul li{ width:220px; float:left;}
+
+.jieg{ width:750px;}
+.jieg ul{width:170px; float:left; padding:0px 15px 20px 15px;}
+.jieg ul li{ float:left;}
+.jieg ul li.imgtu{ width:80px; padding:0px 10px 0px 0px }
+.jieg ul li.imgtu img{ padding:2px; border:1px solid #cfcfcf; width:75px; height:75px;}
+.jieg ul li.ziz{ width:80px;}
+.jieg ul li.ziz p{ width:60px; padding:2px 0px; font-size:14px;}
+.jieg ul li.ziz p.ppo{ font-size:12px; background:url(../../img/user_img/shi.gif) no-repeat right;}
+.jieg ul li.ziz p a{ color:#21499e}
+.jieg ul li.ziz p.ppo a{ text-decoration:underline;}

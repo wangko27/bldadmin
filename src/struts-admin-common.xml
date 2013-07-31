@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-admin-common" namespace="/admin/common"
+		extends="basePackage">
+
+		<!-- 后台公用-文件操作 -->
+		<action name="fileOperate" class="fileOperateAction">
+			<result name="picManage" type="chain">picmanage</result>
+			<result name="photoManage" type="chain">
+				<!-- 包里的action名称 -->
+				<param name="actionName">photomanageSchool</param>
+				<!-- 包名 -->
+				<param name="namespace">/admin/learn</param>
+			</result>
+		</action>
+
+	</package>
+
+
+</struts>

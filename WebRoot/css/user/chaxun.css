@@ -1,0 +1,19 @@
+.xunc_1{ float:left; width:730px; border:1px solid #e9e9e9; background:#f8f8f8; margin:20px 0px 0px 0px; padding:5px 10px;}
+.xunc_1 table td{ line-height:30px; font-size:14px; padding:5px 0px;}
+.xunc_1 table td.chx{font-weight:bold; border-bottom:1px solid #e8e8e8}
+.xunc_1 select{ width:120px; height:24px;}
+.xunc_1 input.cx{ background:url(../../img/user_img/cxun.gif) no-repeat; height:27px; width:49px; border:none}
+
+.xunc_2{ float:left; width:730px; margin:20px 0px 0px 0px; padding:5px 10px;}
+.xunc_2 h1{ color:red; float:left}
+.xunc_2 h1 span{font-size:14px; font-weight:bold; color:#000;}
+.xunc_2 table{ border-top:1px solid #c7d7e6;border-left:1px solid #c7d7e6; margin:10px 0px 0px 0px; line-height:38px; float:left; font-size:12px;}
+.xunc_2 table td{border-right:1px solid #c7d7e6; border-bottom:1px solid #c7d7e6; text-align:center}
+.xunc_2 table td.t1{ background:#e1e8ee; font-weight:bold; color:#19496f;font-size:14px;}
+.xunc_2 a,.xunc_3 a{ color:#224a9f; text-decoration:underline;} 
+.xunc_2 table tr.t2{ background:#f2f5fa;}
+
+.xunc_3{ float:left; width:730px; margin:20px 0px 0px 0px; padding:5px 10px; color:#777;}
+.xunc_3 b{ color:#494949}
+
+.tjbiao{float:left; width:730px; }

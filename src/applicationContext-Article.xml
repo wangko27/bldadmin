@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:aop="http://www.springframework.org/schema/aop" 
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:tx="http://www.springframework.org/schema/tx" 
+xmlns:oscache="http://www.springmodules.org/schema/oscache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+	http://www.springmodules.org/schema/oscache 
+	http://www.springmodules.org/schema/cache/springmodules-oscache.xsd
+	">
+	
+	<bean id="baseDao" class="com.cnarj.ttxs.dao.imp.BaseDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<!--<bean id="articleDao" class="com.cnarj.ttxs.dao.imp.Article.ArticleDaoImpl">-->
+		<!--<property name="sessionFactory">  -->
+            <!--<ref bean="sessionFactory"/>  -->
+         <!--</property> -->
+	<!--</bean>-->
+	<bean id="articleTypeDao" class="com.cnarj.ttxs.dao.imp.Article.ArticleTypeDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+		<bean id="sysArticleTypeDao" class="com.cnarj.ttxs.dao.imp.Article.SysArticleTypeDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="questionDao" class="com.cnarj.ttxs.dao.imp.Article.QuestionDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="AnswerDao" class="com.cnarj.ttxs.dao.imp.Article.AnswerDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="ArticleHandleRecDao" class="com.cnarj.ttxs.dao.imp.Article.ArticleHandleRecDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="sysArticleHandleDao" class="com.cnarj.ttxs.dao.imp.Article.SysArticleHandleDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="sysarticleDao" class="com.cnarj.ttxs.dao.imp.Article.SysArticleDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<!-- Service中的Beans的配置 -->
+	<!---->
+	<bean id="sysarticleService" class="com.cnarj.ttxs.service.imp.Article.SysArticleServiceImpl">
+		<property name="baseDao">
+			<ref bean="sysarticleDao" />
+		</property>
+		<property name="sysarticleDao">
+			<ref bean="sysarticleDao" />
+		</property>
+	</bean>
+	<bean id="questionTypeDao" class="com.cnarj.ttxs.dao.imp.Article.QuestionDaoTypeImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<!--<bean id="articleService" class="com.cnarj.ttxs.service.imp.Article.ArticleServiceImpl">-->
+		<!--<property name="baseDao">-->
+			<!--<ref bean="articleDao" />-->
+		<!--</property>-->
+		<!--<property name="articleDao">-->
+			<!--<ref bean="articleDao" />-->
+		<!--</property>-->
+		<!--<property name="articleHandleRecDao">-->
+			<!--<ref bean="ArticleHandleRecDao" />-->
+		<!--</property>-->
+		<!--<property name="memberDao">-->
+			<!--<ref bean="memberDao" />-->
+		<!--</property>-->
+	<!--</bean>-->
+	<bean id="questionTypeService" class="com.cnarj.ttxs.service.imp.Article.QuestionTypeServiceImpl">
+		<property name="baseDao">
+			<ref bean="questionTypeDao" />
+		</property>
+		<property name="questionTypeDao">
+			<ref bean="questionTypeDao" />
+		</property>
+	</bean>
+	<bean id="questionService" class="com.cnarj.ttxs.service.imp.Article.QuestionServiceImpl">
+		<property name="baseDao">
+			<ref bean="questionDao" />
+		</property>
+		<property name="questionDao">
+			<ref bean="questionDao" />
+		</property>
+	</bean>
+	<bean id="articleTypeService" class="com.cnarj.ttxs.service.imp.Article.ArticleTypeServiceImpl">
+		<property name="baseDao">
+			<ref bean="articleTypeDao" />
+		</property>
+		<property name="articleTypeDao">
+			<ref bean="articleTypeDao" />
+		</property>
+	</bean>
+		<bean id="sysArticleTypeService" class="com.cnarj.ttxs.service.imp.Article.SysArticleTypeServiceImpl">
+		<property name="baseDao">
+			<ref bean="sysArticleTypeDao" />
+		</property>
+		<property name="sysArticleTypeDao">
+			<ref bean="sysArticleTypeDao" />
+		</property>
+	</bean>
+	<bean id="answerServive" class="com.cnarj.ttxs.service.imp.Article.AnswerServiceImpl">
+		<property name="baseDao">
+			<ref bean="AnswerDao" />
+		</property>
+		<property name="answerDao">
+			<ref bean="AnswerDao" />
+		</property>
+	</bean>
+	<bean id="articleHandleRecService" class="com.cnarj.ttxs.service.imp.Article.ArticleHandleRecServiceImpl">
+		<property name="baseDao">
+			<ref bean="ArticleHandleRecDao" />
+		</property>
+		<property name="articleHandleRecDao">
+			<ref bean="ArticleHandleRecDao" />
+		</property>
+	</bean>
+		<bean id="sysarticleHandleService" class="com.cnarj.ttxs.service.imp.Article.SysArticleHandleServiceImpl">
+		<property name="baseDao">
+			<ref bean="sysArticleHandleDao" />
+		</property>
+		<property name="sysArticleHandleDao">
+			<ref bean="sysArticleHandleDao" />
+		</property>
+	</bean>
+	<!-- Action中的Beans的配置 -->
+	
+	<bean id="ArticleAction" class="com.cnarj.ttxs.web.actions.Article.ArticleAction"  scope="prototype">
+		<!--<property name="articleService">-->
+			<!--<ref bean="articleService" />-->
+		<!--</property>-->
+		<property name="questionService">
+			<ref bean="questionService" />
+		</property>
+		<property name="answerServive">
+			<ref bean="answerServive" />
+		</property>
+		<property name="articleTypeService">
+			<ref bean="articleTypeService" />
+		</property>
+		<property name="articleHandleRecService">
+			<ref bean="articleHandleRecService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+	</bean>
+	<bean id="NewsrightAction" class="com.cnarj.ttxs.web.actions.Article.NewsrightAction"  >
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+		<property name="readbookService">
+			<ref bean="readbookService" />
+		</property>
+		<property name="likeGoodsService">
+			<ref bean="likeGoodsService" />
+		</property>
+		<property name="questionService">
+			<ref bean="questionService" />
+		</property>
+		<property name="activityService">
+			<ref bean="activityService" />
+		</property>
+	</bean>
+	<bean id="SysArticleAction" class="com.cnarj.ttxs.web.actions.Article.SysArticleAction"  >
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+		<property name="sysArticleTypeService">
+			<ref bean="sysArticleTypeService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="sysarticleHandleService">
+			<ref bean="sysarticleHandleService" />
+		</property>		
+	</bean>
+	<bean id="NewsIndexAction" class="com.cnarj.ttxs.web.actions.Article.IndexAction"  >
+		<!--<property name="articleService">-->
+			<!--<ref bean="articleService" />-->
+		<!--</property>-->
+		<property name="questionService">
+			<ref bean="questionService" />
+		</property>
+		<property name="answerServive">
+			<ref bean="answerServive" />
+		</property>
+		<property name="articleTypeService">
+			<ref bean="articleTypeService" />
+		</property>
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+		<property name="questionTypeService">
+			<ref bean="questionTypeService" />
+		</property>
+		<property name="sysArticleTypeService">
+			<ref bean="sysArticleTypeService" />
+		</property>	
+	</bean>
+	<bean id="QuestionAction" class="com.cnarj.ttxs.web.actions.Article.QuestionAction"  scope="prototype">
+		<property name="questionService">
+			<ref bean="questionService" />
+		</property>
+		<property name="answerServive">
+			<ref bean="answerServive" />
+		</property>
+		<property name="questionTypeService">
+			<ref bean="questionTypeService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+	</bean>
+	<bean id="ArticleTypeAction" class="com.cnarj.ttxs.web.actions.Article.ArticleTypeAction"  scope="prototype">
+		<property name="articleTypeService">
+			<ref bean="articleTypeService" />
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-admin-comm" namespace="/admin"
+		extends="basePackage">
+
+		<!-- 学习\资讯等栏目的文章信息-文章 -->
+		<action name="article" class="adminArticleAction">
+			<result name="manage">
+				/admin/comm/article/manage.jsp
+			</result>
+			<result name="update">
+				/admin/comm/article/update.jsp
+			</result>
+			<result name="add">/admin/comm/article/add.jsp</result>
+		</action>
+
+		<!-- 学习\资讯等栏目的文章信息-文章添加 -->
+		<action name="addArticle" class="adminArticleAction"
+			method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/comm/article/add.jsp</result>
+			<result name="input">/admin/comm/article/add.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习\资讯等栏目的文章信息-文章修改 -->
+		<action name="updateArticle" class="adminArticleAction"
+			method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/comm/article/update.jsp
+			</result>
+			<result name="input">/admin/comm/article/update.jsp</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习\资讯等栏目的文章信息-文章类别 -->
+		<action name="articleType" class="adminArticleTypeAction">
+			<result name="manage">
+				/admin/comm/article/type/manage.jsp
+			</result>
+			<result name="update">
+				/admin/comm/article/type/update.jsp
+			</result>
+			<result name="add">/admin/comm/article/type/add.jsp</result>
+		</action>
+
+		<!-- 学习\资讯等栏目的文章信息-文章类别添加 -->
+		<action name="addArticleType" class="adminArticleTypeAction"
+			method="add">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="add">/admin/comm/article/type/add.jsp</result>
+			<result name="input">
+				/admin/comm/article/type/add.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+
+		<!-- 学习\资讯等栏目的文章信息-文章类别修改 -->
+		<action name="updateArticleType" class="adminArticleTypeAction"
+			method="update">
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="update">
+				/admin/comm/article/type/update.jsp
+			</result>
+			<result name="input">
+				/admin/comm/article/type/update.jsp
+			</result>
+			<result name="invalid.token">
+				/error/error_page_repeat.jsp
+			</result>
+		</action>
+		<action name="SysArticle" class="adminsysArticleAction">
+			<result name="addPage">
+				/admin/comm/sysarticle/add.jsp
+			</result>
+			<result name="list">/admin/comm/sysarticle/list.jsp</result>
+			<result name="updatePage">
+				/admin/comm/sysarticle/update.jsp
+			</result>
+		</action>
+		<action name="SysArticletype"
+			class="adminsysArticleTypeAction">
+			<result name="addPage">
+				/admin/comm/sysarticle/type/add.jsp
+			</result>
+			<result name="list">
+				/admin/comm/sysarticle/type/list.jsp
+			</result>
+			<result name="updatePage">
+				/admin/comm/sysarticle/type/update.jsp
+			</result>
+		</action>
+		
+		
+		<!-- update by sly 2011年11月3日15:11:01 -->
+		<!-- 编辑器图片上传 -->
+		<action name="imgUpload" class="adminUploadImgAction" method="uploadImgAdmin">
+	       <interceptor-ref name ="fileUploadStack" />
+	       <result name ="success">/uploadsFiles.jsp</result>
+		</action>
+		
+	</package>
+
+
+</struts>

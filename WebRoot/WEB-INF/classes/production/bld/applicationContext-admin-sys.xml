@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+	
+	<!-- 管理员Service -->
+	<bean id="adminAdminService" class="com.cnarj.ttxs.admin.service.imp.sys.AdminServiceImpl">	
+		<property name="baseDao">
+			<ref bean="adminDao" />
+		</property>
+		<property name="adminDao">
+			<ref bean="adminDao" />
+		</property>
+	</bean>
+
+	<!-- 管理员登录Action -->
+	<bean id="adminLoginAction"
+		class="com.cnarj.ttxs.admin.actions.sys.AdminLoginAction"
+		scope="prototype">
+		<property name="adminService">
+			<ref bean="adminAdminService" />
+		</property>
+	</bean>
+
+</beans>

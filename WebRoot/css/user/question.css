@@ -1,0 +1,13 @@
+.queslist{ width:750px; float:left; padding:15px 0px 0px 0px;}
+.queslist h1{ line-height:30px;font-size:14px;}
+.queslist h1 a{ font-size:14px; font-weight:bold; text-decoration:underline}
+.queslist h1 a:hover{ font-size:14px; font-weight:bold; text-decoration:underline; color:#214b9d}
+.queslist table{ width:730px; float:left; border-top:1px solid #929292; line-height:30px; }
+.queslist table tr.lase{ width:730px;background:#f3f7fa; font-weight:bold;}
+.queslist table tr.lase td{background:#f3f7fa; padding-top:0px; padding-bottom:0px; color:#000}
+.queslist table td{background:url(../../img/home_img/xu.gif) repeat-x bottom; padding:5px 0px; color:#939393}
+.queslist table td.k1{ width:400px; padding:0px 0px 0px 10px;}
+.queslist table td.k1 a{ font-size:14px;}
+.queslist table td.k1 a:hover{ text-decoration:underline; color:#214b9d}
+.queslist table td.k2{ width:100px; text-align:center;}
+.queslist table td.k3{ width:100px; text-align:right; padding:0px 10px 0px 0px}

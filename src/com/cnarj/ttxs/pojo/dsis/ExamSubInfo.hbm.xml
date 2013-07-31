@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cnarj.ttxs.pojo.dsis.ExamSubInfo" table="T_EXAMSUBINFO" schema="DSISCNARJ">
+        <id name="examsubid" type="java.lang.Long">
+            <generator  class="sequence" >
+            </generator>
+        </id>
+        <many-to-one name="exam" class="com.cnarj.ttxs.pojo.dsis.TExamination" fetch="select">
+            <column name="EXAMID" scale="0" />
+        </many-to-one>
+        <property name="njId"  type="java.lang.Long">
+        </property>
+        <property name="substr"></property>
+        <property name="subtotal"></property>
+        <property name="xxid" type="java.lang.String"></property>
+        <property name="isenter" type="java.lang.Integer"></property>
+    </class>
+</hibernate-mapping>

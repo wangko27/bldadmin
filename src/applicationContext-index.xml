@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+
+	<bean id="IndexAction" class="com.cnarj.ttxs.web.actions.index.IndexAction">
+		<property name="subjectCodeService">
+		<ref bean="subjectCodeService"/>
+		</property>
+		<property name="articleService">
+		<ref bean="articleService"/>
+		</property>
+		<property name="activityService">
+		<ref bean="activityService"/>
+		</property>
+		<property name="oneTextService">
+		<ref bean="oneDayOneTextService"/>
+		</property>
+		<property name="sysarticleService">
+		<ref bean="sysarticleService"/>
+		</property>
+		<property name="readbookService">
+		<ref bean="readbookService"/>
+		</property>
+		<property name="superTeacherService"
+			ref="superTeacherService">
+		</property>
+		<property name="sortService" ref="goodsSrotService"></property>
+		<property name="goodsService" ref="goodsService"></property>
+		<property name="gradeCodeService">
+			<ref bean="gradeCodeService" />
+		</property>
+		<property name="articleTypeService">
+			<ref bean="articleTypeService" />
+		</property>
+		<property name="activityProgramaService" ref="activityProgramaService"></property>
+		<property name="activityWorksService" ref="activityWorksService"></property>
+		<property name="readShoolService" ref="readSchoolService"></property>
+	</bean>
+</beans>

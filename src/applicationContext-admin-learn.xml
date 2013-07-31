@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+	<!-- 学习频道后台Service中的Beans的配置 -->
+	<!-- 博览群书 -->
+	<bean id="adminReadbookService"
+		class="com.cnarj.ttxs.admin.service.imp.learn.ReadbookServiceImpl">
+		<property name="baseDao">
+			<ref bean="readbookDao" />
+		</property>
+		<property name="readbookDao">
+			<ref bean="readbookDao" />
+		</property>
+		<property name="readbookTypeDao">
+			<ref bean="readbookTypeDao" />
+		</property>
+	</bean>
+
+	<!-- 博览群书类别 -->
+	<bean id="adminReadbookTypeService"
+		class="com.cnarj.ttxs.admin.service.imp.learn.ReadbookTypeServiceImpl">
+		<property name="baseDao">
+			<ref bean="readbookTypeDao" />
+		</property>
+		<property name="readbookTypeDao">
+			<ref bean="readbookTypeDao" />
+		</property>
+	</bean>
+
+	<!-- 名师讲坛 - 名师信息 -->
+	<bean id="adminSuperTeacherService"
+		class="com.cnarj.ttxs.admin.service.imp.learn.SuperTeacherServiceImpl">
+		<property name="baseDao">
+			<ref bean="superTeacherDao" />
+		</property>
+		<property name="superTeacherDao">
+			<ref bean="superTeacherDao" />
+		</property>
+	</bean>
+
+	<!-- 名师讲坛 - 名师讲坛信息 -->
+	<bean id="adminSuperAticleService"
+		class="com.cnarj.ttxs.admin.service.imp.learn.SuperAticleServiceImpl">
+		<property name="baseDao">
+			<ref bean="readTeacherInfoDao" />
+		</property>
+		<property name="readTeacherInfoDao">
+			<ref bean="readTeacherInfoDao" />
+		</property>
+		<property name="articleDao">
+			<ref bean="articleDao" />
+		</property>
+		<property name="superTeacherDao">
+			<ref bean="superTeacherDao" />
+		</property>
+	</bean>
+
+	<!-- 名校风采 -->
+	<bean id="adminSchoolService"
+		class="com.cnarj.ttxs.admin.service.imp.learn.SchoolServiceImpl">
+		<property name="baseDao">
+			<ref bean="articleDao" />
+		</property>
+		<property name="articleDao">
+			<ref bean="articleDao" />
+		</property>
+	</bean>
+
+	<!-- 学习频道后台Actions中的Beans的配置 -->
+	<!-- 博览群书 -->
+	<bean id="adminReadbookAction"
+		class="com.cnarj.ttxs.admin.actions.learn.ReadbookAction"
+		scope="prototype">
+		<property name="readbookService">
+			<ref bean="adminReadbookService" />
+		</property>
+		<property name="readbookTypeService">
+			<ref bean="adminReadbookTypeService" />
+		</property>
+		<property name="subjectCodeService">
+			<ref bean="subjectCodeService" />
+		</property>
+		<property name="gradeCodeService">
+			<ref bean="gradeCodeService" />
+		</property>
+	</bean>
+
+	<!-- 博览群书类别 -->
+	<bean id="adminReadbookTypeAction"
+		class="com.cnarj.ttxs.admin.actions.learn.ReadbookTypeAction"
+		scope="prototype">
+		<property name="readbookTypeService">
+			<ref bean="adminReadbookTypeService" />
+		</property>
+		<property name="readbookService">
+			<ref bean="adminReadbookService" />
+		</property>
+	</bean>
+
+	<!-- 名师讲坛 - 名师信息 -->
+	<bean id="adminSuperTeacherAction"
+		class="com.cnarj.ttxs.admin.actions.learn.SuperTeacherAction"
+		scope="prototype">
+		<property name="superTeacherService">
+			<ref bean="adminSuperTeacherService" />
+		</property>
+		<property name="superAticleService">
+			<ref bean="adminSuperAticleService" />
+		</property>
+	</bean>
+
+	<!-- 名师讲坛 - 名师讲坛文章管理 -->
+	<bean id="adminTeacherArticleAction"
+		class="com.cnarj.ttxs.admin.actions.learn.TeacherArticleAction"
+		scope="prototype">
+		<property name="superAticleService">
+			<ref bean="adminSuperAticleService" />
+		</property>
+	</bean>
+
+	<!-- 品学论道 -->
+	<bean id="adminPxldAction"
+		class="com.cnarj.ttxs.admin.actions.learn.PxldAction"
+		scope="prototype">
+		<property name="articleService">
+			<ref bean="adminArticleService" />
+		</property>
+	</bean>
+
+	<!-- 名校风采 -->
+	<bean id="adminSchoolAction"
+		class="com.cnarj.ttxs.admin.actions.learn.SchoolAction"
+		scope="prototype">
+		<property name="articleService">
+			<ref bean="adminArticleService" />
+		</property>
+		<property name="schoolService">
+			<ref bean="adminSchoolService" />
+		</property>
+	</bean>
+
+	<!-- 一天一课 -->
+	<bean id="adminOnedayAction"
+		class="com.cnarj.ttxs.admin.actions.learn.OnedayAction"
+		scope="prototype">
+		<property name="readbookService">
+			<ref bean="adminReadbookService" />
+		</property>
+		<property name="subjectCodeService">
+			<ref bean="subjectCodeService" />
+		</property>
+		<property name="gradeCodeService">
+			<ref bean="gradeCodeService" />
+		</property>
+	</bean>
+</beans>

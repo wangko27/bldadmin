@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:oscache="http://www.springmodules.org/schema/oscache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springmodules.org/schema/oscache
+	http://www.springmodules.org/schema/cache/springmodules-oscache.xsd
+	">
+
+
+    <!-- 缓存配置
+	<oscache:config configLocation="classpath:oscache.properties" id="cacheProvider"/>
+    <oscache:annotations providerId="cacheProvider">
+    	<oscache:caching id="caching" cronExpression="0 1 * * *" refreshPeriod="86400"/>
+    	<oscache:flushing id="flushing"/>
+    </oscache:annotations>
+    -->
+    <bean id="cacheManager" class="org.springmodules.cache.provider.oscache.OsCacheManagerFactoryBean">
+    	<property name="configLocation" value="classpath:oscache.properties"></property>
+    </bean>
+
+    <!-- jdbc配置 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" lazy-init="true">
+    	<property name="location">
+    		<value>classpath:jdbc.properties</value>
+    	</property>
+    </bean>
+
+    <!-- 实例化applicationcontext -->
+    <bean class="com.cnarj.ttxs.util.ApplicationContextFactory"></bean>
+
+
+	<!-- //////////////配置天天向上网站的数据源 start///////////////////-->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>${jdbc.driver}</value>
+		</property>
+		<property name="url">
+	         <value>${jdbc.url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.password}</value>
+		</property>
+		<!-- 设置连接池初始值 -->
+        <property name="initialSize" >
+			<value>5</value>
+		</property>
+		<!-- 设置连接池最大值 -->
+		<property name="maxActive">
+			<value>100</value>
+		</property>
+		<!-- 设置连接池最大空闲值 -->
+		<property name="maxIdle">
+			<value>10</value>
+		</property>
+		<!-- 设置连接池最小空闲值 -->
+		<property name="minIdle">
+			<value>1</value>
+		</property>
+		<property name="maxWait">
+			<value>20000</value>
+		</property>
+		<property name="defaultAutoCommit">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"  destroy-method="close">
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<prop key="hibernate.connection.autocommit">true</prop>
+				<!--  <prop key="hibernate.hbm2ddl.auto">update</prop>-->
+				<!--  显示sql语句 -->
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.c3p0.minPoolSize">5</prop>
+				<prop key="hibernate.c3p0.maxPoolSize">10</prop>
+				<prop key="hibernate.c3p0.timeout">5000</prop>
+				<prop key="hibernate.connection.SetBigStringTryClob">
+					true
+				</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<!-- 是否开启二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				<!-- 配置二级缓存产品 -->
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.OSCacheProvider</prop>
+				<!-- 数据库批量更新数 -->
+				<prop key="hibernate.jdbc.batch_size">0</prop>
+				<!-- 数据库批量查询数 -->
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+			</props>
+		</property>
+		<property name="lobHandler" ref="lobHandler" />
+		<property name="mappingResources">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="lobHandler" lazy-init="true"
+		class="org.springframework.jdbc.support.lob.OracleLobHandler">
+		<property name="nativeJdbcExtractor">
+			<ref bean="nativeJdbcExtractor" />
+		</property>
+	</bean>
+
+	<bean id="nativeJdbcExtractor" lazy-init="true"
+		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" />
+
+	<!-- 配置Hibernate事务管理 -->
+	<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 配置事务传播特性 -->
+	<tx:advice id="transactionAdvice" transaction-manager="hibernateTransactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="upd*" propagation="REQUIRED" />
+			<tx:method name="login*" propagation="REQUIRED" />
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="load*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 配置哪些类的哪些方法参与事务 -->
+	<aop:config>
+		<aop:pointcut id="allMethod" expression="execution(* *..service*..*(..))"/>
+		<aop:advisor pointcut-ref="allMethod" advice-ref="transactionAdvice"/>
+	</aop:config>
+
+	<!-- 配置Hibernate模板 -->
+	<bean id="hibernateTemplate"
+		class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 配置jdbc模板-->
+	<bean id="jdbcTemplate"
+		  class="org.springframework.jdbc.core.JdbcTemplate">
+		  <property name="dataSource">
+		  		<ref local="dataSource"/>
+	  	  </property>
+	</bean>
+	<!-- //////////////配置天天向上网站的数据源 end///////////////////-->
+
+	<!-- ///////////////配置数字化校园系统的数据源 start////////////// -->
+	<!--<bean id="dsisDataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+		<!--<property name="driverClassName">-->
+			<!--<value>${jdbc.driver1}</value>-->
+		<!--</property>-->
+		<!--<property name="url">-->
+	         <!--<value>${jdbc.url1}</value>	        -->
+		<!--</property>		-->
+		<!--<property name="username">-->
+			<!--<value>${jdbc.username1}</value>-->
+		<!--</property>-->
+		<!--<property name="password">-->
+			<!--<value>${jdbc.password1}</value>-->
+		<!--</property>-->
+		<!--&lt;!&ndash;设置连接池初始值 &ndash;&gt;-->
+        <!--<property name="initialSize" >-->
+			<!--<value>5</value>-->
+		<!--</property>-->
+		<!--&lt;!&ndash;设置连接池最大值 &ndash;&gt;-->
+		<!--<property name="maxActive">-->
+			<!--<value>50</value>-->
+		<!--</property>-->
+		<!--&lt;!&ndash;设置连接池最大空闲值 &ndash;&gt;-->
+		<!--<property name="maxIdle">-->
+			<!--<value>10</value>-->
+		<!--</property>-->
+		<!--&lt;!&ndash;设置连接池最小空闲值 &ndash;&gt;-->
+		<!--<property name="minIdle">-->
+			<!--<value>1</value>-->
+		<!--</property>-->
+		<!--<property name="maxWait">-->
+			<!--<value>50</value>-->
+		<!--</property>-->
+		<!--<property name="defaultAutoCommit">-->
+			<!--<value>false</value>-->
+		<!--</property>-->
+	<!--</bean>-->
+	<!---->
+	<!---->
+	<!--<bean id="dsisSessionFactory"-->
+		<!--class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"  destroy-method="close">-->
+		<!--<property name="dataSource">-->
+			<!--<ref bean="dsisDataSource"/>-->
+		<!--</property>-->
+		<!--<property name="hibernateProperties">-->
+			<!--<props>-->
+				<!--<prop key="hibernate.dialect">-->
+					<!--${hibernate.dialect}-->
+				<!--</prop>-->
+				<!--<prop key="hibernate.connection.autocommit">true</prop>-->
+				<!--&lt;!&ndash;  显示sql语句 &ndash;&gt;-->
+				<!--<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>-->
+				<!--<prop key="hibernate.connection.SetBigStringTryClob">-->
+					<!--true-->
+				<!--</prop>-->
+				<!--<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>-->
+				<!--&lt;!&ndash; 是否开启二级缓存 &ndash;&gt;-->
+				<!--<prop key="hibernate.cache.use_second_level_cache">false</prop>-->
+				<!--&lt;!&ndash; 配置二级缓存产品 &ndash;&gt;-->
+				<!--<prop key="hibernate.cache.provider_class">org.hibernate.cache.OSCacheProvider</prop>-->
+				<!--&lt;!&ndash; 数据库批量更新数 &ndash;&gt;-->
+				<!--<prop key="hibernate.jdbc.batch_size">20</prop>-->
+				<!--&lt;!&ndash; 数据库批量查询数 &ndash;&gt;-->
+				<!--<prop key="hibernate.jdbc.fetch_size">50</prop>-->
+			<!--</props>-->
+		<!--</property>-->
+		<!--<property name="mappingResources">-->
+			<!--<list>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/BasicAttendanceSet.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/ExamSubInfo.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/ParentAccount.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/RStudentAttencard.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/RTeacherClass.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/StudentAttendanceRecord.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/StudentAttendanceSet.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/StudentExamresult.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TClasses.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TCourses.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TExamination.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TExamSubjectSet.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TParentinfo.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TSchoolinfo.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TStudent.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TStugrade.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TSubject.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TTeacherinfo.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/TTermSet.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/CoChinaXzqh.hbm.xml</value>-->
+				<!--<value>com/cnarj/ttxs/pojo/dsis/StudentBindingMobile.hbm.xml</value>-->
+			<!--</list>-->
+		<!--</property>-->
+	<!--</bean>-->
+	<!---->
+	<!--&lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
+	<!--<bean id="dsisTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">-->
+		<!--<property name="sessionFactory" ref="dsisSessionFactory" />-->
+	<!--</bean>-->
+
+	<!--&lt;!&ndash; 配置事务传播特性 &ndash;&gt;-->
+	<!--<tx:advice id="dsisTransactionAdvice" transaction-manager="dsisTransactionManager">-->
+		<!--<tx:attributes>-->
+			<!--<tx:method name="get*" read-only="true" />-->
+			<!--<tx:method name="load*" read-only="true" />-->
+			<!--<tx:method name="find*" read-only="true" />-->
+			<!--<tx:method name="*" read-only="true" />-->
+		<!--</tx:attributes>-->
+	<!--</tx:advice>-->
+
+	<!--&lt;!&ndash; 配置哪些类的哪些方法参与事务 &ndash;&gt;-->
+	<!--<aop:config>-->
+		<!--<aop:pointcut id="dsisAllMethod" expression="execution(* *..service*..*(..))"/>-->
+		<!--<aop:advisor pointcut-ref="dsisAllMethod" advice-ref="dsisTransactionAdvice"/>-->
+	<!--</aop:config>-->
+	<!---->
+	<!--&lt;!&ndash; 配置Hibernate模板 &ndash;&gt;-->
+	<!--<bean id="dsisHibernateTemplate"-->
+		<!--class="org.springframework.orm.hibernate3.HibernateTemplate">-->
+		<!--<property name="sessionFactory">-->
+			<!--<ref local="dsisSessionFactory" />-->
+		<!--</property>-->
+	<!--</bean>-->
+	<!---->
+	<!--&lt;!&ndash; 配置jdbc模板&ndash;&gt;-->
+	<!--<bean id="dsisJdbcTemplate"-->
+		  <!--class="org.springframework.jdbc.core.JdbcTemplate">-->
+		  <!--<property name="dataSource">-->
+		  		<!--<ref local="dsisDataSource"/>-->
+	  	  <!--</property>-->
+	<!--</bean>-->
+
+	<!-- ///////////////配置数字化校园系统的数据源 end////////////// -->
+
+	<!-- Dao中的Beans的配置 -->
+	<bean id="baseDao" class="com.cnarj.ttxs.dao.imp.BaseDaoImpl">
+		<property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+         </property>
+	</bean>
+
+	<bean id="testDao" class="com.cnarj.ttxs.dao.imp.test.TestDaoImpl">
+		<property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+         </property>
+	</bean>
+
+
+
+	<!-- Service中的Beans的配置 -->
+	<bean id="baseService" class="com.cnarj.ttxs.service.imp.BaseServiceImpl"></bean>
+	<bean id="testService" class="com.cnarj.ttxs.service.imp.test.TestServiceImpl">
+		<property name="baseDao">
+			<ref bean="testDao" />
+		</property>
+	</bean>
+	<bean id="htmlService" class="com.cnarj.ttxs.service.imp.sys.HtmlServiceImpl"></bean>
+
+
+	<!-- Actions中的Beans的配置 -->
+	<bean id="testAction" class="com.cnarj.ttxs.web.actions.test.TestAction">
+		<property name="testService">
+			<ref bean="testService" />
+		</property>
+		<property name="htmlService">
+			<ref bean="htmlService" />
+		</property>
+	</bean>
+
+	<bean id="testAnnotationAction" class="com.cnarj.ttxs.web.actions.test.TestAnnotationAction"></bean>
+
+</beans>

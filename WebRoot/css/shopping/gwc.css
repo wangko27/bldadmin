@@ -1,0 +1,70 @@
+.buz{ width:960px; margin-top:10px; background:url(../../img/shopping_img/gwc_bj1.gif) no-repeat; height:34px; float:left;}
+.buz_1{ width:960px; margin-top:10px; background:url(../../img/shopping_img/gwc_bj2.gif) no-repeat; height:34px; float:left;}
+.buz_2{ width:960px; margin-top:10px; background:url(../../img/shopping_img/gwc_bj3.gif) no-repeat; height:34px; float:left;}
+.yyt{ width:910px; background:url(../../img/shopping_img/che.gif) no-repeat 0px center; margin-top:10px; float:left; padding:0px 0px 0px 50px; font-size:14px;}
+.yyt p{ float:left; padding:10px 0px 0px 0px; line-height:38px;}
+.yyt p.ff{ width:465px; text-align:right;}
+.yyt p.ys{ width:350px;}
+.yyt p.ab{ width:91px; height:35px;}
+.tab{ width:960px; float:left;}
+.tab table{ text-align:center;}
+.tab table.big{ width:958px; border:1px solid #d4d4d4;  border-bottom:2px solid #d4d4d4; height:28px; background:url(../../img/shopping_img/b1.gif) repeat-x;}
+.tab table td.btd1{ width:385px; text-align:left; padding-left:10px;}
+.tab table td.btd1 img{ width:65px; height:65px; border:1px solid #d7d7d7}
+.tab table td.btd1 ul li.ttu{ width:80px;}
+.tab table td.btd1 ul{ padding-top:5px;}
+.tab table td.btd1 ul li.zzi{ width:300px; padding:10px 0px 0px 0px; height:55px;}
+.tab table td.btd1 ul li a,.tab table td.btd2 a{ color:#1d4b99; text-decoration:underline}
+.tab table td.btd2{ width:140px;}
+.tab table td{ border-right:1px solid #e6e6e6;}
+.tab table.lan{ border:1px solid #97c4fd; width:958px;}
+.tab table td.lanbj{ background:#e5eefd; width:948px; height:26px; border-bottom:1px solid #e6e6e6; text-align:left; padding:0px 0px 0px 10px;}
+.tab table tr.trg td{ height:80px;}
+input.band{ width:38px; border:1px solid #c4c4c4; height:18px;}
+ul.shxia{ padding:0px 0px 0px 20px; width:62px; height:25px;}
+ul.shxia li.dla{ width:40px;}
+ul.shxia li.dlt{ width:22px; height:10px;}
+.att{ margin-top:5px; float:left;}
+.att p{float:left; padding:10px 0px 0px 0px; line-height:38px;}
+.att p.ff_1{ width:590px;} 
+.att p.ff_2{ width:230px; font-size:14px; padding-right:10px; text-align:right}
+.att p.ff_2 span,.yyt p.ff span{ font-size:18px; color:#ff0103}
+.att p.ab_1{ width:124px; height:48px;}
+
+.ddu{ width:960px; border-bottom:1px solid #ececec; line-height:30px; font-size:14px; color:#717171; padding:10px 0px 0px 0px; float:left;}
+.ggy{ width:930px; float:left; padding:10px 0px 10px 30px;}
+.yti{border-bottom:1px solid #ececec; width:903px; padding:0px; float:left;}
+.yti p{ width:900px; padding:0px 0px 10px 0px; font-size:14px; float:left;}
+.yti p a{ color:#1c4ba3;}
+.tuiz{ width:880px; border:2px solid #f3c3c3; background:#fcf9f4; margin-bottom:10px; padding:10px 0px 10px 20px; float:left;}
+.tuiz h1{ font-size:14px; font-weight:bold; width:865px; display:block; float:left;}
+.tuiz h1 span{ float:left}
+.tuiz h1 a{ float:right}
+.tuiz ul{ width:755px; padding:0px 0px 0px 50px; float:left;}
+.tuiz ul li{ width:755px; padding:3px 0px;  line-height:26px; }
+.tuiz ul li input{ float:none; border:1px solid #b6b6b6;font-size:12px; background:#fff; height:20px;}
+.tuiz ul li select{ width:100px;font-size:12px; height:20px;}
+.tuiz ul li span{ font-weight:bold; color:red; font-size:14px;}
+.tuiz ul li.io{width:700px; padding:3px 0px 0px 65px;}
+.tt_1{ float:left;width:755px; padding:5px 0px 0px 50px;}
+.tt_1 p{ width:755px;font-size:12px; padding-top:3px;}
+*html .tt_1 p input{ margin-top:-5px;}
+*+html .tt_1 p input{ margin-top:-5px;}
+.tt_1 ul{ float:left; padding:0px 0px 5px 50px; width:660px;}
+.tt_1 ul li.baise{ width:670px; border:1px solid #e7decf; background:#fff; padding:5px 0px 5px 10px; line-height:18px; color:#747474}
+.tt_1 ul li.baise span{ color:#cc2725; font-size:12px; font-weight:normal;}
+.tt_1 p span{ color:#666;}
+.tiop{ float:left; width:930px; color:#929292; height:24px; padding:0px 0px 0px 30px;}
+.tiop span{font-size:14px; font-weight:bold; color:#000}
+.att p.ff_3{ width:810px; font-size:14px; padding:15px 10px 0px 0px; line-height:20px; text-align:right;}
+.att p.ff_3 span{ font-size:12px;}
+.att p.ff_3 b{ color:#fc0203}
+.att p.ff_3 b span{ font-size:18px;}
+
+.ghp{ width:895px; margin:10px; float:left; display:inline; padding:10px; border:3px solid #f3c3c3; background:#fcf9f4}
+.ghp p{ float:left;padding:5px 0px 0px 100px; width:700px; line-height:22px; font-size:14px;}
+.ghp p.po1{ background:url(../../img/shopping_img/ccgg.gif) no-repeat 50px 5px;}
+.ghp p.po3{ background:#fff; border:1px solid #e7decf; margin-left:100px; display:inline; padding:10px; font-size:12px; font-weight:bold;}
+.ghp p span{ color:#676769; font-size:12px;}
+
+

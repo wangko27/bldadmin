@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+	<!-- 兴趣后台Service中的Beans的配置 -->
+	<!-- 活动栏目 -->
+	<bean id="adminActivityProgramaService"
+		class="com.cnarj.ttxs.admin.service.imp.interest.ActivityProgramaServiceImpl">
+		<property name="baseDao">
+			<ref bean="activityProgramaDao" />
+		</property>
+		<property name="activityProgramaDao">
+			<ref bean="activityProgramaDao" />
+		</property>
+		<property name="sysArticleTypeDao">
+			<ref bean="sysArticleTypeDao" />
+		</property>
+	</bean>
+
+	<!-- 活动类别 -->
+	<bean id="adminActivityTypeService"
+		class="com.cnarj.ttxs.admin.service.imp.interest.ActivityTypeServiceImpl">
+		<property name="baseDao">
+			<ref bean="activityTypeDao" />
+		</property>
+		<property name="activityTypeDao">
+			<ref bean="activityTypeDao" />
+		</property>
+	</bean>
+
+	<!-- 活动 -->
+	<bean id="adminActivityService"
+		class="com.cnarj.ttxs.admin.service.imp.interest.ActivityServiceImpl">
+		<property name="baseDao">
+			<ref bean="activityDao" />
+		</property>
+		<property name="activityDao">
+			<ref bean="activityDao" />
+		</property>
+		<property name="activityProgramaDao">
+			<ref bean="activityProgramaDao" />
+		</property>
+		<property name="sysArticleTypeDao">
+			<ref bean="sysArticleTypeDao" />
+		</property>
+	</bean>
+
+	<!-- 活动指导老师 -->
+	<bean id="adminActivityTeacherService"
+		class="com.cnarj.ttxs.admin.service.imp.interest.ActivityTeacherServiceImpl">
+		<property name="baseDao">
+			<ref bean="activityTeacherDao" />
+		</property>
+		<property name="activityTeacherDao">
+			<ref bean="activityTeacherDao" />
+		</property>
+		<property name="memberDao">
+			<ref bean="memberDao" />
+		</property>
+	</bean>
+
+	<!-- 活动作品 -->
+	<bean id="adminActivityWorksService"
+		class="com.cnarj.ttxs.admin.service.imp.interest.ActivityWorksServiceImpl">
+		<property name="baseDao">
+			<ref bean="activityWorksDao" />
+		</property>
+		<property name="activityWorksDao">
+			<ref bean="activityWorksDao" />
+		</property>
+		<property name="memberDao">
+			<ref bean="memberDao" />
+		</property>
+	</bean>
+
+	<!-- 会员 -->
+	<bean id="adminMemberService"
+		class="com.cnarj.ttxs.admin.service.imp.user.MemberServiceImpl">
+		<property name="baseDao">
+			<ref bean="memberDao" />
+		</property>
+		<property name="memberDao">
+			<ref bean="memberDao" />
+		</property>
+	</bean>
+
+	<!-- 首页活动作品展示 -->
+	<bean id="adminActivityWorksShowService"
+		class="com.cnarj.ttxs.admin.service.imp.interest.IActivityWorksShowServiceImpl">
+		<property name="baseDao">
+			<ref bean="activityWorksShowDao" />
+		</property>
+		<property name="activityWorksShowDao">
+			<ref bean="activityWorksShowDao" />
+		</property>
+	</bean>
+
+	<!-- 兴趣后台Actions中的Beans的配置 -->
+	<!-- 活动栏目 -->
+	<bean id="adminActivityProgramaAction"
+		class="com.cnarj.ttxs.admin.actions.interest.ActivityProgramaAction"
+		scope="prototype">
+		<property name="activityProgramaService">
+			<ref bean="adminActivityProgramaService" />
+		</property>
+	</bean>
+
+	<!-- 活动类别 -->
+	<bean id="adminActivityTypeAction"
+		class="com.cnarj.ttxs.admin.actions.interest.ActivityTypeAction"
+		scope="prototype">
+		<property name="activityTypeService">
+			<ref bean="adminActivityTypeService" />
+		</property>
+		<property name="activityProgramaService">
+			<ref bean="adminActivityProgramaService" />
+		</property>
+	</bean>
+
+	<!-- 活动 -->
+	<bean id="adminActivityAction"
+		class="com.cnarj.ttxs.admin.actions.interest.ActivityAction"
+		scope="prototype">
+		<property name="activityService">
+			<ref bean="adminActivityService" />
+		</property>
+		<property name="activityTypeService">
+			<ref bean="adminActivityTypeService" />
+		</property>
+		<property name="activityProgramaService">
+			<ref bean="adminActivityProgramaService" />
+		</property>
+		<property name="sysarticleService">
+			<ref bean="sysarticleService" />
+		</property>
+	</bean>
+
+	<!-- 活动指导老师 -->
+	<bean id="adminActivityTeacherAction"
+		class="com.cnarj.ttxs.admin.actions.interest.ActivityTeacherAction"
+		scope="prototype">
+		<property name="activityTeacherService">
+			<ref bean="adminActivityTeacherService" />
+		</property>
+		<property name="memberService">
+			<ref bean="adminMemberService" />
+		</property>
+		<property name="activityService">
+			<ref bean="adminActivityService" />
+		</property>
+	</bean>
+
+	<!-- 活动作品 -->
+	<bean id="adminActivityWorksAction"
+		class="com.cnarj.ttxs.admin.actions.interest.ActivityWorksAction"
+		scope="prototype">
+		<property name="activityWorksService">
+			<ref bean="adminActivityWorksService" />
+		</property>
+		<property name="activityService">
+			<ref bean="adminActivityService" />
+		</property>
+		<property name="memberService">
+			<ref bean="adminMemberService" />
+		</property>
+	</bean>
+
+	<!-- 活动作品 -->
+	<bean id="adminActivityWorksShowAction"
+		class="com.cnarj.ttxs.admin.actions.interest.ActivityWorksShowAction"
+		scope="prototype">
+		<property name="activityWorksShowService">
+			<ref bean="adminActivityWorksShowService" />
+		</property>
+	</bean>
+</beans>

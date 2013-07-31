@@ -1,0 +1,14 @@
+.menubody{ width:auto; background:url(../../img/interesting_img/bj5.gif) repeat-x; height:72px;}
+.combig{ width:960px; margin:0px auto; height:72px;}
+.combig .llog{ width:180px; height:67px; float:left}
+.combig .llmen{ width:540px; height:30px; background:url(../../img/interesting_img/bj6.gif) no-repeat; margin:20px 0px 0px 0px; float:left;}
+.combig .llmen ul{ width:500px; padding:0px 0px 0px 15px; line-height:28px; color:#af9bec; float:left;}
+.combig .llmen ul li{ padding:0px 7px; float:left}
+.combig .llmen ul li a{ color:#e3dff7;}
+.combig .llmen ul li a.ddcc{ font-weight:bold; color:#fff}
+.combig .ddmen{ background:url(../../img/interesting_img/bj7.gif) right no-repeat; width:160px; height:60px; float:right; margin:3px 0px 0px 0px;}
+.combig .ddmen ul{ padding:0px 0px 0px 30px; width:131px; height:56px;}
+.combig .ddmen ul li{ text-align:center; width:37px; line-height:30px; padding:0px 2px;}
+.combig .ddmen ul li a{ color:#1e3f86}
+.combig .ddmen ul li a:hover{ color:#000; font-weight:bold;}
+

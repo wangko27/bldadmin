@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+	<!-- DAO配置 -->
+	<!-- 区域DAO -->
+	<bean id="xzqhDao"
+		class="com.cnarj.ttxs.dao.imp.dsis.XzqhDaoImpl">
+		<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>
+	</bean>
+
+	<!-- Service配置  -->
+	<!-- 区域SERVICE -->
+	<bean id="xzqhService"
+		class="com.cnarj.ttxs.service.imp.dsis.XzqhServiceImpl">
+		<property name="baseDao" ref="xzqhDao"></property>
+		<property name="xzqhDao" ref="xzqhDao"></property>
+	</bean>
+
+	<!-- Action配置  -->
+	<!-- 行政区域ACTION -->
+	<bean id="xzqhAction"
+		class="com.cnarj.ttxs.web.actions.dsis.XzqhAction">
+		<property name="xzqhService" ref="xzqhService"></property>
+	</bean>
+</beans>

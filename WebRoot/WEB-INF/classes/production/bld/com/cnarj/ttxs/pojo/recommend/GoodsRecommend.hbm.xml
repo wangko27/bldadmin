@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cnarj.ttxs.pojo.recommend.GoodsRecommend" table="TTXS_ADMIN_RECOMMEND" schema="TTXSCNARJ">
+        <id name="recommendId" type="java.lang.String" >
+            <column name="RECOMMENDID" length="32"/>
+            <generator class="uuid"></generator>
+        </id>
+        <!---->
+        <many-to-one name="goods" class="com.cnarj.ttxs.pojo.shop.Goods" fetch="select" cascade="none" lazy="false" >
+            <column name="goodsid" length="32" not-null="true" />
+        </many-to-one>
+
+        <property name="recommendType" type="java.lang.String">
+            <column name="RECOMMENDTYPE" length="1"/>
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CREATEDATE" length="7"/>
+        </property>
+        <property name="lastModifyDate" type="java.util.Date">
+            <column name="LASTMODIFYDATE" length="7"/>
+        </property>
+        <property name="recommendState" type="java.lang.String">
+            <column name="RECOMMENDSTATE" length="1"/>
+        </property>
+        <many-to-one name="lastModifyUser" class="com.cnarj.ttxs.pojo.sys.Admin" fetch="select" cascade="none" lazy="false" >
+            <column name="LASTMODIFYUSERID" length="32" not-null="true" />
+        </many-to-one>
+        <many-to-one name="admin" class="com.cnarj.ttxs.pojo.sys.Admin" fetch="select" cascade="none" lazy="false" >
+            <column name="USERID" length="32" not-null="true" />
+        </many-to-one>
+        <many-to-one name="locationInfo" class="com.cnarj.ttxs.pojo.sys.LocationInfo" not-null="false" >
+            <column name="locationId" length="32" not-null="false" />
+        </many-to-one>
+        <property name="miaoSha" type="java.lang.String">
+            <column name="MIAOSHA" length="1"/>
+        </property>
+        <many-to-one name="miao" class="com.cnarj.ttxs.pojo.recommend.MiaoSha" fetch="select" cascade="all" lazy="false">
+            <column name="MIAOSHAID" length="32" not-null="false"></column>
+        </many-to-one>
+
+
+    </class>
+</hibernate-mapping>

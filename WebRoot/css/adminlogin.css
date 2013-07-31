@@ -1,0 +1,98 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background: url(../img/admin_login/bj2.jpg);
+}
+
+.big {
+	width: auto;
+	background: url(../img/admin_login/bj1.jpg) repeat-x #265b90;
+	margin: 0px auto
+}
+
+.lobj {
+	width: auto;
+	background: url(../img/admin_login/bj.jpg) no-repeat center;
+	height: 612px;
+	border-bottom: 1px solid #779abb;
+}
+
+.lodk {
+	width: 630px;
+	height: 452px;
+	margin: 0px auto;
+	background: url(../img/admin_login/bj3.jpg) no-repeat -3px 132px;
+	padding: 140px 0px 0px 0px;
+}
+
+.lodk ul {
+	float: left;
+	width: 315px;
+	height: 215px;
+	margin: 160px 0px 0px 145px !important;
+	margin: 160px 0px 0px 75px;
+	padding: 0px;
+}
+
+.lodk ul li {
+	line-height: 40px;
+	font-size: 14px;
+	list-style: none;
+	font-family: "宋体";
+	height: 50px;
+	width: 315px;
+}
+
+.lodk ul li span {
+	float: left;
+	display: block;
+	padding: 0px 5px
+}
+
+input.put {
+	width: 207px;
+	height: 29px;
+	background: url(../img/admin_login/bj4.gif) no-repeat;
+	border: 0;
+	padding: 8px 0px 0px 10px;
+	font-size: 14px;
+}
+
+input.put1 {
+	width: 90px;
+	height: 29px;
+	background: url(../img/admin_login/bj5.gif) no-repeat;
+	border: 0;
+	padding: 8px 0px 0px 10px;
+	font-size: 14px;
+}
+
+.lodk ul li.qw {
+	width: 220px;
+	padding: 0px 0px 0px 50px;
+}
+
+.lodk ul li.qw a img {
+	border: 0;
+}
+
+.lodk ul li.qw span {
+	padding: 0px 8px
+}
+
+.bottom {
+	width: auto;
+	height: 88px;
+	border-top: 5px solid #000;
+}
+
+.bot1 {
+	width: 560px;
+	margin: 0px auto;
+	color: #bebebe;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 20px 30px 0px 0px;
+	text-align: center;
+	line-height: 24px;
+}

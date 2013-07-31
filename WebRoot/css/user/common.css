@@ -1,0 +1,80 @@
+body{background:url(../../img/user_img/bj1.gif) repeat-x 0px 122px #eee !important;background:url(../../img/user_img/bj1.gif) repeat-x 0px 125px #eee;}
+.logo_ll{ width:960px; height:50px; float:left}
+.logo_ll ul li{ padding:15px 0px 0px 10px; color:#6f6f6f;}
+.logo_ll ul li input{ border:1px solid #b5b5b5; background:#f7f7f7; height:23px; line-height:20px; color:#6e6e6e; font-size:12px; width:200px;}
+.logo_ll ul li select{height:25px; width:70px;line-height:18px;  color:#6e6e6e; font-size:12px;}
+.logo_ll ul li.img{ width:700px; padding:0px;}
+.logo_ll ul li.img img{ width:380px; height:50px;}
+.logo_ll ul li a img{ width:45px; height:25px; }
+.usermenu{ width:auto; height:54px; margin:0px auto;}
+.gaodu{ height:50px;}
+.menu1{ width:960px; margin:0px auto; background:url(../../img/user_img/bj2.gif) no-repeat; height:50px; color:#dbeaf1; }
+.menu1 ul.iopyy{ font-size:14px; padding:18px 0px 0px 10px; float:left}
+.menu1 ul.iopyy li{ background:url(../../img/user_img/xtt.gif) no-repeat right; padding:0px 20px}
+.menu1 a{color:#dbeaf1;}
+.menu1 ul.ttiop{ padding:20px 0px 0px 20px; float:right;}
+.menu1 ul.ttiop li{ padding:5px;}
+.menu1 a:hover{ color:#fff}
+
+.dde{ width:960px; float:left;background:url(../../img/user_img/bj3.gif) repeat-y #fff; padding:0px 10px;}
+.mainbody_1{ width:980px; margin:0px auto}
+.uuop{background:url(../../img/user_img/bj4.gif) repeat-x;width:960px; float:left;}
+
+.left{ width:170px; float:left; margin-left:2px; display:inline; padding:10px 5px;}
+.ru1{ width:170px; float:left; height:85px;} 
+.ru1 img{ border:1px solid #cfcfcf; width:75px; height:75px; float:left;}
+.ru1 p{ width:80px; float:left; padding:5px 0px 0px 10px; line-height:22px; color:#535353}
+.ru1 p b{ font-size:14px;}
+.ru1 p span{ color:red}
+.ru1 p a{ color:#535353}
+.ru1 p img{ width:80px; height:24px; border:none;}
+
+.ru2{ width:170px; float:left;padding:10px 0px 5px 0px;font-size:14px;}
+.ru2 ul{background:url(../../img/user_img/hh.gif) repeat-x bottom;padding:5px 0px; float:left}
+.ru2 ul li{width:170px;}
+.ru2 ul li a.bj1{ background:url(../../img/user_img/tub.gif) no-repeat 5px 0px; height:20px; padding:2px 0px 0px 30px; float:left;}
+.ru2 ul li a.brr{ float:right; font-size:12px; color:#214b9d; padding:3px 10px 0px 0px; text-decoration:underline;}
+.ru2 ul li a.bj2{ background:url(../../img/user_img/tub1.gif) no-repeat 5px 0px; height:20px; padding:2px 0px 0px 30px; float:left;}
+.ru2 ul li a.bj3{ background:url(../../img/user_img/tub2.gif) no-repeat 5px 0px; height:20px; padding:2px 0px 0px 30px; float:left;}
+.ru2 ul li a.bj4{ background:url(../../img/user_img/tub3.gif) no-repeat 5px 0px; height:20px; padding:2px 0px 0px 30px; float:left;}
+.ru2 ul li a.bj4_1{ background:url(../../img/user_img/tub_3.gif) no-repeat 5px 0px; height:20px; padding:2px 0px 0px 30px; float:left;}
+.ru2 p{ width:140px; line-height:28px; background:url(../../img/user_img/tub17.gif) no-repeat 5px center #eee; color:#747474; margin-bottom:5px;padding:2px 0px 0px 30px; font-weight:bold;}
+.ru2 ul li a.bj5{ background:url(../../img/user_img/tub4.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj6{ background:url(../../img/user_img/tub5.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj7{ background:url(../../img/user_img/tub6.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj8{ background:url(../../img/user_img/tub7.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj9{ background:url(../../img/user_img/tub8.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj10{ background:url(../../img/user_img/tub9.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj11{ background:url(../../img/user_img/tub10.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj12{ background:url(../../img/user_img/tub11.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj13{ background:url(../../img/user_img/tub12.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj14{ background:url(../../img/user_img/tub13.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj15{ background:url(../../img/user_img/tub14.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj16{ background:url(../../img/user_img/tub15.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj17{ background:url(../../img/user_img/tub16.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj18{ background:url(../../img/user_img/tub18.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj19{ background:url(../../img/user_img/tub19.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj20{ background:url(../../img/user_img/tub20.gif) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+.ru2 ul li a.bj21{ background:url(../../img/user_img/pxld.png) no-repeat 30px 0px; height:20px; padding:2px 0px 0px 55px; float:left;}
+
+.right{ background:url(../../img/user_img/bj5.gif) repeat-x #fff; float:left;border-left:1px solid #e9e9e9; width:767px; padding:10px 0px 10px 10px;}
+.right div{ float:left;}
+.right_1{ background:url(../../img/user_img/bj5.gif) repeat-x #fff; float:left;border-left:1px solid #e9e9e9; width:948px; padding:10px 0px 10px 10px;}
+.right_1 div{ float:left;}
+
+.bobti{ font-size:20px; font-weight:bold; padding:20px 0px 10px 0px; width:760px;}
+
+.dtai{ width:760px; background:url(../../img/user_img/ku1.gif) bottom repeat-x; padding:10px 0px 0px 0px;}
+.dtai_1{ width:930px; background:url(../../img/user_img/ku1.gif) bottom repeat-x; padding:10px 0px 0px 0px;}
+.dtai ul li.bai,.dtai_1 ul li.bai{ border:1px solid #adc6dc;border-bottom:none;background:#fff;padding:5px 12px 6px 12px; font-weight:bold;}
+.dtai ul li,.dtai_1 ul li{ padding:5px 12px; border:1px solid #adc6dc; background:#e3edf6; font-size:14px; margin-right:5px;}
+
+.discuss {width:750px; height:auto; border:1px solid #f2dfc0; background-color:#fefaf3; padding:10px 3px 10px 3px; color:#64605d;}
+.discuss_xz { width:710px; height:auto; background:url(../../img/user_img/tub13.gif) no-repeat 3px 0px;}
+.discuss ul li{width:700px; padding:5px 19px;  font-size:14px; margin-right:5px;}
+.discuss1 {width:750px; height:auto; border:1px solid #b8cfdb; background-color:#e6f0f5; padding:10px 3px 10px 3px; margin-top:10px; line-height:180%;}
+.discuss_sp { width:710px; height:auto; font-size:14px; margin-bottom:10px;}
+.discuss_cg {width:700px; height:auto;padding:10px 0px 10px 60px; margin-top:10px; background:url(../../img/user_img/accept.png) no-repeat 20px 2px; color:#7BB53C; font-size:14px; font-weight:bold;}
+.red { color:#F30;}
+.blue { color:#1c4966}
+

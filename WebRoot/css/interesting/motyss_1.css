@@ -1,0 +1,15 @@
+.ritu_3{ width:958px; border:1px solid #e3e3e3; background:url(../../img/interesting_img/bj13.gif) no-repeat #fff; float:left;margin-bottom:10px;}
+.ritu_3 h1{ padding:10px 0px 0px 20px; width:700px; background:url(../../img/interesting_img/kku.gif) 10px 10px no-repeat; font-size:14px; font-weight:bold; color:#4f3ebe; height:26px;}
+
+.meter{ background:#f5f3ff; line-height:30px; width:880px; margin:6px 40px 0px 40px; float:left; border-bottom:1px solid #dcd6ff; }
+*html .meter{margin:5px 20px;} 
+.ritu_3 ul li{ float:left;font-size:14px; font-weight:bold; width:158px; padding:0px 8px}
+.ritu_3 ul li.ri{ text-align:right}
+.meter_nn{ margin:3px 40px; float:left; width:880px;}
+*html .meter_nn{margin:0px 20px;} 
+.meter_nn ul{border-bottom:1px solid #e0e0e0;line-height:32px; width:880px; float:left;padding:5px 0px 0px 0px;}
+.meter_nn ul li{ font-size:12px; font-weight:normal; }
+.meter_nn ul li a{ color:red}
+.meter_nn ul li span{ font-weight:bold}
+.meter_nn ul li img{ border:0}
+

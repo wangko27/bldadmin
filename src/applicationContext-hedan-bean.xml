@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:oscache="http://www.springmodules.org/schema/oscache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springmodules.org/schema/oscache
+	http://www.springmodules.org/schema/cache/springmodules-oscache.xsd
+	">
+        <!-- 会员管理dao,service配置bean -->
+		<bean id="memberDao" class="com.cnarj.ttxs.dao.imp.member.MemberDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="memberService" class="com.cnarj.ttxs.service.imp.member.MemberServiceImpl">
+			<property name="memberDao" ref="memberDao"></property>
+		</bean>
+
+		<!-- 会员扩展 -->
+		<bean id="memberAddInfoDao" class="com.cnarj.ttxs.dao.imp.member.MemberAddInfoDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="memberAddInfoService" class="com.cnarj.ttxs.service.imp.member.MemberAddInfoServiceImpl">
+			<property name="memberAddInfoDao" ref="memberAddInfoDao"></property>
+		</bean>
+
+		<!-- 会员管理action配置 -->
+		<bean id="memberAction" class="com.cnarj.ttxs.web.actions.member.MemberAction" scope="prototype">
+			<property name="memberService" ref="memberService"></property>
+
+
+		</bean>
+
+		<!-- 登录action -->
+		<bean id="loginAction" class="com.cnarj.ttxs.web.actions.sys.LoginAction"  scope="prototype">
+			<property name="memberService" ref="memberService"></property>
+			<property name="goodsService" ref="goodsService"></property>
+			<property name="cartService" ref="cartService"></property>
+			<property name="albumsService" ref="albumsService"></property>
+			<property name="friendTypeService" ref="friendTypeService"></property>
+			<property name="memberAddInfoService" ref="memberAddInfoService"></property>
+		</bean>
+
+		<!-- ////////////成绩查询////////// -->
+		<!-- 学期管理dao,service配置bean -->
+		<!--<bean id="termSetDao" class="com.cnarj.ttxs.dao.imp.dsis.TermSetDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+	    <!--<bean id="termSetService" class="com.cnarj.ttxs.service.imp.dsis.TermSetServiceImpl">-->
+	    	<!--<property name="termSetDao" ref="termSetDao"></property>-->
+	    <!--</bean>-->
+
+	    <!-- 学生dao,service配置bean -->
+	    <!--<bean id="studentDao" class="com.cnarj.ttxs.dao.imp.dsis.StudentDaoImpl">-->
+	    	<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+	    <!--</bean>-->
+	    <!--<bean id="studentService" class="com.cnarj.ttxs.service.imp.dsis.StudentServiceImpl">-->
+	    	<!--<property name="studentDao" ref="studentDao"></property>-->
+	    <!--</bean>-->
+
+	    <!-- 考试记录dao,service配置bean -->
+	    <!--<bean id="examinationDao" class="com.cnarj.ttxs.dao.imp.dsis.ExaminationDaoImpl">-->
+	    	<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+	    	<!--<property name="dsisJdbcTemplate" ref="dsisJdbcTemplate"></property>-->
+	    <!--</bean>-->
+		<!--<bean id="examinationService" class="com.cnarj.ttxs.service.imp.dsis.ExaminationServiceImpl">-->
+			<!--<property name="examinationDao" ref="examinationDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 考试科目对照表dao,service配置bean-->
+		<!--<bean id="examSubInfoDao" class="com.cnarj.ttxs.dao.imp.dsis.ExamSubInfoDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+		<!--<bean id="examSubinfoService" class="com.cnarj.ttxs.service.imp.dsis.ExamSubInfoServiceImpl">-->
+			<!--<property name="examSubInfoDao" ref="examSubInfoDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 科目dao,service配置bean -->
+		<!--<bean id="subjectDao" class="com.cnarj.ttxs.dao.imp.dsis.SubjectDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+	    <!--<bean id="subjectService" class="com.cnarj.ttxs.service.imp.dsis.SubjectServiceImpl">-->
+	    	<!--<property name="subjectDao" ref="subjectDao"></property>-->
+	      <!--</bean>-->
+
+	      <!-- 学生考试成绩信息dao,service配置bean -->
+		<!--<bean id="studentExamresultDao" class="com.cnarj.ttxs.dao.imp.dsis.StudentExamresultDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+		<!--<bean id="studentExamresultService" class="com.cnarj.ttxs.service.imp.dsis.StudentExamresultServiceImpl">-->
+			<!--<property name="studentExamresultDao" ref="studentExamresultDao"></property>-->
+			<!--<property name="subjectDao" ref="subjectDao"></property>-->
+			<!--<property name="examSubInfoDao" ref="examSubInfoDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 年级dao,service配置bean -->
+		<!--<bean id="stugradeDao" class="com.cnarj.ttxs.dao.imp.dsis.StugradeDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+			<!--<property name="dsisJdbcTemplate" ref="dsisJdbcTemplate"></property>-->
+		<!--</bean>-->
+		<!--<bean id="stugradeService" class="com.cnarj.ttxs.service.imp.dsis.StugradeServiceImpl">-->
+			<!--<property name="stugradeDao" ref="stugradeDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 班级dao,service配置bedan-->
+		<!--<bean id="classesDao" class="com.cnarj.ttxs.dao.imp.dsis.TClassesDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+			<!--<property name="dsisJdbcTemplate" ref="dsisJdbcTemplate"></property>-->
+		<!--</bean>-->
+		<!--<bean id="classesService" class="com.cnarj.ttxs.service.imp.dsis.TClassesServiceImpl">-->
+			<!--<property name="classesDao" ref="classesDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 学校dao,service配置bean -->
+		<!--<bean id="schoolinfoDao" class="com.cnarj.ttxs.dao.imp.dsis.SchoolinfoDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+		<!--<bean id="schoolinfoService" class="com.cnarj.ttxs.service.imp.dsis.SchoolinfoServiceImpl">-->
+			<!--<property name="schoolinfoDao" ref="schoolinfoDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 考试查询管理dao,service配置bean -->
+		<!--<bean id="examQueryDao" class="com.cnarj.ttxs.dao.imp.dsis.ExamQueryDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+		<!--<bean id="examQueryService" class="com.cnarj.ttxs.service.imp.dsis.ExamQueryServiceImpl">-->
+			<!--<property name="examQueryDao" ref="examQueryDao"></property>-->
+			<!--<property name="studentExamresultDao" ref="studentExamresultDao"></property>-->
+			<!--<property name="examSubInfoDao" ref="examSubInfoDao"></property>-->
+			<!--<property name="subjectDao" ref="subjectDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 家长账户dao,service配置bean -->
+		<!--<bean id="parentAccountDao" class="com.cnarj.ttxs.dao.imp.dsis.ParentAccountDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+		<!--<bean id="parentAccountService" class="com.cnarj.ttxs.service.imp.dsis.ParentAccountServiceImpl">-->
+			<!--<property name="parentAccountDao" ref="parentAccountDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 家长手机绑定学生dao,service配置bean -->
+		<!--<bean id="studentBindingMobileDao" class="com.cnarj.ttxs.dao.imp.dsis.StudentBindingMobileDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+		<!--<bean id="studentBindingMobileService" class="com.cnarj.ttxs.service.imp.dsis.StudentBindingMobileServiceImpl">-->
+			<!--<property name="studentBindingMobileDao" ref="studentBindingMobileDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 教师账户dao,service配置bean -->
+		<!--<bean id="teacherinfoDao" class="com.cnarj.ttxs.dao.imp.dsis.TTeacherinfoDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+		<!--<bean id="teacherinfoService" class="com.cnarj.ttxs.service.imp.dsis.TTeacherinfoServiceImpl">-->
+			<!--<property name="teacherinfoDao" ref="teacherinfoDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 考试查询action配置 -->
+		<!--<bean id="examQueryAction" class="com.cnarj.ttxs.web.actions.dsis.ExamQueryAction" scope="prototype">-->
+			<!--<property name="termSetService" ref="termSetService"></property>-->
+			<!--<property name="examinationService" ref="examinationService"></property>-->
+			<!--<property name="examQueryService" ref="examQueryService"></property>-->
+			<!--<property name="stugradeService" ref="stugradeService"></property>-->
+			<!--<property name="parentAccountService" ref="parentAccountService"></property>-->
+			<!--<property name="studentService" ref="studentService"></property>-->
+			<!--<property name="classService" ref="classesService"></property>-->
+			<!--<property name="subjectService" ref="subjectService"></property>-->
+			<!--<property name="stuExamresultService" ref="studentExamresultService"></property>-->
+			<!--<property name="studentBindingMobileService" ref="studentBindingMobileService"></property>-->
+		<!--</bean>-->
+
+		<!-- ////////////////考勤查询 /////////////////-->
+
+		<!-- 考勤记录dao,service配置bean-->
+		<!--<bean id="stuAttenRecordDao" class="com.cnarj.ttxs.dao.imp.dsis.StudentAttendanceRecordDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+		<!--<bean id="stuAttenRecordService" class="com.cnarj.ttxs.service.imp.dsis.StudentAttendanceRecordServiceImpl">-->
+			<!--<property name="studentAttendanceRecordDao" ref="stuAttenRecordDao"></property>-->
+		<!--</bean>-->
+
+
+		<!-- 考勤查询action配置 -->
+		<!--<bean id="attendanceQueryAction" class="com.cnarj.ttxs.web.actions.dsis.AttendanceQueryAction" scope="prototype">-->
+			<!--<property name="stuAttenRecordService" ref="stuAttenRecordService"></property>-->
+			<!--<property name="parentAccountService" ref="parentAccountService"></property>-->
+			<!--<property name="studentService" ref="studentService"></property>-->
+			<!--<property name="stugradeService" ref="stugradeService"></property>-->
+			<!--<property name="classService" ref="classesService"></property>-->
+			<!--<property name="studentBindingMobileService" ref="studentBindingMobileService"></property>-->
+		<!--</bean>-->
+
+
+		<!-- ////////////////课程表查询 /////////////////-->
+		<!-- 课程表dao,service配置bean -->
+		<!--<bean id="coursesDao" class="com.cnarj.ttxs.dao.imp.dsis.TCoursesDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+		<!--</bean>-->
+		<!--<bean id="coursesService" class="com.cnarj.ttxs.service.imp.dsis.TCoursesServiceImpl">-->
+			<!--<property name="coursesDao" ref="coursesDao"></property>-->
+		<!--</bean>-->
+
+		<!-- ////////////////家校互动短信查询//////////////// -->
+		<!-- dao,service -->
+		<!--<bean id="smsPublishedMsgDao" class="com.cnarj.ttxs.dao.imp.dsis.SmsPublishedMsgDaoImpl">-->
+			<!--<property name="dsisSessionFactory" ref="dsisSessionFactory"></property>-->
+			<!--<property name="dsisJdbcTemplate" ref="dsisJdbcTemplate"></property>-->
+		<!--</bean>-->
+		<!--<bean id="smsPublishedMsgService" class="com.cnarj.ttxs.service.imp.dsis.SmsPublishedMsgServiceImpl">-->
+			<!--<property name="smsPublishedMsgDao" ref="smsPublishedMsgDao"></property>-->
+		<!--</bean>-->
+
+		<!-- 短信查询action -->
+		<!--<bean id="smsPublishedMsgAction" class="com.cnarj.ttxs.web.actions.dsis.SmsPublishedMsgAction" scope="prototype">-->
+			<!--<property name="smsPublishedMsgService" ref="smsPublishedMsgService"></property>-->
+			<!--<property name="stugradeService" ref="stugradeService"></property>-->
+			<!--<property name="studentService" ref="studentService"></property>-->
+			<!--<property name="classService" ref="classesService"></property>-->
+		<!--</bean>-->
+
+		<!-- 课程表查询action配置 -->
+		<!--<bean id="courseAction" class="com.cnarj.ttxs.web.actions.dsis.TCoursesAction" scope="prototype">-->
+			<!--<property name="stugradeService" ref="stugradeService"></property>-->
+			<!--<property name="classesService" ref="classesService"></property>-->
+			<!--<property name="coursesService" ref="coursesService"></property>-->
+			<!--<property name="parentAccountService" ref="parentAccountService"></property>-->
+			<!--<property name="studentService" ref="studentService"></property>-->
+			<!--<property name="studentBindingMobileService" ref="studentBindingMobileService"></property>-->
+		<!--</bean>-->
+
+
+	 	<!-- 同学录action配置 -->
+	 	<!--<bean id="classmateAction" class="com.cnarj.ttxs.web.actions.member.ClassmateAction" scope="prototype">-->
+	 		<!--<property name="classService" ref="classesService"></property>-->
+	 		<!--<property name="studentService" ref="studentService"></property>-->
+	 		<!--<property name="schoolinfoService" ref="schoolinfoService"></property>-->
+	 	<!--</bean>-->
+
+	 	<!-- 班级动态 action配置-->
+	 	<!--<bean id="classDynamicAction" class="com.cnarj.ttxs.web.actions.member.ClassDynamicAction" scope="prototype">-->
+	 		<!--<property name="actionRecService" ref="actionRecService"></property>-->
+	 		<!--<property name="memberService" ref="memberService"></property>-->
+	 		<!--<property name="studentService" ref="studentService"></property>-->
+	 		<!--<property name="moodsService" ref="moodsService"></property>-->
+	 		<!--<property name="visitService" ref="visitService"></property>-->
+			<!--<property name="onetextService" ref="oneDayOneTextService"></property>-->
+			<!--<property name="readbookService" ref="readbookService"></property>-->
+			<!--<property name="liveService" ref="liveEncyclopediaService"></property>-->
+	 	<!--</bean>-->
+
+	 	<!-- 我的资料 action 配置-->
+	 	<!--<bean id="myinformationAction" class="com.cnarj.ttxs.web.actions.member.MyInformationAction" scope="prototype">-->
+	 		<!--<property name="memberService" ref="memberService"></property>-->
+	 		<!--<property name="studentService" ref="studentService"></property>-->
+	 		<!--<property name="schoolinfoService" ref="schoolinfoService"></property>-->
+	 		<!--<property name="teacherinfoService" ref="teacherinfoService"></property>-->
+	 		<!--<property name="parentAccountService" ref="parentAccountService"></property>-->
+	 	<!--</bean>-->
+
+</beans>

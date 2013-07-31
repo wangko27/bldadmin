@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-shopping" namespace="/shopping"
+		extends="struts-default">
+
+		<!-- 声明全局异常映射 -->
+		<global-results>
+			<result name="error">/error/error_page.jsp</result>
+			<result name="login">/index.jsp</result>
+		</global-results>
+
+		<action name="common" class="CommleftAction" method="common">
+			<result name="success">/shopping/comm_left.jsp</result>
+		</action>
+		<action name="shoppingArticle" class="ShoppingArticleAction">
+			<result name="list">/shopping/newslist.jsp</result>
+			<result name="view">/shopping/newsmaid.jsp</result>
+		</action>
+		<action name="shoppingQuestion"
+			class="ShoppingQuestionAction">
+			<result name="list">/shopping/rejie.jsp</result>
+		</action>
+		<!-- 商品列表 -->
+		<action name="shpping_*" class="shoppingListAction"
+			method="{1}">
+			<result name="allShop">/shopping/shanglist.jsp</result>
+			<result name="goodsSucc">/shopping/shangmaid.jsp</result>
+			<result name="searchSucc">/shopping/searchList.jsp</result>
+			<result name="goodsSh">/shopping/rnlist.jsp</result>
+		</action>
+		<!-- 购物车 -->
+		<action name="shoppingCart_*" class="shoppingCartAction"
+			method="{1}">
+			<result name="getSucc">/shopping/gwc1.jsp</result>
+			<result name="delSucc">/shopping/gwc1.jsp</result>
+			<result name="updateSucc">/shopping/gwc1.jsp</result>
+		</action>
+		<!-- 商城首页 -->
+		<action name="shoppingIndex_*" class="shoppingIndexAction"
+			method="{1}">
+			<result name="indexSucc">/shopping/index.jsp</result>
+		</action>
+	</package>
+
+
+	<package name="struts-shopping-buy" namespace="/shopping/buy"
+		extends="basePackage">
+		<!-- 订单 -->
+		<action name="order" class="orderAction">
+			<result name="receiver">/shopping/buy/receiver.jsp</result>
+			<result name="deliverMode">
+				/shopping/buy/deliver_mode.jsp
+			</result>
+			<result name="paymentMode">
+				/shopping/buy/payment_mode.jsp
+			</result>
+			<result name="bill">/shopping/buy/bill.jsp</result>
+			<result name="orderOk">/shopping/buy/order_ok.jsp</result>
+			<result name="orderSuccess">
+				/shopping/buy/order_success.jsp
+			</result>
+			<result name="input">/index.jsp</result>
+		</action>
+
+		<!-- 添加订单 -->
+		<action name="AddOrder" class="orderAction" method="add">
+			<result name="orderSuccess" type="chain">
+				ShowOrderSuccess
+			</result>
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">
+				<!-- 包里的action名称 -->
+				<param name="actionName">ShowOrderSuccess</param>
+				<!-- 包名 -->
+				<param name="namespace">/shopping/buy</param>
+			</result>
+		</action>
+
+		<!-- 显示订单成功页面 -->
+		<action name="ShowOrderSuccess" class="orderAction"
+			method="showOrderSuccess">
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+			<result name="orderSuccess">
+				/shopping/buy/order_success.jsp
+			</result>
+		</action>
+
+		<!-- 显示送货方式页面 -->
+		<action name="ShowDeliverMode" class="orderAction"
+			method="showDeliverMode">
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+			<result name="deliverMode">
+				/shopping/buy/deliver_mode.jsp
+			</result>
+		</action>
+
+		<!-- 收货地址 -->
+		<action name="receiver" class="receiverAction">
+			<result name="deliverMode" type="chain">
+				ShowDeliverMode
+			</result>
+		</action>
+
+		<!-- 添加收货地址 -->
+		<action name="AddReceiver" class="receiverAction"
+			method="add">
+			<result name="deliverMode" type="chain">
+				ShowDeliverMode
+			</result>
+			<result name="input" type="chain">ShowDeliverMode</result>
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">
+				<!-- 包里的action名称 -->
+				<param name="actionName">ShowDeliverMode</param>
+				<!-- 包名 -->
+				<param name="namespace">/shopping/buy</param>
+			</result>
+		</action>
+
+		<!-- 修改默认收货地址 -->
+		<action name="UpdateReceiver" class="receiverAction"
+			method="update">
+			<result name="deliverMode" type="chain">
+				ShowDeliverMode
+			</result>
+			<interceptor-ref name="baseStack" />
+			<interceptor-ref name="token" />
+			<result name="invalid.token" type="chain">
+				<!-- 包里的action名称 -->
+				<param name="actionName">ShowDeliverMode</param>
+				<!-- 包名 -->
+				<param name="namespace">/shopping/buy</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,95 @@
+/* 我的相册*/
+.poth_1{ width:758px; background:#f1f5f8; border-top:1px solid #aec7dd; float:left; height:30px; padding:5px 0px 0px 0px;}
+.poth_1 ul{ width:735px; padding:0px 0px 0px 5px; float:left}
+.poth_1 ul li{ float:left; padding:0px 5px; line-height:24px;}
+.poth_1 ul li.rr{ float:right; color:#898989}
+.poth_1 ul li a,.lujin a{ color:#204d9e; text-decoration:underline}
+.poth_2{ width:758px; float:left;}
+.poth_2 ul{ width:746px; padding:10px 0px 10px 12px;}
+.poth_2 ul li{ float:left;margin:10px 25px 20px 0px;width:161px; display:inline}
+.poth_2 ul li p{ float:left; width:161px;}
+.poth_2 ul li img{width:151px; height:113px;}
+.poth_2 ul li p.ptu{background:url(../../img/user_img/bj.gif) no-repeat; width:151px; height:113px; padding:4px 6px 15px 4px; }
+.poth_2 ul li p.mm{ padding:2px 5px 0px 5px; width:151px; color:#9f9f9f}
+.poth_2 ul li p.mm a{ color:#234c9e;}
+
+/* 查看单个相册*/
+.lujin{ width:758px; float:left; line-height:30px; padding:0px 0px 3px 0px; color:#4e4e4e}
+.poth_1 ul li.tm{ color:#898989}
+.poth_1 ul li.tm b{ font-size:14px; color:#000}
+.poth_3{ width:758px; float:left; border-bottom:1px solid #e9e9e9; padding:0px 0px 10px 0px;}
+.poth_3 ul{ width:758px; padding:20px 0px 0px 0px; float:left}
+.poth_3 ul li{ float:left; width:188px; margin:0px 0px 20px 0px;} 
+.poth_3 ul li p{ float:left;}
+.poth_3 ul li p.pp{border:1px solid #cee1ef; width:160px; height:120px; line-height:120px; padding:3px; *font-size:95px; text-align:center;}
+p:after {content:".";font-size:1px;visibility:hidden}
+* {margin:0;padding:0;}
+*>.poth_3 ul li p.pp{font-size:12px}
+*+html .poth_3 ul li p.pp{font-size:100px}
+.poth_3 ul li p.pp img {vertical-align:middle; width:98%; height:98%;}
+.poth_3 ul li p.zz{ width:160px; padding:8px 0px 0px 0px; color:#666;}
+
+.mari{ margin-top:20px;}
+.poth_4{ width:758px; background:url(../../img/user_img/jjt.gif) no-repeat 20px 0px; float:left; padding:0px 0px 10px 0px; margin-top:10px;}
+
+.plun{ background:#f1f5f8; width:470px; float:left; border-bottom:1px solid #e5eff8; margin:5px 0px 0px 0px; padding:10px 0px;} 
+.cee{ width:65px; float:left; padding:0px 0px 0px 5px;}
+.cee img{ width:45px; height:45px; border:1px solid #d6e2ee; padding:3px; background:#fff;}
+.cenn{ width:400px; float:left;}
+.cenn table{ border-bottom:1px solid #d6e3ec; line-height:18px; margin:0px 0px 8px 0px;}
+.cenn span{ font-size:10px; color:#989898}
+.cenn a{ color:#015eac}
+.cenn table td{ padding:3px 0px; text-align:top}
+
+.cenn ul.hui{ width:384px; line-height:18px;border-bottom:1px solid #d6e3ec; float:left; padding:10px 0px; color:#808080}
+.cenn ul li.tou { width:60px;}
+.cenn ul li.tou img{width:40px; height:40px; border:1px solid #d6e2ee; padding:3px; background:#fff;}
+.cenn ul.hui li dl{ width:324px;}
+.cenn ul.hui li dt{ width:324px;}
+.cenn ul.hui li dd{ width:324px;}
+input.quedd{ background:url(../../img/user_img/que.gif) repeat-x; border:none; color:#fff; width:45px; height:24px; font-size:12px;}
+a.qqx{ color:#aaa; padding:0px 0px 0px 10px; line-height:24px;}
+textarea.tex{ width:384px; border:1px solid #c8d9e4; height:40px; font-size:12px;color:#808080}
+input.quedd_1{ background:url(../../img/user_img/que.gif) repeat-x; border:none; color:#fff; width:65px; height:24px; font-size:12px;}
+textarea.tex_1{ width:384px; border:2px solid #c8d9e4; height:80px; font-size:12px;}
+
+/* 查看单张相片*/
+.poth_5{ width:738px; float:left; background:#f7f7f7; padding:10px; margin:10px 0px 0px 0px; text-align:center;}
+input.ff1{ width:34px; height:62px; background:url(../../img/user_img/ff1.gif) repeat-x; border:none;}
+input.ff2{ width:34px; height:62px; background:url(../../img/user_img/ff2.gif) repeat-x; border:none;}
+/* 编辑相册信息*/
+.poth_6{ width:738px; float:left; padding:0px 10px;}
+.poth_6 ul{ width:738px; float:left; }
+.poth_6 ul li{ width:738px; float:left; padding:10px 0px;}
+.poth_6 ul li input{ float:none; width:300px;}
+.poth_6 ul li textarea{ width:300px; height:60px;}
+.poth_6 ul li select{ width:150px;}
+.poth_6 ul li.bot{ width:300px; padding:0px 0px 0px 60px;}
+.poth_6 ul li input.bc{ background:url(../../img/user_img/bc.gif) no-repeat; width:80px; height:27px; border:none; margin:0px 20px 0px 0px;}
+.poth_6 ul li input.qx{ background:url(../../img/user_img/qx.gif) no-repeat; width:80px; height:27px; border:none;}
+/* 上传照片*/
+.poth_7{ width:738px; float:left; padding:10px;}
+.poth_7 p{ float:left; width:400px; line-height:30px;}
+.poth_7 input{ width:101px; height:27px; background:url(../../img/user_img/tt.gif) no-repeat; border:none;}
+.poth_8{ width:500px; border:1px solid #b0c6dd;margin:5px 10px; display:inline; float:left}
+.poth_8 dl{ width:500px; overflow-x:hidden; overflow-y:scroll; height:350px;}
+.poth_8 dl dt{ line-height:30px; background:#dbe5ef; width:500px;}
+.poth_8 dl dd{ background:#fff; line-height:30px; color:#494949;border-bottom:1px solid #d9e6ef; width:500px;}
+.poth_8 dl span{ float:left; display:block;padding:0px 10px;overflow:hidden;}
+.poth_8 dl span.sp1{ width:280px; }
+.poth_8 dl span.sp2{ width:75px;}
+.poth_8 dl a{ color:#3c75b4; text-decoration:underline}
+.poth_9{ width:500px; margin:5px 10px; display:inline; float:left}
+.poth_9 a{ color:#214b9f; text-decoration:underline}
+
+/* 查看好友相册*/
+.poth_6 ul li input.bx{ background:url(../../img/user_img/bx.gif) no-repeat; width:80px; height:27px; border:none; margin:0px 20px 0px 0px;}
+.poth_10{ width:738px; border-bottom:1px solid #e3ecf3; padding:20px 10px 10px 10px; float:left;}
+.poth_10 h1{ font-size:14px; font-weight:bold; color:#646464}
+.poth_10 h1 span{ color:#9b9b9b; font-size:10px; font-weight:normal}
+.poth_10 h1 a{ color:#204a9c}
+.poth_10 ul{ width:738px; padding:10px 0px 0px 0px;}
+.poth_10 ul li{ margin:0px 20px 0px 0px; float:left}
+.poth_10 ul li img{padding:3px; border:1px solid #d1d1cf}
+.poth_10 p{ width:738px; float:left; padding:10px 0px 0px 0px;}
+.poth_10 p a{ color:#204a9c;}

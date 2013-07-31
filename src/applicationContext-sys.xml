@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-lazy-init="true">
+
+
+	<!-- Dao中的Beans的配置 -->
+	<bean id="subjectCodeDao" class="com.cnarj.ttxs.dao.imp.sys.SubjectCodeDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="locationInfoDao" class="com.cnarj.ttxs.dao.imp.sys.LocationInfoDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="webContentDao" class="com.cnarj.ttxs.dao.imp.sys.WebContentDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="locContentDao" class="com.cnarj.ttxs.dao.imp.sys.LocContentDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="adminDao" class="com.cnarj.ttxs.dao.imp.sys.AdminDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<bean id="navigationDao" class="com.cnarj.ttxs.dao.imp.sys.NavigationDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+	<!-- 广告
+	<bean id="advInfoDao" class="com.cnarj.ttxs.dao.imp.adv.AdvInfoDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>-->
+	<!-- 年级 -->
+	<bean id="gradeCodeDao" class="com.cnarj.ttxs.dao.imp.sys.GradeCodeDaoImpl">
+		<property name="sessionFactory">  
+            <ref bean="sessionFactory"/>  
+         </property> 
+	</bean>
+
+
+
+	<!-- Service中的Beans的配置 -->
+	<bean id="subjectCodeService" class="com.cnarj.ttxs.service.imp.sys.SubjectCodeServiceImpl">	
+		<property name="baseDao">
+			<ref bean="subjectCodeDao" />
+		</property>
+		<property name="subjectCodeDao">
+			<ref bean="subjectCodeDao" />
+		</property>
+	</bean>
+	<bean id="locationInfoService" class="com.cnarj.ttxs.service.imp.sys.LocationInfoServiceImpl">	
+		<property name="baseDao">
+			<ref bean="locationInfoDao" />
+		</property>
+	</bean>
+	<bean id="webContentService" class="com.cnarj.ttxs.service.imp.sys.WebContentServiceImpl">	
+		<property name="baseDao">
+			<ref bean="webContentDao" />
+		</property>
+	</bean>
+	<bean id="locContentService" class="com.cnarj.ttxs.service.imp.sys.LocContentServiceImpl">	
+		<property name="baseDao">
+			<ref bean="locContentDao" />
+		</property>
+	</bean>
+
+	<bean id="adminService" class="com.cnarj.ttxs.service.imp.sys.AdminServiceImpl">	
+		<property name="baseDao">
+			<ref bean="adminDao" />
+		</property>
+	</bean>
+	<!-- 导航 -->
+	<bean id="navigationService" class="com.cnarj.ttxs.service.imp.sys.NavigationServiceImpl">	
+		<property name="baseDao">
+			<ref bean="navigationDao" />
+		</property>
+		<property name="navigationDao">
+			<ref bean="navigationDao" />
+		</property>
+	</bean>
+	<!-- 广告
+	<bean id="advInfoService" class="com.cnarj.ttxs.service.imp.adv.AdvInfoService">	
+		<property name="baseDao">
+			<ref bean="advInfoDao" />
+		</property>
+		<property name="advInfoDao" ref="advInfoDao"></property>
+	</bean> -->
+	<!-- 年级 -->
+	<bean id="gradeCodeService" class="com.cnarj.ttxs.service.imp.sys.GradeCodeServiceImpl">	
+		<property name="baseDao">
+			<ref bean="gradeCodeDao" />
+		</property>
+	</bean>
+	
+	
+	
+
+	<!-- Actions中的Beans的配置 -->
+	<bean id="subjectCodeAction" class="com.cnarj.ttxs.web.actions.sys.SubjectCodeAction" scope="prototype">
+		<property name="subjectCodeService">
+			<ref bean="subjectCodeService" />
+		</property>
+	</bean>
+	<bean id="locationInfoAction" class="com.cnarj.ttxs.web.actions.sys.LocationInfoAction" scope="prototype">
+		<property name="locationInfoService">
+			<ref bean="locationInfoService" />
+		</property>
+	</bean>
+	<bean id="webContentAction" class="com.cnarj.ttxs.web.actions.sys.WebContentAction" scope="prototype">
+		<property name="webContentService">
+			<ref bean="webContentService" />
+		</property>
+	</bean>
+	<bean id="locContentAction" class="com.cnarj.ttxs.web.actions.sys.LocContentAction" scope="prototype">
+		<property name="locContentService">
+			<ref bean="locContentService" />
+		</property>
+		<property name="locationInfoService">
+			<ref bean="locationInfoService" />
+		</property>
+		<property name="webContentService">
+			<ref bean="webContentService" />
+		</property>
+	</bean>
+	<!-- 管理员 -->
+	<bean id="adminAction" class="com.cnarj.ttxs.web.actions.sys.AdminAction" scope="prototype">
+		<property name="adminService">
+			<ref bean="adminService" />
+		</property>
+	</bean>
+	<!-- 导航 -->
+	<bean id="navigationAction" class="com.cnarj.ttxs.web.actions.sys.NavigationAction" scope="prototype">
+		<property name="navigationService">
+			<ref bean="navigationService" />
+		</property>
+	</bean>
+	<!-- 广告
+	<bean id="advInfoAction" class="com.cnarj.ttxs.web.actions.adv.AdvInfoAction" scope="prototype">
+		<property name="advInfoService">
+			<ref bean="advInfoService" />
+		</property>
+		<property name="locationInfoService">
+			<ref bean="locationInfoService" />
+		</property>
+	</bean> -->
+
+</beans>

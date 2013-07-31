@@ -1,0 +1,19 @@
+package com.cnarj.ttxs.service.sys;
+
+import com.cnarj.ttxs.pojo.sys.LocContent;
+import com.cnarj.ttxs.service.IBaseService;
+
+import java.util.List;
+
+/**
+ * 系统Service接口类 - 位置内容
+ * 
+ * @copyright 湖南爱瑞杰科技发展股份有限公司
+ * @author sly
+ * @version 1.0
+ * @since 2011年7月4日11:02:31
+ */
+public interface ILocContentService extends IBaseService<LocContent,String> {
+
+    public List<LocContent> findByLocationId(String advLocationId);
+}
